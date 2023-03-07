@@ -1,0 +1,82 @@
+@import '../../styles/variables';
+
+.nav {
+  // position: fixed;
+  // top: 0;
+  width: 100vw;
+  padding-right: 30px;
+  // transition: top 0.3s;
+  background-color: $mainBackground;
+  color: $buttonTextDefault;
+  font-weight: 300;
+
+  @include displayFlex(space-between, null);
+
+  .categoryWrap {
+    @include displayFlex(null, center);
+
+    .mainLogo {
+      .mainLogoImg {
+        height: 90px;
+        margin: 7px 15px;
+      }
+    }
+
+    .categoryList {
+      position: relative;
+      margin: 15px;
+      font-size: 17px;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: transform 0.4s ease;
+        background-color: #333;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+
+  .userInfo {
+    @include displayFlex(null, center);
+
+    .login {
+      button {
+        all: unset;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      margin: 15px;
+    }
+
+    .signup {
+      margin: 15px;
+    }
+
+    .cart {
+      button {
+        all: unset;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      margin: 15px;
+    }
+  }
+}

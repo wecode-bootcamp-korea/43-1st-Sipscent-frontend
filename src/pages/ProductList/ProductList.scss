@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.productList {
+  padding: 40px;
+
+  .titleFloral {
+    margin: 30px 0;
+    font-size: 35px;
+    font-weight: normal;
+  }
+
+  .buttonWrap {
+    .button {
+    }
+  }
+  .productListWrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    .productComment {
+      @include displayFlex(center, center);
+      flex-direction: column;
+    }
+
+    .productWrap {
+      @include displayFlex(center, center);
+      flex-direction: column;
+    }
+  }
+}
