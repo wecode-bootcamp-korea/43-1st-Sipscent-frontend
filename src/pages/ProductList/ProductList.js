@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -32,12 +33,12 @@ const ProductList = () => {
           productData.map(product => {
             return (
               <div key={product.id} className="productWrap">
-                <a className="productInfo" href="#none">
+                <Link className="productInfo" to="/productdetail">
                   <img className="teaBagImg" src={product.img} alt="teabag" />
                   <h3 className="teaName">{product.name}</h3>
                   <p className="teaScent">{product.scent}</p>
                   <p className="teaAmount">{product.amount}</p>
-                </a>
+                </Link>
                 <button className="addCartButton">{`카트에 추가 - ${product.price}`}</button>
               </div>
             );

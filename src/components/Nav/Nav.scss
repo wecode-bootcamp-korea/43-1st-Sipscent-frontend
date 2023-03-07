@@ -1,16 +1,12 @@
 @import '../../styles/variables';
 
 .nav {
-  // position: fixed;
-  // top: 0;
+  @include displayFlex(space-between, null);
   width: 100vw;
   padding-right: 30px;
-  // transition: top 0.3s;
   background-color: $mainBackground;
   color: $buttonTextDefault;
   font-weight: 300;
-
-  @include displayFlex(space-between, null);
 
   .categoryWrap {
     @include displayFlex(null, center);
@@ -52,6 +48,8 @@
     @include displayFlex(null, center);
 
     .login {
+      margin: 15px;
+
       button {
         all: unset;
 
@@ -59,8 +57,6 @@
           cursor: pointer;
         }
       }
-
-      margin: 15px;
     }
 
     .signup {

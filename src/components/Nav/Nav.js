@@ -43,7 +43,7 @@ export default Nav;
 const NAV_CATEGORY = [
   {
     id: 1,
-    link: '/productdetail',
+    link: '/productlist',
     title: 'Floral',
   },
   {
