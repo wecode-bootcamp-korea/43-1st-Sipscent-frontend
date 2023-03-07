@@ -1,31 +1,101 @@
 @import '../../styles/variables';
 
 .productList {
-  padding: 40px;
+  color: $buttonTextDefault;
 
   .titleFloral {
-    margin: 30px 0;
-    font-size: 35px;
+    margin: 70px 40px 20px 40px;
+    color: #353535;
+    font-size: 30px;
     font-weight: normal;
   }
 
   .buttonWrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 90px;
+
     .button {
+      border: none;
+      background-color: #ebeade;
+      color: $buttonTextDefault;
+      font-size: 17px;
+      font-weight: 300;
+
+      &:hover {
+        background-color: #e4e3d9;
+        cursor: pointer;
+      }
     }
   }
   .productListWrap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 600px);
+    background-color: #f6f5e7;
 
     .productComment {
       @include displayFlex(center, center);
       flex-direction: column;
+      padding: 40px;
+
+      .productExplainTitle {
+        margin-bottom: 30px;
+        font-size: 35px;
+        font-weight: 300;
+      }
+
+      .productExplain {
+        font-size: 18px;
+        font-weight: 300;
+      }
     }
 
     .productWrap {
-      @include displayFlex(center, center);
+      @include displayFlex(space-between, center);
       flex-direction: column;
+
+      &:hover {
+        background-color: #f0efe0;
+      }
+
+      .productInfo {
+        @include displayFlex(center, center);
+        flex-direction: column;
+        margin: auto;
+
+        .teaBagImg {
+          width: 80%;
+          margin-bottom: 20px;
+        }
+        .teaName {
+          margin-bottom: 20px;
+          font-weight: 300;
+        }
+
+        .teaScent {
+          margin-bottom: 20px;
+          font-weight: 300;
+        }
+
+        .teaAmount {
+          font-weight: 300;
+        }
+      }
+
+      .addCartButton {
+        //visibility: hidden;
+        width: 100%;
+        height: 60px;
+        border: none;
+        background-color: #333333;
+        color: $mainBackground;
+
+        &:hover {
+          background-color: #222222;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

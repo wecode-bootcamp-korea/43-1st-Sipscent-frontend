@@ -3,31 +3,6 @@ import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = () => {
-  // const [visible, setVisible] = useState(true);
-  // const [lastScrollY, setLastScrollY] = useState(0);
-
-  // const controlNav = () => {
-  //   if (typeof window !== 'undefined') {
-  //     if (window.scrollY > lastScrollY) {
-  //       setVisible(false);
-  //     } else {
-  //       setVisible(true);
-  //     }
-
-  //     setLastScrollY(window.scrollY);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     window.addEventListener('scroll', controlNav);
-
-  //     return () => {
-  //       window.removeEventListener('scroll', controlNav);
-  //     };
-  //   }
-  // }, [lastScrollY]);
-
   return (
     <nav className="nav">
       <ul className="categoryWrap">
