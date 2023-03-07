@@ -23,13 +23,13 @@
       .sectionInfoContents {
         width: 300px;
         margin-bottom: 30px;
-        h1 {
+        .sectionInfoTitle {
           margin-bottom: 20px;
           color: $buttonTextDefault;
           font-size: 36px;
           line-height: 50px;
         }
-        p {
+        .sectionInfoParagraph {
           color: $buttonTextDefault;
           line-height: 30px;
         }

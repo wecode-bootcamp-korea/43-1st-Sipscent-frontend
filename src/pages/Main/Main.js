@@ -3,33 +3,15 @@ import { MAIN_CATEGORY } from './mainCategoryData';
 import './Main.scss';
 
 const Main = () => {
-  // const [carousel, setCarousel] = useState();
-  // const [scentImg, setScentImg] = useState([]);
-
-  // fetch('http://10.58.52.201:8002/test')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setScentImg(data);
-  //   });
-  // console.log(setScentImg);
-
-  // useEffect(() => {
-  //   fetch('/data/mainCarouselBox.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setCarousel(data);
-  //     });
-  // }, []);
-
   return (
     <div className="main">
       <section className="sectionInfo">
         <div className="sectionInfoBox">
           <div className="sectionInfoContents">
-            <h1>감각적인 실내 공간을 위한 홈 프래그런스​</h1>
-            <p>
+            <h1 className="sectionInfoTitle">
+              감각적인 실내 공간을 위한 홈 프래그런스​
+            </h1>
+            <p className="sectionInfoParagraph">
               분위기 전환이 필요한 가정이나 사무실에 이상적인 이솝의 홈 레인지는
               아로마틱 인센스, 룸 스프레이 등 다양한 방향 제품으로 구성되어
               있습니다.
