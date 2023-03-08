@@ -5,27 +5,26 @@ import './Main.scss';
 const Main = () => {
   const sectionRef = useRef(null);
   const [next, setNext] = useState(0);
-  const [prev, setPrev] = useState(0);
-  const width = 20;
-  const nextRange = -next * width;
-  const prevRange = next * width;
+  const carouselButtonCount = 3;
   const nextButton = e => {
-    if (next === e) return;
-    setNext(next + 1);
+    if (next >= carouselButtonCount) {
+      setNext(3);
+    } else {
+      setNext(next + 1);
+    }
   };
   const prevButton = e => {
-    if (prev === e) return;
-    setPrev(prev - 1);
+    if (next > carouselButtonCount) {
+      setNext(3);
+    } else {
+      setNext(next - 1);
+    }
   };
 
   useEffect(() => {
     sectionRef.current.style.transition = 'all 0.5s ease-in-out';
-    sectionRef.current.style.transform = `translateX(${nextRange}%)`;
+    sectionRef.current.style.transform = `translateX(-${next * 500}px)`;
   }, [next]);
-  useEffect(() => {
-    sectionRef.current.style.transition = 'all 0.5s ease-in-out';
-    sectionRef.current.style.transform = `translateX(${prevRange}%)`;
-  }, [prev]);
 
   return (
     <div className="main">
