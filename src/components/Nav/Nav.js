@@ -54,7 +54,7 @@ const NAV_CATEGORY = [
   {
     id: 3,
     link: '',
-    title: 'Cytrus',
+    title: 'Citrus',
   },
   {
     id: 4,

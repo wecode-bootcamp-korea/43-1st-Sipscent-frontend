@@ -14,6 +14,15 @@ const ProductList = () => {
   return (
     <div className="productList">
       <h1 className="titleFloral">플로럴</h1>
+      <div className="selectBoxWrap">
+        <select className="selectBox">
+          <option value="">정렬</option>
+          <option>가나다순</option>
+          <option>높은 가격순</option>
+          <option>낮은 가격순</option>
+        </select>
+        <button className="filterButton">필터</button>
+      </div>
       <div className="buttonWrap">
         <button className="button">티백</button>
         <button className="button">찻잔</button>

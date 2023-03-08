@@ -4,18 +4,51 @@
   color: $buttonTextDefault;
 
   .titleFloral {
-    margin: 70px 40px 20px 40px;
+    margin: 70px 40px 0 40px;
     color: #353535;
     font-size: 30px;
     font-weight: normal;
   }
 
+  .selectBoxWrap {
+    @include displayFlex(flex-end, null);
+
+    .selectBox {
+      height: 30px;
+      border: none;
+      background-color: $mainBackground;
+      color: $buttonTextDefault;
+      font-weight: 300;
+      text-align: center;
+
+      &:hover {
+        background-color: #ebeade;
+        cursor: pointer;
+      }
+    }
+
+    .filterButton {
+      width: 80px;
+      height: 30px;
+      border: none;
+      background-color: $mainBackground;
+      color: $buttonTextDefault;
+      font-weight: 300;
+      text-align: center;
+
+      &:hover {
+        background-color: #ebeade;
+        cursor: pointer;
+      }
+    }
+  }
+
   .buttonWrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    height: 90px;
 
     .button {
+      height: 90px;
       border: none;
       background-color: #ebeade;
       color: $buttonTextDefault;
@@ -28,6 +61,7 @@
       }
     }
   }
+
   .productListWrap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
