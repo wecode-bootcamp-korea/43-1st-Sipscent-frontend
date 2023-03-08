@@ -1,0 +1,42 @@
+.filter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 40px;
+  border-top: 0.5px solid #bcbbb4;
+  background-color: #ebeade;
+  color: $buttonTextDefault;
+  font-weight: 300;
+
+  .tastingNotes {
+    .tastingNotesTitle {
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      border-bottom: 0.5px solid $buttonTextDefault;
+      color: $buttonTextDefault;
+      font-weight: 300;
+    }
+
+    .tastingNotesListWrap {
+      .tastingNotesList {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .priceRange {
+    .priceRangeTitle {
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      border-bottom: 0.5px solid $buttonTextDefault;
+      color: $buttonTextDefault;
+      font-weight: 300;
+    }
+
+    .priceRangeListWrap {
+      .priceRangeList {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
