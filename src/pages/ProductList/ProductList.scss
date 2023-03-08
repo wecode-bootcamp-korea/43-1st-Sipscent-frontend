@@ -65,7 +65,7 @@
   .productListWrap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 600px);
+    grid-template-rows: repeat(2, 1fr);
     background-color: #f6f5e7;
 
     .productComment {
@@ -77,11 +77,13 @@
         margin-bottom: 30px;
         font-size: 35px;
         font-weight: 300;
+        line-height: 1.2em;
       }
 
       .productExplain {
         font-size: 18px;
         font-weight: 300;
+        line-height: 1.5em;
       }
     }
 
@@ -96,24 +98,52 @@
       .productInfo {
         @include displayFlex(center, center);
         flex-direction: column;
-        margin: auto;
+        margin: auto 0;
+        padding: 70px;
 
-        .teaBagImg {
-          width: 80%;
-          margin-bottom: 20px;
+        .teaBagImgWrap {
+          width: 330px;
+          height: 320px;
+          margin-bottom: 30px;
+          overflow: hidden;
+
+          .teaBagImg {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+          }
         }
+
         .teaName {
           margin-bottom: 20px;
           font-weight: 300;
         }
 
         .teaScent {
-          margin-bottom: 20px;
+          @include displayFlex(flex-start, center);
+          width: 100%;
+          padding: 20px;
+          border-top: 0.5px solid $buttonTextDefault;
           font-weight: 300;
+
+          .teaScentTitle {
+            margin-right: 30px;
+            font-weight: normal;
+          }
         }
 
         .teaAmount {
+          @include displayFlex(flex-start, center);
+          width: 100%;
+          padding: 20px;
+          border-top: 0.5px solid $buttonTextDefault;
           font-weight: 300;
+
+          .teaAmountTitle {
+            margin-right: 30px;
+            font-weight: normal;
+          }
         }
       }
 
