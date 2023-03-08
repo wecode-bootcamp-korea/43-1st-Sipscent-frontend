@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MAIN_CATEGORY } from './mainCategoryData';
 import './Main.scss';
 
 const Main = () => {
+  const sectionRef = useRef(null);
+  const [next, setNext] = useState(0);
+  const [prev, setPrev] = useState(0);
+  const width = 20;
+  const nextRange = -next * width;
+  const prevRange = next * width;
+  const nextButton = e => {
+    if (next === e) return;
+    setNext(next + 1);
+  };
+  const prevButton = e => {
+    if (prev === e) return;
+    setPrev(prev - 1);
+  };
+
+  useEffect(() => {
+    sectionRef.current.style.transition = 'all 0.5s ease-in-out';
+    sectionRef.current.style.transform = `translateX(${nextRange}%)`;
+  }, [next]);
+  useEffect(() => {
+    sectionRef.current.style.transition = 'all 0.5s ease-in-out';
+    sectionRef.current.style.transform = `translateX(${prevRange}%)`;
+  }, [prev]);
+
   return (
     <div className="main">
       <section className="sectionInfo">
@@ -25,10 +49,14 @@ const Main = () => {
       </section>
       <section className="sectionCarousel">
         <div className="sectionCarouselButtonBox">
-          <button className="sectionCarouselButton Left">{'<'}</button>
-          <button className="sectionCarouselButton Right">{'>'}</button>
+          <button onClick={prevButton} className="sectionCarouselButton Prev">
+            {'<'}
+          </button>
+          <button onClick={nextButton} className="sectionCarouselButton Next">
+            {'>'}
+          </button>
         </div>
-        <ul className="sectionCarouselList">
+        <ul ref={sectionRef} className="sectionCarouselList">
           <li className="sectionCarouselInfoBox">
             <h1 className="sectionCarouselInfoBoxName">향기의 즐거움</h1>
             <p className="sectionCarouselInfoBoxParagraph">
