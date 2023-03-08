@@ -1,0 +1,10 @@
+.chkOrNot {
+  padding-bottom: 12px;
+  color: #ea6956;
+  & .block {
+    display: none;
+  }
+  & .show {
+    display: block;
+  }
+}

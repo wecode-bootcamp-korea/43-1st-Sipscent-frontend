@@ -1,13 +1,12 @@
 @import '../../styles/variables';
 .loginScreen {
   display: flex;
-  // align-items: center;
-  // justify-content: center;
+
   width: 45%;
   height: 600px;
-  // border: 1px solid black;
+
   background-color: $mainBackground;
-  // font-family: sans-serif;
+
   .loginWrapper {
     width: 80%;
     margin-top: 38px;
@@ -17,28 +16,31 @@
       font-size: 30px;
     }
 
-    // position: absolute;
     .loginEmail {
       width: 100%;
       height: 36px;
       margin-top: 67px;
-      // position: relative;
+
       border-top-width: 0;
       border-right-width: 0;
       border-bottom-width: 1;
       border-left-width: 0;
-      // border: none;
-      // border-bottom: 1px solid black;
+
       background: transparent;
       &::placeholder {
         font-size: 25px;
       }
     }
+    .nonfalse {
+      display: none;
+    }
+    .false {
+      display: block;
+      color: red;
+    }
     .pwWrapper {
-      // display: flex;
+      position: relative;
 
-      // align-items: flex-end;
-      // justify-content: space-between;
       .loginPw {
         width: 100%;
         height: 36px;
@@ -53,6 +55,10 @@
         }
       }
       .see {
+        position: absolute;
+        top: 10px;
+        top: 81px;
+        right: 1px;
         border: none;
         background: transparent;
       }
@@ -76,6 +82,9 @@
         border: none;
         background-color: $buttonTextDefault;
         color: #f6f5e8;
+        &:hover {
+          background-color: #000;
+        }
       }
     }
     .isU {
@@ -84,7 +93,7 @@
   }
 
   .signInBtn {
-    width: 100%;
+    width: inherit;
     height: 46px;
     margin-top: 26px;
     border: none;
