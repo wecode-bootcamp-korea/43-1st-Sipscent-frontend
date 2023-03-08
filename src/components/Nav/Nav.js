@@ -49,7 +49,7 @@ const NAV_CATEGORY = [
   {
     id: 2,
     link: '',
-    title: 'Herb',
+    title: 'Herbal',
   },
   {
     id: 3,

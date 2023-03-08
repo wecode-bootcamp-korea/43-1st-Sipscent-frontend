@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import ProductWrap from './ProductWrap';
 import './ProductList.scss';
 
 const ProductList = () => {
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productListData.json')
+    fetch('/data/teaListData.json')
       .then(response => response.json())
       .then(data => setProductData(data));
   }, []);
@@ -41,15 +41,14 @@ const ProductList = () => {
         {productData &&
           productData.map(product => {
             return (
-              <div key={product.id} className="productWrap">
-                <Link className="productInfo" to="/productdetail">
-                  <img className="teaBagImg" src={product.img} alt="teabag" />
-                  <h3 className="teaName">{product.name}</h3>
-                  <p className="teaScent">{product.scent}</p>
-                  <p className="teaAmount">{product.amount}</p>
-                </Link>
-                <button className="addCartButton">{`카트에 추가 - ${product.price}`}</button>
-              </div>
+              <ProductWrap
+                key={product.id}
+                img={product.img}
+                name={product.name}
+                scent={product.scent}
+                amount={product.amount}
+                price={product.price}
+              />
             );
           })}
       </div>
