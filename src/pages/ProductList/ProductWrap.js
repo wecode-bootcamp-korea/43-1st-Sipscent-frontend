@@ -29,16 +29,16 @@ const ProductWrap = ({ key, img, name, scent, amount, price }) => {
         </p>
         <p className="teaAmount">
           <span className="teaAmountTitle">용량</span>
-          <span>{amount}</span>
+          <span>{amount}g</span>
         </p>
       </Link>
       {isHover ? (
-        <button className="addCartButton">{`카트에 추가 - ${price}`}</button>
+        <button className="addCartButton">{`카트에 추가 - ₩ ${price}`}</button>
       ) : (
         <button
           className="addCartButton"
           style={{ visibility: 'hidden' }}
-        >{`카트에 추가 - ${price}`}</button>
+        >{`카트에 추가 - ₩ ${price}`}</button>
       )}
     </div>
   );
