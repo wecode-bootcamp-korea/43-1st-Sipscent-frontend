@@ -6,6 +6,7 @@ const Main = () => {
   const sectionRef = useRef(null);
   const [next, setNext] = useState(0);
   const carouselButtonCount = 3;
+
   const nextButton = e => {
     if (next >= carouselButtonCount) {
       setNext(3);
@@ -18,6 +19,9 @@ const Main = () => {
       setNext(3);
     } else {
       setNext(next - 1);
+    }
+    if (next < 1) {
+      setNext(0);
     }
   };
 
