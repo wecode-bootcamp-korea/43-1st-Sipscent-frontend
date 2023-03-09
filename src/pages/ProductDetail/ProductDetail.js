@@ -6,12 +6,13 @@ const ProductDetail = () => {
     <div className="productDetail">
       <div className="productDetailContainer">
         <div className="productImgWrap">
-          <div
-            className="productImg"
-            style={{
-              backgroundImage: `url('/images/ProductDetail/dan-farrell-CpTbMyO2CcM-unsplash.jpg')`,
-            }}
-          />
+          <div className="productImg">
+            <img
+              className="productImgUrl"
+              src="/images/ProductDetail/라일락차.jpg"
+              alt="teabag"
+            />
+          </div>
         </div>
         <div className="productDetailInfo">
           <div className="productDetailHeader">

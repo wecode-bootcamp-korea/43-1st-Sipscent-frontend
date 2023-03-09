@@ -12,16 +12,19 @@
     margin: 150px 0;
 
     .productImgWrap {
-      @include displayFlex(flex-end, null);
       width: 100%;
       height: 100%;
-      overflow: hidden;
 
       .productImg {
-        width: 400px;
-        height: 100%;
-        background-position: center;
-        background-size: cover;
+        @include displayFlex(flex-end, null);
+        width: 100%;
+        height: 515px;
+
+        .productImgUrl {
+          width: 400px;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
 
@@ -36,15 +39,9 @@
         height: 150px;
         border-bottom: 2px solid #4a4a4a;
 
-        .productsort {
-        }
-
         .productName {
           font-size: 30px;
           font-weight: normal;
-        }
-
-        .productExplain {
         }
       }
 
@@ -59,13 +56,11 @@
         .productDetailContentTitle {
           font-weight: normal;
         }
-
-        .productDetailContentText {
-        }
       }
 
       .addCart {
         width: 100%;
+
         .addCartButton {
           width: 100%;
           height: 65px;
@@ -96,9 +91,6 @@
 
       .productDetailFooterTitle {
         font-weight: normal;
-      }
-
-      .productDetailFooterText {
       }
 
       &:last-child {
