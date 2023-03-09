@@ -13,12 +13,9 @@ const Signup = () => {
 
   const [pwMessage, setPwMessage] = useState('');
   //유효성 검사
-  const [isEmail, setIsEmail] = useState('');
+
   const emailRegExp =
     (email.includes('@', 5) && email.includes('.', 9)) || !email;
-
-  console.log(email, emailRegExp, isEmail);
-
   const onChangeEmail = e => {
     const currentEmail = e.target.value;
     setEmail(currentEmail);
@@ -32,7 +29,7 @@ const Signup = () => {
     if (pw.length > 5) {
       setPwMessage(null);
     } else {
-      setPwMessage('6자리 이상');
+      setPwMessage('6자리 이상 필요합니다.');
     }
   };
 
