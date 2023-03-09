@@ -12,11 +12,11 @@ const Chkbox = ({ key, head }) => {
       <input onClick={isChkBxClick} type="checkbox" />
 
       <span>{head}</span>
-
-      <p className={`chkOrNot ${chkBx ? 'block' : 'show'}`}>
-        체크 여부를 확인해주세요^^{' '}
-      </p>
-
+      {isChkBxClick && (
+        <p className={`chkOrNot ${chkBx ? 'block' : 'show'}`}>
+          체크 여부를 확인해주세요^^{' '}
+        </p>
+      )}
       <div className="useMandatory">{head}</div>
     </div>
   );
