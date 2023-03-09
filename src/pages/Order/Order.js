@@ -1,30 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ORDER_INPUT_DATA } from './orderInputData';
 import './Order.scss';
+import { ORDER_PRODUCT_DATA } from './orderPriceData';
 
 const Order = () => {
   const price = 27000;
   const priceTax = price * (0.1 + 0.03);
   const point = 100000;
+  // const [orderPrice, setOrderPrice] = useState();
+
+  const [inputValue, setInputValue] = useState({
+    userPhoneNumber: '',
+    userAddress: '',
+  });
+
+  const handleValueChange = e => {
+    const { value, name } = e.target;
+    setInputValue({ ...inputValue, [name]: value });
+  };
+  /**
+   * @param value: 사용자가 입력 한 값
+   * @param name: target에 설정해준 name
+   *
+   * 1번째 onChange 사용자의 입력값  'a'
+   * 1. input onChange에서 change이벤트가 발생했네?
+   * 2. handleValueChange 호출
+   * 3. 구조분해 할당해서  value와 name을 취함
+   * 4. setInputValue({...inputValue, [name]: value})
+   */
+
+  // console.log(inputValue);
+
+  const handleSubmit = () => {
+    fetch('http://10.58.52.201:8001/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify(inputValue),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
+  };
+
   return (
     <div className="order">
       <div className="orderInfoContainer">
         <div className="orderUserInfoBox">
           <h1 className="orderHead">주문자 정보</h1>
-          <div className="orderUserInfoInputContainer">
-            <div className="orderUserInfoInputBox">
-              <div>이름</div>
-              <input className="orderCheckUserName" />
-              <p>이름이 올바르지 않습니다.</p>
-              <div>전화번호</div>
-              <input className="orderCheckUserPhoneNumber" />
-              <div>이메일</div>
-              <input className="orderCheckUserEamil" />
-              <div>주소</div>
-              <input className="orderCheckUserAddress" />
-              <div>상세 주소</div>
-              <input className="orderCheckUserAddress" />
-            </div>
-          </div>
+          <form className="orderUserInfoInputContainer">
+            {ORDER_INPUT_DATA.map(({ title, helpText, name }, key) => (
+              <div key={key} className="orderUserInfoInputBox">
+                <div>{title}</div>
+                <input
+                  onChange={handleValueChange}
+                  className="orderUserInput"
+                  name={name}
+                />
+                <div>{helpText} 올바르지 않습니다.</div>
+              </div>
+            ))}
+          </form>
         </div>
       </div>
       <div className="orderSummary">
@@ -55,7 +91,11 @@ const Order = () => {
           <span className="orderProductQuantity">2개</span>
         </div>
         <div className="orderButtonBox">
-          <button type="button" className="orderButton">
+          <button
+            onClick={e => handleSubmit(e)}
+            type="button"
+            className="orderButton"
+          >
             결제하기
           </button>
         </div>

@@ -28,7 +28,7 @@
         justify-content: center;
 
         .orderUserInfoInputBox {
-          margin-bottom: 10px;
+          margin-bottom: 3 0px;
           color: $buttonTextDefault;
           font-weight: 300;
 
@@ -48,7 +48,8 @@
   }
   .orderSummary {
     width: 30%;
-    padding: 100px;
+    padding: 230px 100px;
+
     background-color: rgb(235, 234, 222);
 
     .orderPriceOverview {
