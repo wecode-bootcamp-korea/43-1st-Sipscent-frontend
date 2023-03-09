@@ -13,7 +13,7 @@ const ProductList = () => {
 
   return (
     <div className="productList">
-      <h1 className="titleFloral">{productData[0].category_id}</h1>
+      <h1 className="titleFloral">플로럴</h1>
       <div className="selectBoxWrap">
         <select className="selectBox">
           <option value="">정렬</option>

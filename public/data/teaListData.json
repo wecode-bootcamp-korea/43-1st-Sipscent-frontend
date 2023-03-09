@@ -1,47 +1,57 @@
 [
   {
     "id": 1,
+    "item_type": "찻잔",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
-    "name": "로즈티",
+    "name": "로즈티1",
     "tasting_notes": "rose",
+    "description": "하늘 속 구름처럼 우아하고 종이 울리는 소리가 들리는 듯한 차",
     "size": 15,
     "price": 35000
   },
   {
     "id": 2,
+    "item_type": "찻잔",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
-    "name": "로즈티",
+    "name": "로즈티2",
     "tasting_notes": "rose",
-    "size": 15,
-    "price": 35000
+    "description": "하늘 속 구름처럼 우아하고 종이 울리는 소리가 들리는 듯한 차",
+    "size": 6,
+    "price": 4735000
   },
   {
     "id": 3,
+    "item_type": "찻잔",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
-    "name": "로즈티",
+    "name": "로즈티3",
     "tasting_notes": "rose",
-    "size": 15,
-    "price": 35000
+    "description": "하늘 속 구름처럼 우아하고 종이 울리는 소리가 들리는 듯한 차",
+    "size": 23,
+    "price": 3324000
   },
   {
     "id": 4,
+    "item_type": "찻잔",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
-    "name": "로즈티",
+    "name": "로즈티4",
     "tasting_notes": "rose",
-    "size": 15,
-    "price": 35000
+    "description": "하늘 속 구름처럼 우아하고 종이 울리는 소리가 들리는 듯한 차",
+    "size": 47,
+    "price": 8935000
   },
   {
     "id": 5,
+    "item_type": "찻잔",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
-    "name": "로즈티",
+    "name": "로즈티5",
     "tasting_notes": "rose",
-    "size": 15,
-    "price": 35000
+    "description": "하늘 속 구름처럼 우아하고 종이 울리는 소리가 들리는 듯한 차",
+    "size": 31,
+    "price": 1235000
   }
 ]
