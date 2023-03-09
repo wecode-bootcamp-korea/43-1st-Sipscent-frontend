@@ -1,0 +1,112 @@
+@import '../../styles/variables';
+
+.footer {
+  background-color: $buttonTextDefault;
+  color: $mainBackground;
+
+  .footerGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 40px;
+    gap: 30px;
+
+    .footerListWrap {
+      font-weight: 300;
+
+      .footerListTitle {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $mainBackground;
+      }
+
+      .footerListText {
+        display: block;
+        line-height: 2rem;
+      }
+
+      .footerListBox {
+        margin-bottom: 20px;
+        padding: 5px 10px;
+        border: 0.7px solid $mainBackground;
+        border-radius: 3px;
+      }
+
+      .footerListSubscribe {
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        height: 40px;
+        margin-bottom: 20px;
+        border: 0.7px solid $mainBackground;
+        border-radius: 2px;
+
+        .footerListInput {
+          padding-left: 10px;
+          border: none;
+          background-color: $buttonTextDefault;
+
+          &::placeholder {
+            color: $mainBackground;
+            font-weight: 300;
+          }
+        }
+
+        .footerListButton {
+          border: none;
+          border-left: 0.7px solid $mainBackground;
+          background-color: $buttonTextDefault;
+          color: $mainBackground;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .vegan {
+        display: inline;
+        color: $mainBackground;
+        text-decoration-thickness: 1px;
+      }
+
+      .footerMapData {
+        display: block;
+        color: $mainBackground;
+        line-height: 2rem;
+        text-decoration: none;
+      }
+
+      .footerLocation {
+        margin-bottom: 40px;
+        line-height: 2rem;
+
+        .footerLocationCountry {
+          all: unset;
+          text-decoration-line: underline;
+          text-decoration-thickness: 1px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .footerListLanguage {
+          all: unset;
+          text-decoration-line: underline;
+          text-decoration-thickness: 1px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .logo {
+    padding: 30px;
+    border-top: 2.5px solid $mainBackground;
+  }
+}
