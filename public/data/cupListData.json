@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "category_id": "플로럴",
     "item_type": "티백",
     "image_url": "/images/ProductDetail/morgan-sessions-k5zv-Hv4Kpc-unsplash.jpg",
     "name": "flower cup",
@@ -9,6 +10,7 @@
   },
   {
     "id": 2,
+    "category_id": "플로럴",
     "item_type": "티백",
     "image_url": "/images/ProductDetail/morgan-sessions-k5zv-Hv4Kpc-unsplash.jpg",
     "name": "flower cup",
@@ -17,6 +19,7 @@
   },
   {
     "id": 3,
+    "category_id": "플로럴",
     "item_type": "티백",
     "image_url": "/images/ProductDetail/morgan-sessions-k5zv-Hv4Kpc-unsplash.jpg",
     "name": "flower cup",
