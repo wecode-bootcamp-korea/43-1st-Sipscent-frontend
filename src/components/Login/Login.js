@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
-const Login = () => {
+const Login = ({ setModalOpen }) => {
   //입력한 pw 볼 수 있는 state
   const [showPw, setShowPw] = useState(false);
   const [userInfo, setUserInfo] = useState({ userId: '', userPw: '' });
