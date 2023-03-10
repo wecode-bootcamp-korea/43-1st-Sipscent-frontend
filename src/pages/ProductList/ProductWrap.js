@@ -17,10 +17,7 @@ const ProductWrap = ({ key, img, name, scent, amount, price }) => {
     >
       <Link className="productInfo" to="/productdetail">
         <div className="teaBagImgWrap">
-          <div
-            className="teaBagImg"
-            style={{ backgroundImage: `url(${img})` }}
-          />
+          <img className="teaBagImg" src={img} alt="tea bag" />
         </div>
         <h3 className="teaName">{name}</h3>
         <p className="teaScent">
@@ -32,14 +29,9 @@ const ProductWrap = ({ key, img, name, scent, amount, price }) => {
           <span>{amount}g</span>
         </p>
       </Link>
-      {isHover ? (
-        <button className="addCartButton">{`카트에 추가 - ₩ ${price}`}</button>
-      ) : (
-        <button
-          className="addCartButton"
-          style={{ visibility: 'hidden' }}
-        >{`카트에 추가 - ₩ ${price}`}</button>
-      )}
+      <button
+        className={isHover ? 'addCartButton' : 'hiddenButton'}
+      >{`카트에 추가 - ₩ ${price}`}</button>
     </div>
   );
 };

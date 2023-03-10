@@ -1,6 +1,7 @@
 @import '../../styles/variables';
 
 .productList {
+  margin-bottom: 150px;
   color: $buttonTextDefault;
 
   .titleFloral {
@@ -15,6 +16,8 @@
 
     .selectBox {
       height: 30px;
+      transition-property: background-color;
+      transition-duration: 0.7s;
       border: none;
       background-color: $mainBackground;
       color: $buttonTextDefault;
@@ -30,6 +33,8 @@
     .filterButton {
       width: 80px;
       height: 30px;
+      transition-property: background-color;
+      transition-duration: 0.7s;
       border: none;
       background-color: $mainBackground;
       color: $buttonTextDefault;
@@ -49,6 +54,8 @@
 
     .button {
       height: 90px;
+      transition-property: background-color;
+      transition-duration: 0.7s;
       border: none;
       background-color: #ebeade;
       color: $buttonTextDefault;
@@ -105,13 +112,11 @@
           width: 330px;
           height: 320px;
           margin-bottom: 30px;
-          overflow: hidden;
 
           .teaBagImg {
             width: 100%;
             height: 100%;
-            background-position: center;
-            background-size: cover;
+            object-fit: cover;
           }
         }
 
@@ -148,6 +153,20 @@
       }
 
       .addCartButton {
+        width: 100%;
+        height: 60px;
+        border: none;
+        background-color: #333333;
+        color: $mainBackground;
+
+        &:hover {
+          background-color: #222222;
+          cursor: pointer;
+        }
+      }
+
+      .hiddenButton {
+        visibility: hidden;
         width: 100%;
         height: 60px;
         border: none;
