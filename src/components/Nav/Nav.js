@@ -6,6 +6,25 @@ import './Nav.scss';
 const Nav = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  // const [isVisible, setIsVisible] = useState(true);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     let moving = window.pageYOffset;
+
+  //     setIsVisible(position > moving);
+  //     setPosition(moving);
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // });
+
+  // const cls = isVisible ? 'visible' : 'hidden';
+
   return (
     <>
       {isCartOpen && (

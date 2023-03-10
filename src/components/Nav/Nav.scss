@@ -1,12 +1,14 @@
 @import '../../styles/variables';
 
 .nav {
-  @include displayFlex(space-between, null);
+  position: sticky;
+  top: 0;
   width: 100vw;
   padding-right: 30px;
   background-color: $mainBackground;
   color: $buttonTextDefault;
   font-weight: 300;
+  @include displayFlex(space-between, null);
 
   .categoryWrap {
     @include displayFlex(null, center);
