@@ -28,64 +28,86 @@ const Login = () => {
   const goToMain = () => {
     navigate('/');
   };
+  function validateUser(e) {
+    e.preventDefault();
 
+    fetch('API주소', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json;charset=utf-8' },
+      body: JSON.stringify(userInfo),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('네트워크가 불안정합니다. 다시 시도 해 주세요');
+      })
+      .catch(error => console.log(error))
+      .then(data => {
+        if (data.message === 'login success') {
+          localStorage.setItem('TOKEN', data.token);
+          alert('로그인에 성공했습니다');
+          navigate({ goToMain });
+        } else {
+          alert('아이디와 비밀번호를 확인 해 주세요');
+        }
+      });
+  }
   return (
     <div className="loginScreen">
       <div className="loginWrapper">
-        <form>
-          <div className="login">
-            <h1>로그인</h1>
-          </div>
+        <div className="login">
+          <h1>로그인</h1>
+        </div>
 
-          <div className="emailWrapper">
-            {' '}
+        <div className="emailWrapper">
+          {' '}
+          <input
+            name="userId"
+            className="loginEmail"
+            onChange={getUserInfo}
+            placeholder="이메일주소"
+            type="text"
+          />
+          {!emailChk && <p className="message">이메일 형식에 맞지 않습니다.</p>}
+        </div>
+        <div className="pwWrapper">
+          <div className="containerPw">
             <input
-              name="userId"
-              className="loginEmail"
+              name="userPw"
+              className="loginPw"
               onChange={getUserInfo}
-              placeholder="이메일주소"
-              type="text"
+              type={showPw ? 'text' : 'password'}
+              placeholder="비밀번호"
             />
-            {!emailChk && (
-              <p className="message">이메일 형식에 맞지 않아요~~</p>
-            )}
-          </div>
-          <div className="pwWrapper">
-            <div className="containerPw">
-              <input
-                name="userPw"
-                className="loginPw"
-                onChange={getUserInfo}
-                type={showPw ? 'text' : 'password'}
-                placeholder="비밀번호"
-              />
-              {!pwChk && <p className="message">6자리 이상 입력해야합니다^^</p>}
+            {!pwChk && <p className="message">6자리 이상 입력이 필요합니다.</p>}
 
-              <button
-                type="button"
-                onClick={() => {
-                  setShowPw(!showPw);
-                }}
-                className="see"
-              >
-                보기
-              </button>
-            </div>
-          </div>
-          <div className="pwResetWrapper">
-            <button className="pwReset">비밀번호 재설정하기</button>
-          </div>
-
-          <div className="loginBtnWrapper">
             <button
               type="button"
-              disabled={!isUserVaidate}
-              className="loginBtn"
+              onClick={() => {
+                setShowPw(!showPw);
+              }}
+              className="see"
             >
-              로그인
+              보기
             </button>
           </div>
-        </form>
+        </div>
+        <div className="pwResetWrapper">
+          <button className="pwReset">비밀번호 재설정하기</button>
+        </div>
+
+        <div className="loginBtnWrapper">
+          <button
+            onSubmit={validateUser}
+            type="button"
+            disabled={!isUserVaidate}
+            className="loginBtn"
+          >
+            로그인
+          </button>
+        </div>
+
         <div className="rUOurMemeber">
           <p className="uMemeber">회원이 아니신가요?</p>
         </div>
