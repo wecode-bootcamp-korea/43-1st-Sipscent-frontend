@@ -48,47 +48,53 @@
   }
   .orderSummary {
     width: 30%;
-    padding: 230px 100px;
-
+    padding: 100px 100px;
     background-color: rgb(235, 234, 222);
-
-    .orderPriceOverview {
+    .orderHead {
       display: flex;
-      flex-direction: column;
-      margin-bottom: 20px;
-      border: none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      color: $buttonTextDefault;
-
-      .price {
+      justify-content: center;
+      margin-bottom: 100px;
+      font-size: 36px;
+      font-weight: 300;
+    }
+    .orderSummaryProductList {
+      .orderSummaryProduct {
         display: flex;
         justify-content: space-between;
-        padding-bottom: 20px;
+      }
+      .orderSummaryProductPrice {
+        display: flex;
+        justify-content: right;
       }
     }
-    .totalPrice {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 20px;
+    .orderSummaryTotal {
       border: none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(0, 0, 0, 0.262);
+      .orderSummaryPoint {
+        display: flex;
+        justify-content: space-between;
+      }
+      .orderSummaryTotalPrice {
+        display: flex;
+        justify-content: space-between;
+      }
     }
-    .orderButtonBox {
-      display: flex;
-      padding: 20%;
+  }
+  .orderButtonBox {
+    display: flex;
+    padding: 20%;
 
-      .orderButton {
-        width: 300px;
-        height: 80px;
-        border: none;
-        border-radius: 10px;
-        background-color: $buttonTextDefault;
-        color: $mainBackground;
-        font-size: 16px;
-        &:hover {
-          background-color: $buttonHover;
-          cursor: pointer;
-        }
+    .orderButton {
+      width: 300px;
+      height: 80px;
+      border: none;
+      border-radius: 10px;
+      background-color: $buttonTextDefault;
+      color: $mainBackground;
+      font-size: 16px;
+      &:hover {
+        background-color: $buttonHover;
+        cursor: pointer;
       }
     }
   }

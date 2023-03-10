@@ -1,38 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
 import './Order.scss';
-import { ORDER_PRODUCT_DATA } from './orderPriceData';
 
 const Order = () => {
-  const price = 27000;
-  const priceTax = price * (0.1 + 0.03);
-  const point = 100000;
-  // const [orderPrice, setOrderPrice] = useState();
-
   const [inputValue, setInputValue] = useState({
     userPhoneNumber: '',
     userAddress: '',
   });
+  const [orderProductData, setOrderProductData] = useState([]);
 
   const handleValueChange = e => {
     const { value, name } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
-  /**
-   * @param value: 사용자가 입력 한 값
-   * @param name: target에 설정해준 name
-   *
-   * 1번째 onChange 사용자의 입력값  'a'
-   * 1. input onChange에서 change이벤트가 발생했네?
-   * 2. handleValueChange 호출
-   * 3. 구조분해 할당해서  value와 name을 취함
-   * 4. setInputValue({...inputValue, [name]: value})
-   */
-
-  // console.log(inputValue);
 
   const handleSubmit = () => {
-    fetch('http://10.58.52.201:8001/orders', {
+    fetch('', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -42,6 +25,14 @@ const Order = () => {
       .then(response => response.json())
       .then(data => console.log(data));
   };
+
+  useEffect(() => {
+    fetch('/data/orderData.json')
+      .then(res => res.json())
+      .then(data => {
+        setOrderProductData([data]);
+      });
+  }, []);
 
   return (
     <div className="order">
@@ -64,32 +55,30 @@ const Order = () => {
         </div>
       </div>
       <div className="orderSummary">
-        <div className="orderPriceOverview">
-          <div className="price">
-            <span>상품 가격</span>
-            <span>{price}₩</span>
+        <h1 className="orderHead">제품 결제 요약</h1>
+
+        {orderProductData[0]?.orderList.map((order, key) => (
+          <div key={key} className="orderSummaryProductList">
+            <div className="orderSummaryProduct">
+              <div> {order.itemname}</div>
+              <div>{order.quantity} 개</div>
+            </div>
+            <div className="orderSummaryProductPrice">{order.price}₩</div>
           </div>
-          <div className="price">
-            <span>배송</span>
-            <span>0₩</span>
+        ))}
+
+        {orderProductData.map((order, key) => (
+          <div key={key} className="orderSummaryTotal">
+            <div className="orderSummaryPoint">
+              <div>사용가능한 포인트</div>
+              <div>{order.point}포인트</div>
+            </div>
+            <div className="orderSummaryTotalPrice">
+              <div>최종가격</div>
+              <div>{order.totalPrice}원</div>
+            </div>
           </div>
-          <div className="price">
-            <span>(포함된) 세금</span>
-            <span>{priceTax}₩</span>
-          </div>
-        </div>
-        <div className="totalPrice">
-          <span>합계</span>
-          <span>{price}₩</span>
-        </div>
-        <div className="orderUserPoint">
-          <div>현재 사용 가능 포인트 : {point}₩</div>
-          <div>결재 후 남은 포인트 : {point - price}₩</div>
-        </div>
-        <div className="orderProduct">
-          <span className="orderProductName">Floral tea</span>
-          <span className="orderProductQuantity">2개</span>
-        </div>
+        ))}
         <div className="orderButtonBox">
           <button
             onClick={e => handleSubmit(e)}
@@ -105,3 +94,16 @@ const Order = () => {
 };
 
 export default Order;
+
+/* {PRICE_LIST.map(list => {
+            return (
+              <div className="price" key={list.id}>
+                <span>{list.title}</span>
+                {list.title !== '배송' ? (
+                  <span>{priceInfo[list.name]}₩</span>
+                ) : (
+                  <span>{list.price}₩</span>
+                )}
+              </div>
+            );
+          })} */

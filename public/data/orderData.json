@@ -1,0 +1,34 @@
+{
+  "orderList": [
+    {
+      "id": 45,
+      "item_id": 1,
+      "username": "김태현",
+      "itemname": "로즈",
+      "quantity": 1,
+      "price": "29000.00",
+      "point": "747000.00"
+    },
+    {
+      "id": 46,
+      "item_id": 2,
+      "username": "김태현",
+      "itemname": "자스민",
+      "quantity": 1,
+      "price": "31000.00",
+      "point": "747000.00"
+    },
+    {
+      "id": 47,
+      "item_id": 3,
+      "username": "김태현",
+      "itemname": "은방울꽃",
+      "quantity": 1,
+      "price": "33000.00",
+      "point": "747000.00"
+    }
+  ],
+  "point": 747000,
+  "itemPrices": [29000, 31000, 33000],
+  "totalPrice": 93000
+}
