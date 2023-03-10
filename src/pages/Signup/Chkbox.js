@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import './Chkbox.scss';
 
-const Chkbox = ({ key, head }) => {
+const Chkbox = ({ key, head, errMsg, name, isClickedSignup }) => {
   const [chkBx, setChkBx] = useState(false);
+
+  const chkBxValueChange = e => {
+    const { name, value } = e.target;
+    setChkBx({ ...chkBx, [name]: value });
+  };
+
   const isChkBxClick = () => {
     setChkBx(!chkBx);
   };
@@ -12,11 +18,7 @@ const Chkbox = ({ key, head }) => {
       <input onClick={isChkBxClick} type="checkbox" />
 
       <span>{head}</span>
-      {isChkBxClick && (
-        <p className={`chkOrNot ${chkBx ? 'block' : 'show'}`}>
-          체크 여부를 확인해주세요^^{' '}
-        </p>
-      )}
+      {!chkBx && isClickedSignup && <p className="varChkBx">{errMsg}</p>}
       <div className="useMandatory">{head}</div>
     </div>
   );

@@ -7,9 +7,8 @@ import ProductList from './pages/ProductList/ProductList';
 import Order from './pages/Order/Order';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
-import Modal from './components/Login/Modal';
+
 import Login from './components/Login/Login';
-import Switch from './components/Login/Switch';
 
 const Router = () => {
   return (
@@ -21,8 +20,7 @@ const Router = () => {
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/productdetail" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/modal" element={<Modal />} />
-        <Route path="/switch" element={<Switch />} />
+
         <Route path="/login" element={<Login />} />
       </Routes>
       {/* <Footer /> */}
