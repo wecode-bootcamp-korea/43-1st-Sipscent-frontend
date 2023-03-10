@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = ({ setModalOpen }) => {
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   //입력한 pw 볼 수 있는 state
   const [showPw, setShowPw] = useState(false);
   const [userInfo, setUserInfo] = useState({ userId: '', userPw: '' });
@@ -54,66 +57,65 @@ const Login = ({ setModalOpen }) => {
       });
   }
   return (
-    <div className="loginScreen">
-      <div className="loginWrapper">
-        <div className="login">
-          <h1>로그인</h1>
-        </div>
+    <div className="login">
+      <div className="loginScreen">
+        <div className="loginWrapper">
+          <h1 className="loginContainer">로그인</h1>
 
-        <div className="emailWrapper">
-          {' '}
-          <input
-            name="userId"
-            className="loginEmail"
-            onChange={getUserInfo}
-            placeholder="이메일주소"
-            type="text"
-          />
-          {!emailChk && <p className="message">이메일 형식에 맞지 않습니다.</p>}
-        </div>
-        <div className="pwWrapper">
-          <div className="containerPw">
+          <div className="emailWrapper">
             <input
-              name="userPw"
-              className="loginPw"
+              name="userId"
+              className="loginEmail"
               onChange={getUserInfo}
-              type={showPw ? 'text' : 'password'}
-              placeholder="비밀번호"
+              placeholder="이메일주소"
+              type="text"
             />
-            {!pwChk && <p className="message">6자리 이상 입력이 필요합니다.</p>}
+            {!emailChk && (
+              <p className="message">이메일 형식에 맞지 않습니다.</p>
+            )}
+          </div>
+          <div className="pwWrapper">
+            <div className="containerPw">
+              <input
+                name="userPw"
+                className="loginPw"
+                onChange={getUserInfo}
+                type={showPw ? 'text' : 'password'}
+                placeholder="비밀번호"
+              />
+              {!pwChk && (
+                <p className="message"> 6자리 이상 입력이 필요합니다.</p>
+              )}
 
+              <button
+                type="button"
+                onClick={() => {
+                  setShowPw(!showPw);
+                }}
+                className="see"
+              >
+                보기
+              </button>
+            </div>
+          </div>
+          <div className="pwResetWrapper">
+            <button className="pwReset">비밀번호 재설정하기</button>
+          </div>
+
+          <div className="loginBtnWrapper">
             <button
+              onSubmit={validateUser}
               type="button"
-              onClick={() => {
-                setShowPw(!showPw);
-              }}
-              className="see"
+              disabled={!isUserVaidate}
+              className="loginBtn"
             >
-              보기
+              로그인
             </button>
           </div>
         </div>
-        <div className="pwResetWrapper">
-          <button className="pwReset">비밀번호 재설정하기</button>
-        </div>
-
-        <div className="loginBtnWrapper">
-          <button
-            onSubmit={validateUser}
-            type="button"
-            disabled={!isUserVaidate}
-            className="loginBtn"
-          >
-            로그인
-          </button>
-        </div>
-
-        <div className="rUOurMemeber">
-          <p className="uMemeber">회원이 아니신가요?</p>
-        </div>
-      </div>
-      <div className="uOurMem">
-        <button className="singUp">회원가입</button>
+        <button className="loginCloseBtn" onClick={closeModal}>
+          X
+        </button>
       </div>
     </div>
   );
