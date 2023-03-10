@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "item_type": "찻잔",
+    "item_type": "티백",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
     "name": "로즈티1",
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "item_type": "찻잔",
+    "item_type": "티백",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
     "name": "로즈티2",
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "item_type": "찻잔",
+    "item_type": "티백",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
     "name": "로즈티3",
@@ -34,7 +34,7 @@
   },
   {
     "id": 4,
-    "item_type": "찻잔",
+    "item_type": "티백",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
     "name": "로즈티4",
@@ -45,7 +45,7 @@
   },
   {
     "id": 5,
-    "item_type": "찻잔",
+    "item_type": "티백",
     "category_id": "플로럴",
     "image_url": "/images/ProductDetail/k8-eacOgTpdAJc-unsplash.jpg",
     "name": "로즈티5",

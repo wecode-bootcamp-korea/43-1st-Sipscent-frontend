@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const ProductList = () => {
   const [productData, setProductData] = useState([]);
+  //console.log(productData);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
@@ -23,10 +24,9 @@ const ProductList = () => {
       .then(data => setProductData(data));
   }, []);
 
-  console.log(params);
-
   return (
     <div className="productList">
+      {/*{productData[0].category_id} */}
       <h1 className="titleFloral">플로럴</h1>
       <div className="selectBoxWrap">
         <select className="selectBox">
