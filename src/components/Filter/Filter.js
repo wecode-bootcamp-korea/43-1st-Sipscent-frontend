@@ -54,7 +54,7 @@ const TASTING_NOTES = [
 
 const PRICE_RANGE = [
   { id: 1, range: '30000원 이하' },
-  { id: 1, range: '30000원 초과 - 40000원 이하' },
-  { id: 1, range: '40000원 초과 - 50000원 이하' },
-  { id: 1, range: '50000원 초과' },
+  { id: 2, range: '30000원 초과 - 40000원 이하' },
+  { id: 3, range: '40000원 초과 - 50000원 이하' },
+  { id: 4, range: '50000원 초과' },
 ];
