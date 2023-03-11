@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './ProductWrap.scss';
 
 const ProductWrap = ({ key, img, name, scent, amount, price }) => {
   const [isHover, setIsHover] = useState(false);

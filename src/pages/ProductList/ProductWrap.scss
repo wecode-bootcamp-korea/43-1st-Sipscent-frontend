@@ -1,0 +1,87 @@
+@import '../../styles/variables';
+
+.productWrap {
+  @include displayFlex(space-between, center);
+  flex-direction: column;
+
+  &:hover {
+    background-color: #f0efe0;
+  }
+
+  .productInfo {
+    @include displayFlex(center, center);
+    flex-direction: column;
+    margin: auto 0;
+    padding: 70px;
+
+    .teaBagImgWrap {
+      width: 330px;
+      height: 320px;
+      margin-bottom: 30px;
+
+      .teaBagImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .teaName {
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .teaScent {
+      @include displayFlex(flex-start, center);
+      width: 100%;
+      padding: 20px;
+      border-top: 0.5px solid $buttonTextDefault;
+      font-weight: 300;
+
+      .teaScentTitle {
+        margin-right: 30px;
+        font-weight: normal;
+      }
+    }
+
+    .teaAmount {
+      @include displayFlex(flex-start, center);
+      width: 100%;
+      padding: 20px;
+      border-top: 0.5px solid $buttonTextDefault;
+      font-weight: 300;
+
+      .teaAmountTitle {
+        margin-right: 30px;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .addCartButton {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background-color: #333333;
+    color: $mainBackground;
+
+    &:hover {
+      background-color: #222222;
+      cursor: pointer;
+    }
+  }
+
+  .hiddenButton {
+    visibility: hidden;
+    width: 100%;
+    height: 60px;
+    border: none;
+    background-color: #333333;
+    color: $mainBackground;
+
+    &:hover {
+      background-color: #222222;
+      cursor: pointer;
+    }
+  }
+}
