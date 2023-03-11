@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Cart.scss';
 
 const Cart = () => {
   const [number, setNumber] = useState(1);
+  const navigate = useNavigate();
 
   const subtract = () => {
     setNumber(number - 1);
@@ -48,7 +50,14 @@ const Cart = () => {
             <span className="cartSummaryPrice">소계 (세금 포함)</span>
             <span className="cartSummaryPriceNum">₩ 139,000</span>
           </div>
-          <button className="cartSummaryButton">결제하기</button>
+          <button
+            className="cartSummaryButton"
+            onClick={() => {
+              navigate('/order');
+            }}
+          >
+            결제하기
+          </button>
         </div>
       </div>
     </div>
