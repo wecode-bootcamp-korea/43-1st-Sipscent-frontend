@@ -2,6 +2,8 @@ import React from 'react';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
+  const priceNum = 35000;
+
   return (
     <div className="productDetail">
       <div className="productDetailContainer">
@@ -36,7 +38,7 @@ const ProductDetail = () => {
           </div>
           <div className="addCart">
             <button className="addCartButton">
-              카트에 추가하기 - ₩ 35,000
+              카트에 추가하기 - ₩ {priceNum.toLocaleString()}
             </button>
           </div>
         </div>
