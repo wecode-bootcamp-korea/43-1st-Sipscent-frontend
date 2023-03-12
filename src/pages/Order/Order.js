@@ -68,7 +68,12 @@ const Order = () => {
                 <div>{itemname}</div>
                 <div>{quantity} 개</div>
               </div>
-              <div className="orderSummaryProductPrice">{price}₩</div>
+              <div className="orderSummaryProductPrice">
+                {Math.trunc(price)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                ₩
+              </div>
             </div>
           )
         )}
@@ -76,11 +81,21 @@ const Order = () => {
           <div key={key} className="orderSummaryTotal">
             <div className="orderSummaryPoint">
               <div>사용가능한 포인트</div>
-              <div>{point}포인트</div>
+              <div>
+                {Math.trunc(point)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                포인트
+              </div>
             </div>
             <div className="orderSummaryTotalPrice">
               <strong>합계</strong>
-              <strong>{totalPrice}₩</strong>
+              <strong>
+                {Math.trunc(totalPrice)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                ₩
+              </strong>
             </div>
           </div>
         ))}
