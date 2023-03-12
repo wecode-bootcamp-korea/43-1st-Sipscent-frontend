@@ -7,6 +7,7 @@ const Order = () => {
     userPhoneNumber: '',
     userAddress: '',
   });
+
   const [orderProductData, setOrderProductData] = useState([]);
 
   const handleValueChange = e => {
@@ -23,7 +24,7 @@ const Order = () => {
       body: JSON.stringify(inputValue),
     })
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => data);
   };
 
   useEffect(() => {
@@ -39,6 +40,10 @@ const Order = () => {
       <div className="orderInfoContainer">
         <div className="orderUserInfoBox">
           <h1 className="orderHead">주문자 정보</h1>
+          <div className="orderUserInfo">
+            <p className="orderUserInfoUserName">유 정 인</p>
+            <p className="orderUserInfoUserEmail">wecode43@gracefulRain.co</p>
+          </div>
           <form className="orderUserInfoInputContainer">
             {ORDER_INPUT_DATA.map(({ title, helpText, name }, key) => (
               <div key={key} className="orderUserInfoInputBox">
@@ -48,7 +53,7 @@ const Order = () => {
                   className="orderUserInput"
                   name={name}
                 />
-                <div>{helpText} 올바르지 않습니다.</div>
+                <div className="orderUserInputHelpText">{helpText}</div>
               </div>
             ))}
           </form>
@@ -56,26 +61,26 @@ const Order = () => {
       </div>
       <div className="orderSummary">
         <h1 className="orderHead">제품 결제 요약</h1>
-
-        {orderProductData[0]?.orderList.map((order, key) => (
-          <div key={key} className="orderSummaryProductList">
-            <div className="orderSummaryProduct">
-              <div> {order.itemname}</div>
-              <div>{order.quantity} 개</div>
+        {orderProductData[0]?.orderList.map(
+          ({ itemname, quantity, price }, key) => (
+            <div key={key} className="orderSummaryProductList">
+              <div className="orderSummaryProduct">
+                <div>{itemname}</div>
+                <div>{quantity} 개</div>
+              </div>
+              <div className="orderSummaryProductPrice">{price}₩</div>
             </div>
-            <div className="orderSummaryProductPrice">{order.price}₩</div>
-          </div>
-        ))}
-
-        {orderProductData.map((order, key) => (
+          )
+        )}
+        {orderProductData.map(({ point, totalPrice }, key) => (
           <div key={key} className="orderSummaryTotal">
             <div className="orderSummaryPoint">
               <div>사용가능한 포인트</div>
-              <div>{order.point}포인트</div>
+              <div>{point}포인트</div>
             </div>
             <div className="orderSummaryTotalPrice">
-              <div>최종가격</div>
-              <div>{order.totalPrice}원</div>
+              <strong>합계</strong>
+              <strong>{totalPrice}₩</strong>
             </div>
           </div>
         ))}
@@ -94,16 +99,3 @@ const Order = () => {
 };
 
 export default Order;
-
-/* {PRICE_LIST.map(list => {
-            return (
-              <div className="price" key={list.id}>
-                <span>{list.title}</span>
-                {list.title !== '배송' ? (
-                  <span>{priceInfo[list.name]}₩</span>
-                ) : (
-                  <span>{list.price}₩</span>
-                )}
-              </div>
-            );
-          })} */
