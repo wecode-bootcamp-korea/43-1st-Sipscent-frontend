@@ -79,10 +79,12 @@ const ProductList = () => {
             return (
               <ProductWrap
                 key={product.id}
+                itemType={product.item_type}
                 img={product.image_url}
                 name={product.name}
                 scent={product.tasting_notes}
                 amount={product.size}
+                description={product.description}
                 price={product.price}
               />
             );

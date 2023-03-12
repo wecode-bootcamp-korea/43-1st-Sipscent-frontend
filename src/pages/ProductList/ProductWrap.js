@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductWrap.scss';
 
-const ProductWrap = ({ key, img, name, scent, amount, price }) => {
+const ProductWrap = ({
+  key,
+  itemType,
+  img,
+  name,
+  scent,
+  amount,
+  description,
+  price,
+}) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -21,14 +30,23 @@ const ProductWrap = ({ key, img, name, scent, amount, price }) => {
           <img className="teaBagImg" src={img} alt="tea bag" />
         </div>
         <h3 className="teaName">{name}</h3>
-        <p className="teaScent">
-          <span className="teaScentTitle">향</span>
-          <span>{scent}</span>
-        </p>
-        <p className="teaAmount">
-          <span className="teaAmountTitle">용량</span>
-          <span>{amount}g</span>
-        </p>
+        {itemType === '티백' ? (
+          <>
+            <p className="teaScent">
+              <span className="teaScentTitle">향</span>
+              <span>{scent}</span>
+            </p>
+            <p className="teaAmount">
+              <span className="teaAmountTitle">용량</span>
+              <span>{amount}g</span>
+            </p>
+          </>
+        ) : (
+          <p className="teaScent">
+            <span className="teaScentTitle">설명</span>
+            <span>{description}</span>
+          </p>
+        )}
       </Link>
       <button
         className={isHover ? 'addCartButton' : 'hiddenButton'}
