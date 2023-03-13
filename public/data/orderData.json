@@ -1,34 +1,39 @@
 {
+  "username": "김태현",
+  "email": "wereter31@naver.com",
   "orderList": [
     {
-      "id": 45,
+      "id": 50,
       "item_id": 1,
       "username": "김태현",
+      "email": "wereter31@naver.com",
       "itemname": "로즈",
       "quantity": 1,
       "price": "29000.00",
-      "point": "747000.00"
+      "point": "658000.00"
     },
     {
-      "id": 46,
+      "id": 51,
       "item_id": 2,
       "username": "김태현",
+      "email": "wereter31@naver.com",
       "itemname": "자스민",
       "quantity": 1,
       "price": "31000.00",
-      "point": "747000.00"
+      "point": "658000.00"
     },
     {
-      "id": 47,
+      "id": 52,
       "item_id": 3,
       "username": "김태현",
+      "email": "wereter31@naver.com",
       "itemname": "은방울꽃",
       "quantity": 1,
       "price": "33000.00",
-      "point": "747000.00"
+      "point": "658000.00"
     }
   ],
-  "point": 747000,
+  "point": 658000,
   "itemPrices": [29000, 31000, 33000],
   "totalPrice": 93000
 }

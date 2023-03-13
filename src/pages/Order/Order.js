@@ -9,11 +9,17 @@ const Order = () => {
   });
 
   const [orderProductData, setOrderProductData] = useState([]);
+  const isShowHintText = _title =>
+    inputValue.userPhoneNumber &&
+    _title === '전화번호' &&
+    !userPhoneNumberCheck;
 
   const handleValueChange = e => {
     const { value, name } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
+
+  const userPhoneNumberCheck = inputValue.userPhoneNumber.length > 3;
 
   const handleSubmit = () => {
     fetch('', {
@@ -40,10 +46,12 @@ const Order = () => {
       <div className="orderInfoContainer">
         <div className="orderUserInfoBox">
           <h1 className="orderHead">주문자 정보</h1>
-          <div className="orderUserInfo">
-            <p className="orderUserInfoUserName">유 정 인</p>
-            <p className="orderUserInfoUserEmail">wecode43@gracefulRain.co</p>
-          </div>
+          {orderProductData.map(({ username, email }, key) => (
+            <div key={key} className="orderUserInfo">
+              <p className="orderUserInfoUserName">{username}</p>
+              <p className="orderUserInfoUserEmail">{email}</p>
+            </div>
+          ))}
           <form className="orderUserInfoInputContainer">
             {ORDER_INPUT_DATA.map(({ title, helpText, name }, key) => (
               <div key={key} className="orderUserInfoInputBox">
@@ -53,7 +61,10 @@ const Order = () => {
                   className="orderUserInput"
                   name={name}
                 />
-                <div className="orderUserInputHelpText">{helpText}</div>
+
+                {isShowHintText(title) && (
+                  <div className="orderUserInputHelpText">{helpText}</div>
+                )}
               </div>
             ))}
           </form>
