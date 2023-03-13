@@ -26,9 +26,7 @@ const Login = ({ setModalOpen }) => {
     userInfo.email.includes('.') &&
     userInfo.password.length >= 6;
   const navigate = useNavigate();
-  const goToMain = () => {
-    navigate('/');
-  };
+
   function validateUser(e) {
     e.preventDefault();
 
