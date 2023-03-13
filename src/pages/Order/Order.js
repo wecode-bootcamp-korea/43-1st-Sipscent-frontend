@@ -9,17 +9,18 @@ const Order = () => {
   });
 
   const [orderProductData, setOrderProductData] = useState([]);
+
+  const userPhoneNumberCheck = inputValue.userPhoneNumber.length > 3;
+
   const isShowHintText = _title =>
     inputValue.userPhoneNumber &&
     _title === '전화번호' &&
     !userPhoneNumberCheck;
 
-  const handleValueChange = e => {
+  function handleValueChange(e) {
     const { value, name } = e.target;
     setInputValue({ ...inputValue, [name]: value });
-  };
-
-  const userPhoneNumberCheck = inputValue.userPhoneNumber.length > 3;
+  }
 
   const handleSubmit = () => {
     fetch('', {
