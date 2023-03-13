@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CartProductListItem from '../CartList/CartProductListItem';
+import CartProductsListItem from '../CartProductsListItem/CartProductsListItem';
 import './Cart.scss';
 
 const Cart = () => {
@@ -16,7 +16,7 @@ const Cart = () => {
           <button className="closeButton">X</button>
         </div>
         <ul className="cartProductsList">
-          <CartProductListItem />
+          <CartProductsListItem />
         </ul>
       </div>
       <div className="cartSummaryWrap">

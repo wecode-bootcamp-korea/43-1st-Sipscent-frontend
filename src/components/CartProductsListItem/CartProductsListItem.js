@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './CartList.scss';
+import './CartProductsListItem.scss';
 
-const CartProductListItem = () => {
+const CartProductsListItem = () => {
   const [number, setNumber] = useState(1);
 
   const subtract = () => {
@@ -35,4 +35,4 @@ const CartProductListItem = () => {
   );
 };
 
-export default CartProductListItem;
+export default CartProductsListItem;
