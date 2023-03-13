@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import ProductWrap from './ProductWrap';
 import Filter from '../../components/Filter/Filter';
 import './ProductList.scss';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 const ProductList = () => {
   const [productData, setProductData] = useState([]);
