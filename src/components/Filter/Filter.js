@@ -26,8 +26,7 @@ const Filter = () => {
             return (
               <li key={price.id} className="priceRangeList">
                 <label>
-                  <input type="checkbox" name="price" />
-                  {price.range}
+                  <input type="checkbox" name="price" />₩ {price.range}
                 </label>
               </li>
             );
@@ -54,7 +53,7 @@ const TASTING_NOTES = [
 ];
 
 const PRICE_RANGE = [
-  { id: 1, range: '~ ₩ 30,000 ' },
+  { id: 1, range: '~ ₩ 30,000' },
   { id: 2, range: '₩ 30,000 ~ ₩ 40,000' },
   { id: 3, range: '₩ 40,000 ~ ₩ 50,000' },
   { id: 4, range: '₩ 50,000 ~' },
