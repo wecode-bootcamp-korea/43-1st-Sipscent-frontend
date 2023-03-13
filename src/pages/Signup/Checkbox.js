@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Chkbox.scss';
+import './Checkbox.scss';
 
-const Chkbox = ({ key, head, errMsg, name, isClickedSignup }) => {
+const Checkbox = ({ key, head, errMsg, name, isClickedSignup }) => {
   const [chkBx, setChkBx] = useState(false);
 
   const chkBxValueChange = e => {
@@ -24,4 +24,4 @@ const Chkbox = ({ key, head, errMsg, name, isClickedSignup }) => {
   );
 };
 
-export default Chkbox;
+export default Checkbox;

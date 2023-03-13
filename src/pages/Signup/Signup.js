@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Chkbox from './Chkbox';
+import Checkbox from './Checkbox';
 import { SIGN_UP_INPUT_DATA } from './SIGN_UP_INPUT_DATA';
 import './Signup.scss';
 
@@ -45,9 +45,6 @@ const Signup = ({ setModalOpen }) => {
     password:
       inputValue.password.length > 5 || inputValue.password.length === 0,
   };
-
-  console.log(conditions);
-
   const emailRegExp =
     (inputValue.email.includes('@', 5) && inputValue.email.includes('.', 9)) ||
     !inputValue.email;
@@ -110,7 +107,7 @@ const Signup = ({ setModalOpen }) => {
           <div className="signUpChkBx">
             <div>
               {TERMS_OF_USE.map(info => (
-                <Chkbox
+                <Checkbox
                   errMsg={info.errMsg}
                   key={info.id}
                   head={info.head}
