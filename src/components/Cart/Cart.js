@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CartProductListItem from '../CartList/CartProductListItem';
 import './Cart.scss';
 
 const Cart = () => {
-  const [number, setNumber] = useState(1);
   const navigate = useNavigate();
 
-  const subtract = () => {
-    setNumber(number - 1);
-    if (number < 2) {
-      setNumber(1);
-    }
-  };
   return (
     <div className="cart">
       <div className="cartProducts">
@@ -22,26 +16,7 @@ const Cart = () => {
           <button className="closeButton">X</button>
         </div>
         <ul className="cartProductsList">
-          <li className="cartProductsListItem">
-            <div className="cartProductstName">로즈티</div>
-            <div className="cartProductsAmount">15g</div>
-            <div className="cartProductsCount">
-              <button className="minusButton" onClick={subtract}>
-                ➖
-              </button>
-              <span className="cartProductstNum">{number}</span>
-              <button
-                className="plusButton"
-                onClick={() => {
-                  setNumber(number + 1);
-                }}
-              >
-                ➕
-              </button>
-              <button className="deleteButton">삭제</button>
-            </div>
-            <div>{`₩ ${Number(65000) * number}`}</div>
-          </li>
+          <CartProductListItem />
         </ul>
       </div>
       <div className="cartSummaryWrap">
