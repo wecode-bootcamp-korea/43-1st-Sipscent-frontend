@@ -14,16 +14,13 @@ const Login = ({ setModalOpen }) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   }
-  console.log(userInfo);
-  //이메일 밑에 p 태그
+
   const emailChk =
     (userInfo.email.includes('@') && userInfo.email.includes('.')) ||
     !userInfo.email;
-  // console.log(emailChk);
-  //비밀번호 밑에 p 태그
+
   const pwChk = userInfo.password.length > 5 || !userInfo.password;
 
-  //링크 넘어가게
   const isUserVaidate =
     userInfo.email.includes('@') &&
     userInfo.email.includes('.') &&
@@ -35,7 +32,7 @@ const Login = ({ setModalOpen }) => {
   function validateUser(e) {
     e.preventDefault();
 
-    fetch('http://10.58.52.88:8002/users/login', {
+    fetch('http://10.58.52.234:8002/users/login', {
       method: 'POST',
       headers: { 'Content-type': 'application/json;charset=utf-8' },
       body: JSON.stringify(userInfo),
@@ -43,8 +40,12 @@ const Login = ({ setModalOpen }) => {
       .then(response => response.json())
 
       .then(data => {
-        if (data.message === 'login success') {
-          navigate({ goToMain });
+        if (data.accessToken) {
+          localStorage.setItem('TOKEN', data.accessToken);
+          alert('로그인에 성공했습니다');
+          navigate('/');
+        } else {
+          alert('아이디와 비밀번호를 확인해 주세요');
         }
       });
   }
@@ -84,7 +85,7 @@ const Login = ({ setModalOpen }) => {
               <button
                 type="button"
                 onClick={() => {
-                  setShowPw(!showPw);
+                  setShowPw(prev => !prev);
                 }}
                 className="see"
               >
