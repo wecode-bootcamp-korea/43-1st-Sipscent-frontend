@@ -10,7 +10,7 @@ const ProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch('/data/teaListData.json')
+    fetch('/data/cupListData.json')
       .then(response => response.json())
       .then(data => setProductData([data]));
   }, []);
@@ -77,10 +77,11 @@ const ProductList = () => {
           </p>
         </div>
         {productData &&
-          productData[0]?.floralteabags.map(product => {
+          productData[0]?.items.map(product => {
             return (
               <ProductWrap
                 key={product.id}
+                categoryName={product.category_name}
                 typeName={product.type_name}
                 img={product.image_url}
                 name={product.name}

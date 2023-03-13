@@ -1,9 +1,10 @@
 {
-  "floralTeacups": [
+  "items": [
     {
       "id": 16,
       "name": "화이트도티드",
       "type_name": "찻잔",
+      "category_name": "Floral",
       "image_url": "https://images.unsplash.com/photo-1610292897006-8b46ac00bca0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "price": "49000.00",
       "description": "흰 바탕에 점무늬가 반복되는 심플함을 담은 찻잔"
@@ -12,6 +13,7 @@
       "id": 17,
       "name": "블루로벨리아",
       "type_name": "찻잔",
+      "category_name": "Floral",
       "image_url": "https://images.unsplash.com/photo-1580666622398-d5bffc4c9051?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "price": "52000.00",
       "description": "로벨리아 꽃이 연상되는 푸른색 바탕의 찻잔"
@@ -20,6 +22,7 @@
       "id": 18,
       "name": "펌킨플라이",
       "type_name": "찻잔",
+      "category_name": "Floral",
       "image_url": "https://images.unsplash.com/photo-1616371041303-a468ea826828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "price": "47000.00",
       "description": "호박색 나비가 날아가는 듯한 모습의 찻잔"

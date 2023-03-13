@@ -1,9 +1,10 @@
 {
-  "floralteabags": [
+  "items": [
     {
       "id": 1,
-      "type_name": "티백",
       "name": "로즈",
+      "category_name": "Floral",
+      "type_name": "티백",
       "image_url": "https://images.unsplash.com/photo-1608036586781-26f0d5debbee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
       "price": "29000.00",
       "description": "오월에 장미가 꽃필 무렵 마을에 퍼지는 화려하고 그윽한 향을 선사하는 차",
@@ -12,8 +13,9 @@
     },
     {
       "id": 2,
-      "type_name": "티백",
       "name": "자스민",
+      "category_name": "Floral",
+      "type_name": "티백",
       "image_url": "https://images.unsplash.com/photo-1467164616789-ce7ae65ab4c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
       "price": "31000.00",
       "description": "비 내린 뒤의 풍경처럼 차분하고 안개처럼 은은함을 선물하는 차",
@@ -22,8 +24,9 @@
     },
     {
       "id": 3,
-      "type_name": "티백",
       "name": "은방울꽃",
+      "category_name": "Floral",
+      "type_name": "티백",
       "image_url": "https://images.unsplash.com/photo-1597620141633-81170e16af34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80",
       "price": "33000.00",
       "description": "하늘 속 구름처럼 우아하고 종이 울리는 소리가 들리는 듯한 차",
@@ -32,8 +35,9 @@
     },
     {
       "id": 4,
-      "type_name": "티백",
       "name": "라일락",
+      "category_name": "Floral",
+      "type_name": "티백",
       "image_url": "https://images.unsplash.com/photo-1454678993613-d4fc4bd5f496?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "price": "35000.00",
       "description": "보랏빛 향이 길가에 퍼지는 기분을 느낄 수 있는 차",
@@ -42,8 +46,9 @@
     },
     {
       "id": 5,
-      "type_name": "티백",
       "name": "벚꽃",
+      "category_name": "Floral",
+      "type_name": "티백",
       "image_url": "https://images.unsplash.com/photo-1553276045-1b0d2bb2ef1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80",
       "price": "38000.00",
       "description": "꽃잎처럼 부드럽고 달콤한 향이 감도는 차",
