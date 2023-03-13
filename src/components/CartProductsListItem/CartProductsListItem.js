@@ -4,11 +4,10 @@ import './CartProductsListItem.scss';
 const CartProductsListItem = () => {
   const [number, setNumber] = useState(1);
 
-  const subtract = () => {
-    setNumber(number - 1);
-    if (number < 2) {
-      setNumber(1);
-    }
+  const handleItemNum = value => {
+    if (number + value === 0) return;
+
+    setNumber(prev => prev + value);
   };
 
   return (
@@ -16,14 +15,19 @@ const CartProductsListItem = () => {
       <div className="cartProductstName">로즈티</div>
       <div className="cartProductsAmount">15g</div>
       <div className="cartProductsCount">
-        <button className="minusButton" onClick={subtract}>
+        <button
+          className="minusButton"
+          onClick={() => {
+            handleItemNum(-1);
+          }}
+        >
           ➖
         </button>
         <span className="cartProductstNum">{number}</span>
         <button
           className="plusButton"
           onClick={() => {
-            setNumber(number + 1);
+            handleItemNum(1);
           }}
         >
           ➕
