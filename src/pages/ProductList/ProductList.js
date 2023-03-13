@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import ProductWrap from './ProductWrap';
 import Filter from '../../components/Filter/Filter';
 import './ProductList.scss';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 const ProductList = () => {
   const [productData, setProductData] = useState([]);
-  //console.log(productData);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     fetch('/data/teaListData.json')
       .then(response => response.json())
-      .then(data => setProductData(data));
+      .then(data => setProductData([data]));
   }, []);
 
   const params = useParams();
@@ -23,6 +23,8 @@ const ProductList = () => {
       .then(res => res.json())
       .then(data => setProductData(data));
   }, []);
+
+  console.log(params.category + params.subcategory);
 
   return (
     <div className="productList">
@@ -75,15 +77,15 @@ const ProductList = () => {
           </p>
         </div>
         {productData &&
-          productData.map(product => {
+          productData[0]?.floralteabags.map(product => {
             return (
               <ProductWrap
                 key={product.id}
-                itemType={product.item_type}
+                typeName={product.type_name}
                 img={product.image_url}
                 name={product.name}
-                scent={product.tasting_notes}
-                amount={product.size}
+                tastingNotes={product.tasting_notes}
+                size={product.teabag_size}
                 description={product.description}
                 price={product.price}
               />

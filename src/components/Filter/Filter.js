@@ -54,8 +54,8 @@ const TASTING_NOTES = [
 ];
 
 const PRICE_RANGE = [
-  { id: 1, range: '₩ 22500 - ₩ 25000' },
-  { id: 1, range: '₩ 25000 - ₩ 32500' },
-  { id: 1, range: '₩ 32500 - ₩ 35000' },
-  { id: 1, range: '₩ 35000 +' },
+  { id: 1, range: '~ ₩ 30,000 ' },
+  { id: 2, range: '₩ 30,000 ~ ₩ 40,000' },
+  { id: 3, range: '₩ 40,000 ~ ₩ 50,000' },
+  { id: 4, range: '₩ 50,000 ~' },
 ];

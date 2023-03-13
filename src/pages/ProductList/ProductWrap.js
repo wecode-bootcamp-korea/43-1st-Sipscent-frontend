@@ -4,11 +4,11 @@ import './ProductWrap.scss';
 
 const ProductWrap = ({
   key,
-  itemType,
+  typeName,
   img,
   name,
-  scent,
-  amount,
+  tastingNotes,
+  size,
   description,
   price,
 }) => {
@@ -30,15 +30,17 @@ const ProductWrap = ({
           <img className="teaBagImg" src={img} alt="tea bag" />
         </div>
         <h3 className="teaName">{name}</h3>
-        {itemType === '티백' ? (
+        {typeName === '티백' ? (
           <>
             <p className="teaScent">
               <span className="teaScentTitle">향</span>
-              <span>{scent}</span>
+              <span>
+                {tastingNotes[0]}, {tastingNotes[1]}
+              </span>
             </p>
             <p className="teaAmount">
               <span className="teaAmountTitle">용량</span>
-              <span>{amount}g</span>
+              <span>{size}g</span>
             </p>
           </>
         ) : (
@@ -50,7 +52,9 @@ const ProductWrap = ({
       </Link>
       <button
         className={isHover ? 'addCartButton' : 'hiddenButton'}
-      >{`카트에 추가 - ₩ ${price}`}</button>
+      >{`카트에 추가 - ₩ ${Math.trunc(price)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}</button>
     </div>
   );
 };
