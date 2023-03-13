@@ -10,7 +10,7 @@ const ProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch('/data/cupListData.json')
+    fetch('/data/teaListData.json')
       .then(response => response.json())
       .then(data => setProductData([data]));
   }, []);
@@ -24,12 +24,12 @@ const ProductList = () => {
       .then(data => setProductData(data));
   }, []);
 
-  console.log(params.category + params.subcategory);
-
   return (
     <div className="productList">
       {/*{productData[0].category_id} */}
-      <h1 className="titleFloral">플로럴</h1>
+      <h1 className="titleFloral">
+        {productData && productData[0]?.items[0].category_name}
+      </h1>
       <div className="selectBoxWrap">
         <select className="selectBox">
           <option value="">정렬</option>
