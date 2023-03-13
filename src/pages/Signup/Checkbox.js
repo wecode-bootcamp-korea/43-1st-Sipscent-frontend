@@ -6,11 +6,11 @@ const Checkbox = ({ key, head, errMsg, name, isClickedSignup }) => {
 
   const chkBxValueChange = e => {
     const { name, value } = e.target;
-    setChkBx({ ...chkBx, [name]: value });
+    setChkBx(prev => ({ ...prev, [name]: value }));
   };
 
   const isChkBxClick = () => {
-    setChkBx(!chkBx);
+    setChkBx(prev => !prev);
   };
 
   return (

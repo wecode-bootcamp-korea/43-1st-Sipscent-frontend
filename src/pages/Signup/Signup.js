@@ -33,7 +33,7 @@ const Signup = ({ setModalOpen }) => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
-  //pw 변경 state
+
   const [showPw, setShowPw] = useState(false);
   const [pwMessage, setPwMessage] = useState('');
 
@@ -53,9 +53,6 @@ const Signup = ({ setModalOpen }) => {
     const currentEmail = e.target.value;
     setInputValue.user(currentEmail);
   };
-
-  //비밀번호
-
   const onChangePw = e => {
     const currentPw = e.target.value;
     setInputValue.password(currentPw);
@@ -65,9 +62,9 @@ const Signup = ({ setModalOpen }) => {
       setPwMessage('6자리 이상 필요합니다.');
     }
   };
-  console.log(inputValue);
+
   return (
-    <div className="modalBg">
+    <div className="signup">
       <div className="signInWrapper">
         <div className="container">
           <h1 className="header">회원가입</h1>
@@ -158,16 +155,3 @@ const TERMS_OF_USE = [
     name: 'third',
   },
 ];
-
-// const modalRef = useRef(null);
-// useEffect(e => {
-//   const handler = () => {
-//     if (!modalRef.current) return;
-
-//     setModalOpen(false);
-//   };
-//   document.addEventListener('mousedown', handler);
-//   return () => {
-//     document.removeEventListener('mousedown', handler);
-//   };
-// });

@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-.modalBg {
+.signup {
   display: flex;
   position: fixed;
   top: 0;
@@ -16,11 +16,7 @@
     display: flex;
     position: absolute;
     z-index: 999;
-    // top: 50%;
-    // left: 50%;
-    // width: 50%;
 
-    // transform: translate(-50%, -50%);
     background-color: $mainBackground;
     .container {
       display: flex;
