@@ -41,7 +41,7 @@ const Order = () => {
         setOrderProductData([data]);
       });
   }, []);
-
+  console.log(orderProductData[0]?.orderList[0].item_id);
   return (
     <div className="order">
       <div className="orderInfoContainer">
@@ -54,8 +54,8 @@ const Order = () => {
             </div>
           ))}
           <form className="orderUserInfoInputContainer">
-            {ORDER_INPUT_DATA.map(({ title, helpText, name }, key) => (
-              <div key={key} className="orderUserInfoInputBox">
+            {ORDER_INPUT_DATA.map(({ title, helpText, name }, item_id) => (
+              <div key={item_id} className="orderUserInfoInputBox">
                 <div>{title}</div>
                 <input
                   onChange={handleValueChange}
@@ -74,8 +74,8 @@ const Order = () => {
       <div className="orderSummary">
         <h1 className="orderHead">제품 결제 요약</h1>
         {orderProductData[0]?.orderList.map(
-          ({ itemname, quantity, price }, key) => (
-            <div key={key} className="orderSummaryProductList">
+          ({ itemname, quantity, price }, item_id) => (
+            <div key={item_id} className="orderSummaryProductList">
               <div className="orderSummaryProduct">
                 <div>{itemname}</div>
                 <div>{quantity} 개</div>
@@ -112,11 +112,7 @@ const Order = () => {
           </div>
         ))}
         <div className="orderButtonBox">
-          <button
-            onClick={e => handleSubmit(e)}
-            type="button"
-            className="orderButton"
-          >
+          <button onClick={handleSubmit} type="button" className="orderButton">
             결제하기
           </button>
         </div>
