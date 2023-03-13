@@ -14,10 +14,8 @@
     background-color: &mainBackground;
 
     .sectionInfoBox {
-      display: flex;
+      @include displayFlex(center, center);
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       width: 50%;
 
       .sectionInfoContents {
@@ -68,10 +66,8 @@
       flex: none;
 
       .sectionCarouselInfoBox {
-        display: flex;
+        @include displayFlex(center, center);
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         width: 700px;
         padding: 0px 200px;
 
@@ -98,10 +94,8 @@
         }
 
         .sectionCarouselImageInfo {
-          display: flex;
+          @include displayFlex(center, center);
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
           color: $buttonTextDefault;
 
           .sectionCarouselImageName {
