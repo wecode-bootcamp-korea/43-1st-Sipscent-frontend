@@ -24,11 +24,13 @@ const ProductList = () => {
       .then(data => setProductData(data));
   }, []);
 
+  console.log(productData);
+
   return (
     <div className="productList">
       {/*{productData[0].category_id} */}
       <h1 className="titleFloral">
-        {productData && productData[0]?.items[0].category_name}
+        {productData && productData[0]?.items[0][0].category_name}
       </h1>
       <div className="selectBoxWrap">
         <select className="selectBox">
@@ -68,16 +70,14 @@ const ProductList = () => {
       <div className="productListWrap">
         <div className="productComment">
           <h2 className="productExplainTitle">
-            감각을 자극하면서 향기로운 고요함을 불어넣는 홈 케어 제품
+            {productData && productData[0]?.items[1][0].category_title}
           </h2>
           <p className="productExplain">
-            ‘집은 우리의 정서적 심장부’라고 세계적으로 유명한 디자이너 일세
-            크로포드(Ilse Crawford)는 말했습니다. 이 명언에 어울리게 이솝은
-            실용성과 즐거움 모두를 만족시키는 다양한 아로마 제품들을 제공합니다.
+            {productData && productData[0]?.items[1][0].category_description}
           </p>
         </div>
         {productData &&
-          productData[0]?.items.map(product => {
+          productData[0]?.items[0].map(product => {
             return (
               <ProductWrap
                 key={product.id}
