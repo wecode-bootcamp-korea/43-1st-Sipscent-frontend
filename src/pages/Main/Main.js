@@ -3,32 +3,21 @@ import { MAIN_CATEGORY } from './mainCategoryData';
 import './Main.scss';
 
 const Main = () => {
-  const sectionRef = useRef(null);
-  const [next, setNext] = useState(0);
-  const carouselButtonCount = 3;
+  const sectionRef = useRef();
+  const [slide, setSlide] = useState(0);
+  const carouselButtonCount = MAIN_CATEGORY.length / 2;
 
-  const nextButton = e => {
-    if (next >= carouselButtonCount) {
-      setNext(3);
-    } else {
-      setNext(next + 1);
-    }
-  };
-  const prevButton = e => {
-    if (next > carouselButtonCount) {
-      setNext(3);
-    } else {
-      setNext(next - 1);
-    }
-    if (next < 1) {
-      setNext(0);
-    }
+  const handleSlideBtn = value => {
+    if (slide + value === carouselButtonCount + 1 || slide + value === -1)
+      return;
+
+    setSlide(prev => prev + value);
   };
 
   useEffect(() => {
     sectionRef.current.style.transition = 'all 0.5s ease-in-out';
-    sectionRef.current.style.transform = `translateX(-${next * 500}px)`;
-  }, [next]);
+    sectionRef.current.style.transform = `translateX(-${slide * 600}px)`;
+  }, [slide]);
 
   return (
     <div className="main">
@@ -52,10 +41,16 @@ const Main = () => {
       </section>
       <section className="sectionCarousel">
         <div className="sectionCarouselButtonBox">
-          <button onClick={prevButton} className="sectionCarouselButton Prev">
+          <button
+            onClick={() => handleSlideBtn(-1)}
+            className="sectionCarouselButton Prev"
+          >
             {'<'}
           </button>
-          <button onClick={nextButton} className="sectionCarouselButton Next">
+          <button
+            onClick={() => handleSlideBtn(1)}
+            className="sectionCarouselButton Next"
+          >
             {'>'}
           </button>
         </div>
@@ -68,16 +63,15 @@ const Main = () => {
               오퓰런트 계열로 나뉘며, 경우에 따라 두 가지에 속하기도 합니다.
             </p>
           </li>
-          {MAIN_CATEGORY &&
-            MAIN_CATEGORY.map((info, key) => (
-              <li key={key} className="sectionCarouselImageBox">
-                <img className="sectionCarouselImage" src={info.image} />
-                <div className="sectionCarouselImageInfo">
-                  <h2 className="sectionCarouselImageName">{info.name}</h2>
-                  <p className="sectionCarouselImageParagraph">{info.text}</p>
-                </div>
-              </li>
-            ))}
+          {MAIN_CATEGORY.map(({ image, name, text }, key) => (
+            <li key={key} className="sectionCarouselImageBox">
+              <img className="sectionCarouselImage" src={image} />
+              <div className="sectionCarouselImageInfo">
+                <h2 className="sectionCarouselImageName">{name}</h2>
+                <p className="sectionCarouselImageParagraph">{text}</p>
+              </div>
+            </li>
+          ))}
         </ul>
       </section>
     </div>
