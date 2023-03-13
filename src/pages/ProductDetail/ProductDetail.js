@@ -22,7 +22,6 @@ const ProductDetail = () => {
             <img
               className="productImgUrl"
               src="/images/ProductDetail/라일락차.jpg"
-              //src={teaOrCupDetail.image_url}
               alt="teabag"
             />
           </div>
@@ -31,18 +30,13 @@ const ProductDetail = () => {
           <div className="productDetailHeader">
             <div className="productSort">Floral</div>
             <h2 className="productName">Item Name</h2>
-            {/* <h2 className="productName">{teaOrCupDetail.name}</h2> */}
             <p className="productExplain">
               비 내린 뒤의 풍경처럼 차분하고 안개처럼 은은함을 선물하는 차
             </p>
-            {/* <p className="productExplain">{teaOrCupDetail.description}</p> */}
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">Tasting Notes</h4>
             <p className="productDetailContentText">은은한, 차분한</p>
-            {/* <p className="productDetailContentText">
-              {teaOrCupDetail.tasting_notes}
-            </p> */}
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">향</h4>
@@ -51,9 +45,6 @@ const ProductDetail = () => {
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">용량</h4>
             <p className="productDetailContentText">18g</p>
-            {/* <p className="productDetailContentText">
-              {teaOrCupDetail.teabag_size}
-            </p> */}
           </div>
           <div className="addCart">
             <button className="addCartButton">
