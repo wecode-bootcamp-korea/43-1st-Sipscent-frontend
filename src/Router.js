@@ -8,6 +8,8 @@ import Order from './pages/Order/Order';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
+import Login from './components/Login/Login';
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -21,6 +23,8 @@ const Router = () => {
         />
         <Route path="/productdetail" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
+
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </BrowserRouter>
