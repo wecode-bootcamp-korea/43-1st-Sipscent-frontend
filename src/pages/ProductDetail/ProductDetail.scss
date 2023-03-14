@@ -1,0 +1,109 @@
+@import '../../styles/variables';
+
+.productDetail {
+  width: 100vw;
+  color: $buttonTextDefault;
+  font-weight: 300;
+
+  .productDetailContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 70px;
+    margin: 150px 0;
+
+    .productImgWrap {
+      @include displayFlex(flex-end, null);
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      .productImg {
+        width: 400px;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+
+    .productDetailInfo {
+      @include displayFlex(space-between, flex-start);
+      flex-direction: column;
+      width: 80%;
+
+      .productDetailHeader {
+        @include displayFlex(space-around, flex-start);
+        flex-direction: column;
+        height: 150px;
+        border-bottom: 2px solid #4a4a4a;
+
+        .productsort {
+        }
+
+        .productName {
+          font-size: 30px;
+          font-weight: normal;
+        }
+
+        .productExplain {
+        }
+      }
+
+      .productDetailContent {
+        @include displayFlex(center, flex-start);
+        flex-direction: column;
+        width: 100%;
+        height: 100px;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+        line-height: 1.7rem;
+
+        .productDetailContentTitle {
+          font-weight: normal;
+        }
+
+        .productDetailContentText {
+        }
+      }
+
+      .addCart {
+        width: 100%;
+        .addCartButton {
+          width: 100%;
+          height: 65px;
+          border: none;
+          background-color: $buttonTextDefault;
+          color: $mainBackground;
+
+          &:hover {
+            background-color: $buttonHover;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .productDetailFooterWrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 150px;
+
+    .productDetailFooter {
+      @include displayFlex(center, center);
+      flex-direction: column;
+      height: 100px;
+      border-right: 1px solid rgba(51, 51, 51, 0.2);
+      line-height: 1.7rem;
+
+      .productDetailFooterTitle {
+        font-weight: normal;
+      }
+
+      .productDetailFooterText {
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
