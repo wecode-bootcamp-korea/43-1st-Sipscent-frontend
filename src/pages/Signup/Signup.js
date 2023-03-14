@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import { SIGN_UP_INPUT_DATA } from './SIGN_UP_INPUT_DATA';
 import './Signup.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = ({ setModalOpen }) => {
   const [isClickedSignup, setIsClickedSignup] = useState(false);
-
+  const navigate = useNavigate();
   const handleSubmit = () => {
     setIsClickedSignup(true);
-    fetch('http://10.58.52.175:8002/users/signup', {
+    fetch('http://10.58.52.228:8002/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -16,7 +17,14 @@ const Signup = ({ setModalOpen }) => {
       body: JSON.stringify(inputValue),
     })
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.message === 'SUCCESS_SIGNUP') {
+          alert('회원가입에 성공했습니다');
+          navigate('/');
+        } else {
+          alert('아이디와 비밀번호를 확인해 주세요');
+        }
+      });
   };
 
   const closeModal = () => {
