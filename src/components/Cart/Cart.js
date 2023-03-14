@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CartProductsListItem from '../CartProductsListItem/CartProductsListItem';
 import './Cart.scss';
 
-const Cart = () => {
+const Cart = ({ isCartOpen, setIsCartOpen }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,14 @@ const Cart = () => {
           <div>상품명</div>
           <div>용량</div>
           <div>수량</div>
-          <button className="closeButton">X</button>
+          <button
+            className="closeButton"
+            onClick={() => {
+              setIsCartOpen(false);
+            }}
+          >
+            X
+          </button>
         </div>
         <ul className="cartProductsList">
           <CartProductsListItem />
