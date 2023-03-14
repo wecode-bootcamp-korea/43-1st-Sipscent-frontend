@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Cart.scss';
 
-const Cart = () => {
+const Cart = ({ isCartOpen, setIsCartOpen }) => {
   const [number, setNumber] = useState(1);
 
   const subtract = () => {
@@ -17,7 +17,14 @@ const Cart = () => {
           <div>상품명</div>
           <div>용량</div>
           <div>수량</div>
-          <button className="closeButton">X</button>
+          <button
+            className="closeButton"
+            onClick={() => {
+              setIsCartOpen(false);
+            }}
+          >
+            X
+          </button>
         </div>
         <ul className="cartProductsList">
           <li className="cartProductsListItem">

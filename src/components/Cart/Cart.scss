@@ -63,11 +63,15 @@
 
           .deleteButton {
             margin-left: 30px;
+            transition-property: all;
+            transition-duration: 0.7s;
             border: none;
+            opacity: 0;
             background-color: #252525;
             color: #bcbbb4;
 
             &:hover {
+              opacity: 1;
               cursor: pointer;
             }
           }
