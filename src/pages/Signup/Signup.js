@@ -22,7 +22,7 @@ const Signup = ({ setModalOpen }) => {
           alert('회원가입에 성공했습니다');
           navigate('/');
         } else {
-          alert('아이디와 비밀번호를 확인해 주세요');
+          alert('이메일과 비밀번호를 확인해 주세요');
         }
       });
   };
