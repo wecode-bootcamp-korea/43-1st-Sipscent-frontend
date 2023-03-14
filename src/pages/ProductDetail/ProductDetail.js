@@ -3,16 +3,40 @@ import { useParams } from 'react-router-dom';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
-  const [teaOrCupDetail, setTeaOrCupDetail] = useState[{}];
+  const [productDetailData, setProductDetailData] = useState({});
   const params = useParams();
 
   useEffect(() => {
-    fetch(`IP address/${params.id}`)
+    fetch('/data/teaListData.json')
       .then(response => response.json())
-      .then(data => setTeaOrCupDetail(data));
+      .then(data => setProductDetailData(data));
   }, [params.id]);
 
-  const priceNum = 35000;
+  useEffect(() => {
+    fetch(`http://10.58.52.228:8002/items/${params.id}`)
+      .then(response => response.json())
+      .then(data => setProductDetailData(data));
+  }, [params.id]);
+
+  const addToCart = () => {
+    fetch('http://10.58.52.228:8002/carts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify({
+        itemId: params.id,
+        quantity: 1,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert('장바구니에 담겼습니다');
+      });
+  };
+
+  if (Object.keys(productDetailData).length === 0) return null;
 
   return (
     <div className="productDetail">
@@ -28,27 +52,40 @@ const ProductDetail = () => {
         </div>
         <div className="productDetailInfo">
           <div className="productDetailHeader">
-            <div className="productSort">Floral</div>
-            <h2 className="productName">Item Name</h2>
+            <div className="productSort">
+              {productDetailData.items[0][params.id - 1].category_name}
+            </div>
+            <h2 className="productName">
+              {productDetailData.items[0][params.id - 1].name}
+            </h2>
             <p className="productExplain">
-              비 내린 뒤의 풍경처럼 차분하고 안개처럼 은은함을 선물하는 차
+              {productDetailData.items[0][params.id - 1].description}
             </p>
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">Tasting Notes</h4>
-            <p className="productDetailContentText">은은한, 차분한</p>
+            <p className="productDetailContentText">
+              {productDetailData.items[0][params.id - 1].tasting_notes}
+            </p>
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">향</h4>
-            <p className="productDetailContentText">플로럴</p>
+            <p className="productDetailContentText">
+              {productDetailData.items[0][params.id - 1].name}
+            </p>
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">용량</h4>
-            <p className="productDetailContentText">18g</p>
+            <p className="productDetailContentText">
+              {productDetailData.items[0][params.id - 1].teabag_size}g
+            </p>
           </div>
           <div className="addCart">
-            <button className="addCartButton">
-              카트에 추가하기 - ₩ {priceNum.toLocaleString()}
+            <button className="addCartButton" onClick={addToCart}>
+              카트에 추가하기 - ₩{' '}
+              {productDetailData.items[0][params.id - 1].price
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </button>
           </div>
         </div>
