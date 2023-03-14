@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Checkbox from './Checkbox';
 import { SIGN_UP_INPUT_DATA } from './SIGN_UP_INPUT_DATA';
 import './Signup.scss';
@@ -35,7 +35,6 @@ const Signup = ({ setModalOpen }) => {
   };
 
   const [showPw, setShowPw] = useState(false);
-  const [pwMessage, setPwMessage] = useState('');
 
   const conditions = {
     email:
@@ -45,24 +44,6 @@ const Signup = ({ setModalOpen }) => {
     password:
       inputValue.password.length > 5 || inputValue.password.length === 0,
   };
-  const emailRegExp =
-    (inputValue.email.includes('@', 5) && inputValue.email.includes('.', 9)) ||
-    !inputValue.email;
-
-  const onChangeEmail = e => {
-    const currentEmail = e.target.value;
-    setInputValue.user(currentEmail);
-  };
-  const onChangePw = e => {
-    const currentPw = e.target.value;
-    setInputValue.password(currentPw);
-    if (inputValue.password.length > 5) {
-      setPwMessage(null);
-    } else {
-      setPwMessage('6자리 이상 필요합니다.');
-    }
-  };
-
   return (
     <div className="signup">
       <div className="signInWrapper">
@@ -89,7 +70,7 @@ const Signup = ({ setModalOpen }) => {
                 {title === '비밀번호' && (
                   <button
                     onClick={() => {
-                      setShowPw(!showPw);
+                      setShowPw(prev => !prev);
                     }}
                     type="button"
                     className="signInPwView"
