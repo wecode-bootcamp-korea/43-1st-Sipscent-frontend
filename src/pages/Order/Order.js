@@ -41,14 +41,13 @@ const Order = () => {
         setOrderProductData([data]);
       });
   }, []);
-  console.log(orderProductData[0]?.orderList[0].item_id);
   return (
     <div className="order">
       <div className="orderInfoContainer">
         <div className="orderUserInfoBox">
           <h1 className="orderHead">주문자 정보</h1>
-          {orderProductData.map(({ username, email }, key) => (
-            <div key={key} className="orderUserInfo">
+          {orderProductData.map(({ username, email }, item_id) => (
+            <div key={item_id} className="orderUserInfo">
               <p className="orderUserInfoUserName">{username}</p>
               <p className="orderUserInfoUserEmail">{email}</p>
             </div>

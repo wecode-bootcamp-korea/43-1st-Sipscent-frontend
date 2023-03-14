@@ -1,4 +1,3 @@
-@import '../../styles/common';
 @import '../../styles/variables';
 
 .order {
@@ -68,65 +67,66 @@
       }
     }
   }
-}
-.orderSummary {
-  width: 35%;
-  padding: 100px 100px;
-  background-color: rgb(235, 234, 222);
-  color: $buttonTextDefault;
-  font-size: 20px;
-  line-height: 30px;
-  .orderHead {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-    font-size: 36px;
-    font-weight: 300;
-  }
-  .orderSummaryProductList {
-    margin-bottom: 5%;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.202);
-    .orderSummaryProduct {
-      display: flex;
-      justify-content: space-between;
-    }
-    .orderSummaryProductPrice {
-      display: flex;
-      justify-content: right;
-    }
-  }
-  .orderSummaryTotal {
-    padding-top: 10%;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.262);
-    .orderSummaryPoint {
-      display: flex;
-      justify-content: space-between;
-    }
-    .orderSummaryTotalPrice {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10%;
-      font-size: 24px;
-    }
-  }
-}
-.orderButtonBox {
-  display: flex;
-  padding: 20%;
 
-  .orderButton {
-    width: 300px;
-    height: 80px;
-    border: none;
-    border-radius: 10px;
-    background-color: $buttonTextDefault;
-    color: $mainBackground;
-    font-size: 16px;
-    &:hover {
-      background-color: $buttonHover;
-      cursor: pointer;
+  .orderSummary {
+    width: 35%;
+    padding: 100px 100px;
+    background-color: rgb(235, 234, 222);
+    color: $buttonTextDefault;
+    font-size: 20px;
+    line-height: 30px;
+    .orderHead {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+      font-size: 36px;
+      font-weight: 300;
+    }
+    .orderSummaryProductList {
+      margin-bottom: 5%;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.202);
+      .orderSummaryProduct {
+        display: flex;
+        justify-content: space-between;
+      }
+      .orderSummaryProductPrice {
+        display: flex;
+        justify-content: right;
+      }
+    }
+    .orderSummaryTotal {
+      padding-top: 10%;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.262);
+      .orderSummaryPoint {
+        display: flex;
+        justify-content: space-between;
+      }
+      .orderSummaryTotalPrice {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10%;
+        font-size: 24px;
+      }
+    }
+  }
+  .orderButtonBox {
+    display: flex;
+    padding: 20%;
+
+    .orderButton {
+      width: 300px;
+      height: 80px;
+      border: none;
+      border-radius: 10px;
+      background-color: $buttonTextDefault;
+      color: $mainBackground;
+      font-size: 16px;
+      &:hover {
+        background-color: $buttonHover;
+        cursor: pointer;
+      }
     }
   }
 }
