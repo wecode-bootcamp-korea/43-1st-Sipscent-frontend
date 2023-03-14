@@ -1,6 +1,11 @@
 @import '../../styles/variables';
 
 .cart {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
   padding: 40px;
   background-color: #252525;
   color: #bcbbb4;
