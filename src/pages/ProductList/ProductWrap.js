@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import './ProductWrap.scss';
 
 const ProductWrap = ({
-  key,
   id,
   typeName,
   img,
@@ -20,7 +19,6 @@ const ProductWrap = ({
 
   return (
     <div
-      key={key}
       className="productWrap"
       onMouseOver={() => {
         setIsHover(true);

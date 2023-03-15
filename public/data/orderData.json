@@ -1,0 +1,48 @@
+{
+  "orderList": [
+    {
+      "id": 39,
+      "item_id": 1,
+      "username": "김수현",
+      "email": "93cherry@naver.com",
+      "itemname": "로즈",
+      "quantity": 2,
+      "price": "58000",
+      "totalPrice": "157000",
+      "point": "900000"
+    },
+    {
+      "id": 40,
+      "item_id": 2,
+      "username": "김수현",
+      "email": "93cherry@naver.com",
+      "itemname": "자스민",
+      "quantity": 1,
+      "price": "31000",
+      "totalPrice": "157000",
+      "point": "900000"
+    },
+    {
+      "id": 42,
+      "item_id": 3,
+      "username": "김수현",
+      "email": "93cherry@naver.com",
+      "itemname": "은방울꽃",
+      "quantity": 1,
+      "price": "33000",
+      "totalPrice": "157000",
+      "point": "900000"
+    },
+    {
+      "id": 45,
+      "item_id": 4,
+      "username": "김수현",
+      "email": "93cherry@naver.com",
+      "itemname": "라일락",
+      "quantity": 1,
+      "price": "35000",
+      "totalPrice": "157000",
+      "point": "900000"
+    }
+  ]
+}

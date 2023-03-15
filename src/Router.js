@@ -9,6 +9,8 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+import Login from './components/Login/Login';
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -21,8 +23,10 @@ const Router = () => {
           path="/productlist/:category/:subcategory"
           element={<ProductList />}
         />
-        <Route path="/productdetail" element={<ProductDetail />} />
+        <Route path="/productdetail/:id" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
+
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </BrowserRouter>
