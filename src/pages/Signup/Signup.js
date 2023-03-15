@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Checkbox from './Checkbox';
-import { SIGN_UP_INPUT_DATA } from './SIGN_UP_INPUT_DATA';
-import './Signup.scss';
 import { useNavigate } from 'react-router-dom';
+import { SIGN_UP_INPUT_DATA } from './SIGN_UP_INPUT_DATA';
+import Checkbox from './Checkbox';
+import './Signup.scss';
 
 const Signup = ({ setModalOpen }) => {
   const [isClickedSignup, setIsClickedSignup] = useState(false);
