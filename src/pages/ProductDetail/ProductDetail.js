@@ -48,7 +48,7 @@ const ProductDetail = () => {
           <div className="productImg">
             <img
               className="productImgUrl"
-              src={productDetailData.items[0][params.id - 1].image_url}
+              src={productDetailData.items[0].image_url}
               alt="teabag"
             />
           </div>
@@ -56,37 +56,35 @@ const ProductDetail = () => {
         <div className="productDetailInfo">
           <div className="productDetailHeader">
             <div className="productSort">
-              {productDetailData.items[0][params.id - 1].category_name}
+              {productDetailData.items[0].category_name}
             </div>
-            <h2 className="productName">
-              {productDetailData.items[0][params.id - 1].name}
-            </h2>
+            <h2 className="productName">{productDetailData.items[0].name}</h2>
             <p className="productExplain">
-              {productDetailData.items[0][params.id - 1].description}
+              {productDetailData.items[0].description}
             </p>
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">Tasting Notes</h4>
             <p className="productDetailContentText">
-              {productDetailData.items[0][params.id - 1].tasting_notes}
+              {productDetailData.items[0].tasting_notes}
             </p>
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">향</h4>
             <p className="productDetailContentText">
-              {productDetailData.items[0][params.id - 1].name}
+              {productDetailData.items[0].name}
             </p>
           </div>
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">용량</h4>
             <p className="productDetailContentText">
-              {productDetailData.items[0][params.id - 1].teabag_size}g
+              {productDetailData.items[0].teabag_size}g
             </p>
           </div>
           <div className="addCart">
             <button className="addCartButton" onClick={addToCart}>
               카트에 추가하기 - ₩{' '}
-              {productDetailData.items[0][params.id - 1].price
+              {productDetailData.items[0].price
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </button>
