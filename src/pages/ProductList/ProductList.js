@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ProductWrap from './ProductWrap';
 import Filter from '../../components/Filter/Filter';
+import APIS from '../../config';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -20,7 +21,7 @@ const ProductList = () => {
 
   useEffect(() => {
     fetch(
-      `IP주소/items/${params.category}/${params.subcategory}${location.search}`
+      `${APIS.items}/${params.category}/${params.subcategory}${location.search}`
     )
       .then(res => res.json())
       .then(data => setProductData(data));
