@@ -32,7 +32,7 @@ const ProductWrap = ({
         navigate(`/productdetail/${id}`);
       }}
     >
-      <Link className="productInfo" to="/productdetail">
+      <Link className="productInfo" to={`/productdetail/${id}`}>
         <div className="teaBagImgWrap">
           <img className="teaBagImg" src={img} alt="tea bag" />
         </div>
