@@ -21,59 +21,6 @@
         }
       }
     }
-
-    .cartProductsList {
-      .cartProductsListItem {
-        @include displayFlex(space-between, center);
-        padding: 25px 0;
-        border-bottom: 1px solid rgba(255, 254, 242, 0.1);
-
-        .cartProductstName {
-          margin-right: 145px;
-        }
-
-        .cartProductsAmount {
-          margin-right: 120px;
-        }
-
-        .cartProductsCount {
-          .minusButton {
-            border: none;
-            background-color: #252525;
-            font-weight: 300;
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
-
-          .cartProductstNum {
-            margin: 0 15px;
-          }
-
-          .plusButton {
-            border: none;
-            background-color: #252525;
-            font-weight: 300;
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
-
-          .deleteButton {
-            margin-left: 30px;
-            border: none;
-            background-color: #252525;
-            color: #bcbbb4;
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
-        }
-      }
-    }
   }
 
   .cartSummaryWrap {
