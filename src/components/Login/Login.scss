@@ -1,0 +1,138 @@
+@import '../../styles/variables';
+.login {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  .loginScreen {
+    display: flex;
+    position: absolute;
+    z-index: 999;
+    flex-direction: row;
+    width: 27%;
+
+    background-color: $mainBackground;
+
+    .loginWrapper {
+      width: 80%;
+      margin: 113px auto;
+      .loginContainer {
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: 400;
+      }
+
+      .loginEmail {
+        width: 100%;
+        height: 36px;
+        margin-top: 67px;
+        border-top-width: 0;
+        border-right-width: 0;
+        border-bottom-width: 1;
+        border-left-width: 0;
+
+        background: transparent;
+        font-size: 22px;
+
+        &::placeholder {
+          font-size: 25px;
+        }
+      }
+      .message {
+        padding-top: 14px;
+        color: #ea6956;
+        font-size: 15px;
+      }
+
+      .nonfalse {
+        display: none;
+      }
+
+      .false {
+        display: block;
+        color: red;
+      }
+
+      .pwWrapper {
+        position: relative;
+
+        .loginPw {
+          width: 100%;
+          height: 36px;
+          margin-top: 75px;
+          border-top-width: 0;
+          border-right-width: 0;
+          border-bottom-width: 1;
+          border-left-width: 0;
+          background: transparent;
+          font-size: 30px;
+          &::placeholder {
+            font-size: 25px;
+          }
+        }
+        .see {
+          position: absolute;
+          top: 10px;
+          top: 81px;
+          right: 1px;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+        }
+      }
+
+      .pwReset {
+        display: block;
+        margin-top: 10px;
+        border: none;
+        background: transparent;
+        color: #666;
+        font-size: 15px;
+      }
+      .pwResetWrapper {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .loginBtnWrapper {
+        width: 100%;
+        .loginBtn {
+          width: inherit;
+          height: 66px;
+          margin-top: 51px;
+          border: none;
+          background-color: $buttonTextDefault;
+          color: #f6f5e8;
+          font-size: 17px;
+          font-weight: 100;
+          cursor: pointer;
+          &:hover {
+            background-color: #000;
+          }
+        }
+      }
+      .rUOurMember {
+        width: 100%;
+        .uMember {
+          margin-top: 30px;
+
+          font-size: 40px;
+          font-weight: 300;
+        }
+      }
+    }
+    .loginCloseBtn {
+      position: absolute;
+      top: 59px;
+      right: 48px;
+      border: none;
+      background-color: transparent;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+}
