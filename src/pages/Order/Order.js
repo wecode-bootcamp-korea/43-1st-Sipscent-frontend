@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, navigate } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
 import { BASE_URL } from '../../config';
 import './Order.scss';
@@ -22,7 +22,7 @@ const Order = () => {
   }
 
   useEffect(() => {
-    fetch('/data/orderData.json')
+    fetch(`${BASE_URL}`)
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
@@ -38,7 +38,14 @@ const Order = () => {
       body: JSON.stringify(inputValue),
     })
       .then(response => response.json())
-      .then(data => data);
+      .then(data => {
+        if (data.message === 'PAYMENT_SUCCESS') {
+          alert('주문이 완료되었습니다.');
+          navigate('/');
+        } else {
+          alert('주문을 확인해 주세요.');
+        }
+      });
   };
 
   return (
