@@ -1,4 +1,4 @@
-export const BASE_URL = ‘http://’;
+export const BASE_URL = 'http://';
 
 export const APIS = {
   login: `${BASE_URL}/users/login`,
