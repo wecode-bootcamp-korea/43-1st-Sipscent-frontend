@@ -66,7 +66,8 @@ const ProductDetail = () => {
           <div className="productDetailContent">
             <h4 className="productDetailContentTitle">Tasting Notes</h4>
             <p className="productDetailContentText">
-              {productDetailData.items[0].tasting_notes}
+              {productDetailData.items[0].tasting_notes[0]},{' '}
+              {productDetailData.items[0].tasting_notes[1]}
             </p>
           </div>
           <div className="productDetailContent">
