@@ -73,55 +73,57 @@ const Cart = ({ setIsCartOpen }) => {
   };
 
   return (
-    <div className="cart">
-      <div className="cartProducts">
-        <div className="cartProductsHeader">
-          <div>상품명</div>
-          <div>용량</div>
-          <div>수량</div>
-          <button
-            className="closeButton"
-            onClick={() => {
-              setIsCartOpen(false);
-            }}
-          >
-            X
-          </button>
-        </div>
-        <ul className="cartProductsList">
-          {cartData[0]?.cartId &&
-            cartData.map(item => {
-              return (
-                <CartList
-                  key={item.cartId}
-                  cartData={cartData}
-                  setCartData={setCartData}
-                  cartId={item.cartId}
-                  name={item.itemName}
-                  amount={item.itemSize}
-                  quantity={item.quantity}
-                  totalPrice={item.totalPrice}
-                  handleItemNum={handleItemNum}
-                  deleteCartList={deleteCartList}
-                />
-              );
-            })}
-        </ul>
-      </div>
-      <div className="cartSummaryWrap">
-        <div className="cartSummary">
-          <div className="cartSummaryPriceWrap">
-            <span className="cartSummaryPrice">소계 (세금 포함)</span>
-            <span className="cartSummaryPriceNum">
-              ₩{' '}
-              {Math.trunc(cartData[0]?.cartTotalPrice)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            </span>
+    <div className="cartModal">
+      <div className="cart">
+        <div className="cartProducts">
+          <div className="cartProductsHeader">
+            <div>상품명</div>
+            <div>용량</div>
+            <div>수량</div>
+            <button
+              className="closeButton"
+              onClick={() => {
+                setIsCartOpen(false);
+              }}
+            >
+              X
+            </button>
           </div>
-          <button className="cartSummaryButton" onClick={clickOrder}>
-            결제하기
-          </button>
+          <ul className="cartProductsList">
+            {cartData[0]?.cartId &&
+              cartData.map(item => {
+                return (
+                  <CartList
+                    key={item.cartId}
+                    cartData={cartData}
+                    setCartData={setCartData}
+                    cartId={item.cartId}
+                    name={item.itemName}
+                    amount={item.itemSize}
+                    quantity={item.quantity}
+                    totalPrice={item.totalPrice}
+                    handleItemNum={handleItemNum}
+                    deleteCartList={deleteCartList}
+                  />
+                );
+              })}
+          </ul>
+        </div>
+        <div className="cartSummaryWrap">
+          <div className="cartSummary">
+            <div className="cartSummaryPriceWrap">
+              <span className="cartSummaryPrice">소계 (세금 포함)</span>
+              <span className="cartSummaryPriceNum">
+                ₩{' '}
+                {Math.trunc(cartData[0]?.cartTotalPrice)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </span>
+            </div>
+            <button className="cartSummaryButton" onClick={clickOrder}>
+              결제하기
+            </button>
+          </div>
         </div>
       </div>
     </div>
