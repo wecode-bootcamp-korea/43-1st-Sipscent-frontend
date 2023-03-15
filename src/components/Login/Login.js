@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 import './Login.scss';
 
 const Login = ({ setModalOpen }) => {
@@ -25,12 +26,13 @@ const Login = ({ setModalOpen }) => {
     userInfo.email.includes('@') &&
     userInfo.email.includes('.') &&
     userInfo.password.length >= 6;
+
   const navigate = useNavigate();
 
   function validateUser(e) {
     e.preventDefault();
 
-    fetch('http://10.58.52.234:8002/users/login', {
+    fetch(`${BASE_URL}/users/login`, {
       method: 'POST',
       headers: { 'Content-type': 'application/json;charset=utf-8' },
       body: JSON.stringify(userInfo),
@@ -77,7 +79,7 @@ const Login = ({ setModalOpen }) => {
                 placeholder="비밀번호"
               />
               {!pwChk && (
-                <p className="message"> 6자리 이상 입력이 필요합니다.</p>
+                <p className="message"> 숫자 6자리 이상 입력이 필요합니다.</p>
               )}
 
               <button
