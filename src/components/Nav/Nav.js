@@ -34,7 +34,7 @@ const Nav = () => {
           <li className="loginBtn">
             <button>로그인</button>
           </li>
-          <li className="signup">
+          <li className="signupBtn">
             <Link to="/signup">회원가입</Link>
           </li>
           <li className="cartButton">
