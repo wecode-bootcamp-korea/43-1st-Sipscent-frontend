@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import ProductWrap from './ProductWrap';
 import Filter from '../../components/Filter/Filter';
 import './ProductList.scss';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const ProductList = () => {
   const [productData, setProductData] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     fetch('/data/teaListData.json')
@@ -17,18 +16,18 @@ const ProductList = () => {
 
   const params = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    fetch(`IP주소/items/${params.category}/${params.subcategory}`)
+    fetch(
+      `IP주소/items/${params.category}/${params.subcategory}${location.search}`
+    )
       .then(res => res.json())
-      .then(data => setProductData(data));
-  }, []);
-
-  console.log(productData);
+      .then(data => setProductData([data]));
+  }, [location.search, location.pathname]);
 
   return (
     <div className="productList">
-      {/*{productData[0].category_id} */}
       <h1 className="titleFloral">
         {productData && productData[0]?.items[0][0].category_name}
       </h1>
@@ -81,6 +80,7 @@ const ProductList = () => {
             return (
               <ProductWrap
                 key={product.id}
+                id={product.id}
                 categoryName={product.category_name}
                 typeName={product.type_name}
                 img={product.image_url}
@@ -89,6 +89,8 @@ const ProductList = () => {
                 size={product.teabag_size}
                 description={product.description}
                 price={product.price}
+                paramsCategory={params.category}
+                paramsSubCategory={params.subcategory}
               />
             );
           })}

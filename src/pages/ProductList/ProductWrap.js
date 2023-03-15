@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './ProductWrap.scss';
 
 const ProductWrap = ({
   key,
+  id,
   typeName,
   img,
   name,
@@ -11,8 +12,11 @@ const ProductWrap = ({
   size,
   description,
   price,
+  paramsCategory,
+  paramsSubCategory,
 }) => {
   const [isHover, setIsHover] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div
@@ -23,6 +27,9 @@ const ProductWrap = ({
       }}
       onMouseOut={() => {
         setIsHover(false);
+      }}
+      onClick={() => {
+        navigate(`/productdetail/${id}`);
       }}
     >
       <Link className="productInfo" to="/productdetail">
