@@ -46,6 +46,7 @@ const ProductDetail = () => {
             <img
               className="productImgUrl"
               src="/images/ProductDetail/라일락차.jpg"
+              //src={productDetailData.items[0][params.id - 1].image_url}
               alt="teabag"
             />
           </div>
