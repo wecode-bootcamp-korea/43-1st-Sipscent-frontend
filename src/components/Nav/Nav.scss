@@ -51,7 +51,7 @@
   .userInfo {
     @include displayFlex(null, center);
 
-    .login {
+    .loginBtn {
       margin: 15px;
 
       button {

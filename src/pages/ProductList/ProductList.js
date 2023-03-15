@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ProductWrap from './ProductWrap';
 import Filter from '../../components/Filter/Filter';
 import './ProductList.scss';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const ProductList = () => {
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState({});
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     fetch('/data/teaListData.json')
       .then(response => response.json())
-      .then(data => setProductData([data]));
+      .then(data => setProductData(data));
   }, []);
 
   const params = useParams();
@@ -23,14 +23,14 @@ const ProductList = () => {
       `IP주소/items/${params.category}/${params.subcategory}${location.search}`
     )
       .then(res => res.json())
-      .then(data => setProductData([data]));
+      .then(data => setProductData(data));
   }, [location.search, location.pathname]);
+
+  if (Object.keys(productData).length === 0) return null;
 
   return (
     <div className="productList">
-      <h1 className="titleFloral">
-        {productData && productData[0]?.items[0][0].category_name}
-      </h1>
+      <h1 className="titleFloral">{productData.items[0][0].category_name}</h1>
       <div className="selectBoxWrap">
         <select className="selectBox">
           <option value="">정렬</option>
@@ -69,31 +69,30 @@ const ProductList = () => {
       <div className="productListWrap">
         <div className="productComment">
           <h2 className="productExplainTitle">
-            {productData && productData[0]?.items[1][0].category_title}
+            {productData.items[1][0].category_title}
           </h2>
           <p className="productExplain">
-            {productData && productData[0]?.items[1][0].category_description}
+            {productData.items[1][0].category_description}
           </p>
         </div>
-        {productData &&
-          productData[0]?.items[0].map(product => {
-            return (
-              <ProductWrap
-                key={product.id}
-                id={product.id}
-                categoryName={product.category_name}
-                typeName={product.type_name}
-                img={product.image_url}
-                name={product.name}
-                tastingNotes={product.tasting_notes}
-                size={product.teabag_size}
-                description={product.description}
-                price={product.price}
-                paramsCategory={params.category}
-                paramsSubCategory={params.subcategory}
-              />
-            );
-          })}
+        {productData.items[0].map(product => {
+          return (
+            <ProductWrap
+              key={product.id}
+              id={product.id}
+              categoryName={product.category_name}
+              typeName={product.type_name}
+              img={product.image_url}
+              name={product.name}
+              tastingNotes={product.tasting_notes}
+              size={product.teabag_size}
+              description={product.description}
+              price={product.price}
+              paramsCategory={params.category}
+              paramsSubCategory={params.subcategory}
+            />
+          );
+        })}
       </div>
     </div>
   );
