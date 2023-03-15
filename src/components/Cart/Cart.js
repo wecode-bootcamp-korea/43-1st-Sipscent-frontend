@@ -36,13 +36,14 @@ const Cart = ({ setIsCartOpen }) => {
   };
 
   const changeQuantity = (quantity, cartId) => {
-    fetch(`http://10.58.52.228:8002/carts?cart_id=${cartId}`, {
+    fetch('http://10.58.52.228:8002/carts', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
         Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
+        cartId: cartId,
         quantity: quantity,
       }),
     })
