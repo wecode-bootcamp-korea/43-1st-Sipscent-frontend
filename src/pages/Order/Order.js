@@ -22,15 +22,14 @@ const Order = () => {
   }
 
   useEffect(() => {
-    fetch(`${BASE_URL}`)
+    fetch('')
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
       });
   }, []);
-
   const handleSubmit = () => {
-    fetch(`${BASE_URL}`, {
+    fetch('', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -40,7 +39,7 @@ const Order = () => {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'PAYMENT_SUCCESS') {
-          alert('주문이 완료되었습니다.');
+          alert('결제가 완료되었습니다.');
           navigate('/');
         } else {
           alert('주문을 확인해 주세요.');
@@ -55,12 +54,12 @@ const Order = () => {
           <h1 className="orderHead">주문자 정보</h1>
           <div className="orderUserInfo">
             <p className="orderUserInfoUserName">
-              {orderProductData.orderList &&
-                orderProductData.orderList[0].username}
+              {orderProductData.getOrderList &&
+                orderProductData.getOrderList[0].username}
             </p>
             <p className="orderUserInfoUserEmail">
-              {orderProductData.orderList &&
-                orderProductData.orderList[0].email}
+              {orderProductData.getOrderList &&
+                orderProductData.getOrderList[0].email}
             </p>
           </div>
           <form className="orderUserInfoInputContainer">
@@ -82,8 +81,8 @@ const Order = () => {
       </div>
       <div className="orderSummary">
         <h1 className="orderHead">제품 결제 요약</h1>
-        {orderProductData.orderList &&
-          orderProductData.orderList.map(
+        {orderProductData.getOrderList &&
+          orderProductData.getOrderList.map(
             ({ itemname, quantity, price }, item_id) => (
               <div key={item_id} className="orderSummaryProductList">
                 <div className="orderSummaryProduct">
@@ -104,8 +103,8 @@ const Order = () => {
             <div>사용가능한 포인트</div>
             <div>
               {Math.trunc(
-                orderProductData.orderList &&
-                  orderProductData.orderList[0].point
+                orderProductData.getOrderList &&
+                  orderProductData.getOrderList[0].point
               )
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -116,8 +115,8 @@ const Order = () => {
             <strong>합계</strong>
             <strong>
               {Math.trunc(
-                orderProductData.orderList &&
-                  orderProductData.orderList[0].totalPrice
+                orderProductData.getOrderList &&
+                  orderProductData.getOrderList[0].totalPrice
               )
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
