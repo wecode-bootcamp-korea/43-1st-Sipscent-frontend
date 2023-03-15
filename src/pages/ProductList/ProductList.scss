@@ -1,0 +1,98 @@
+@import '../../styles/variables';
+
+.productList {
+  margin-bottom: 150px;
+  color: $buttonTextDefault;
+  font-weight: 300;
+
+  .titleFloral {
+    margin: 70px 40px 0 40px;
+    color: #353535;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .selectBoxWrap {
+    @include displayFlex(flex-end, null);
+
+    .selectBox {
+      height: 30px;
+      transition-property: background-color;
+      transition-duration: 0.7s;
+      border: none;
+      background-color: $mainBackground;
+      color: $buttonTextDefault;
+      font-weight: 300;
+      text-align: center;
+
+      &:hover {
+        background-color: #ebeade;
+        cursor: pointer;
+      }
+    }
+
+    .filterButton {
+      width: 80px;
+      height: 30px;
+      transition-property: background-color;
+      transition-duration: 0.7s;
+      border: none;
+      background-color: $mainBackground;
+      color: $buttonTextDefault;
+      font-weight: 300;
+      text-align: center;
+
+      &:hover {
+        background-color: #ebeade;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .buttonWrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .button {
+      height: 90px;
+      transition-property: background-color;
+      transition-duration: 0.7s;
+      border: none;
+      background-color: #ebeade;
+      color: $buttonTextDefault;
+      font-size: 17px;
+      font-weight: 300;
+
+      &:hover {
+        background-color: #e0dfd4;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .productListWrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    background-color: #f6f5e7;
+
+    .productComment {
+      @include displayFlex(center, center);
+      flex-direction: column;
+      padding: 40px;
+
+      .productExplainTitle {
+        margin-bottom: 30px;
+        font-size: 35px;
+        font-weight: 300;
+        line-height: 1.2em;
+      }
+
+      .productExplain {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.5em;
+      }
+    }
+  }
+}
