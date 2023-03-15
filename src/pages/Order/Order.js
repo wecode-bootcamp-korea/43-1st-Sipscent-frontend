@@ -28,6 +28,7 @@ const Order = () => {
         setOrderProductData(data);
       });
   }, []);
+
   const handleSubmit = () => {
     fetch('', {
       method: 'POST',
