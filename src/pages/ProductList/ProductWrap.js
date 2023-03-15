@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { APIS } from '../../config';
 import './ProductWrap.scss';
 
 const ProductWrap = ({
@@ -11,11 +12,27 @@ const ProductWrap = ({
   size,
   description,
   price,
-  paramsCategory,
-  paramsSubCategory,
 }) => {
   const [isHover, setIsHover] = useState(false);
-  const navigate = useNavigate();
+
+  const addCart = () => {
+    fetch(APIS.carts, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify({
+        itemId: id,
+        quantity: 1,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'SUCCESS_CREATECART')
+          alert('장바구니에 담겼습니다');
+      });
+  };
 
   return (
     <div
@@ -25,9 +42,6 @@ const ProductWrap = ({
       }}
       onMouseOut={() => {
         setIsHover(false);
-      }}
-      onClick={() => {
-        navigate(`/productdetail/${id}`);
       }}
     >
       <Link className="productInfo" to={`/productdetail/${id}`}>
@@ -56,6 +70,7 @@ const ProductWrap = ({
         )}
       </Link>
       <button
+        onClick={addCart}
         className={isHover ? 'addCartButton' : 'hiddenButton'}
       >{`카트에 추가 - ₩ ${Math.trunc(price)
         .toString()
