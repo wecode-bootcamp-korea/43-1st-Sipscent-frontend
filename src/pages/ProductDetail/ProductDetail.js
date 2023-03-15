@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { APIS } from '../../config';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -13,13 +14,13 @@ const ProductDetail = () => {
   }, [params.id]);
 
   useEffect(() => {
-    fetch(`http://10.58.52.228:8002/items/${params.id}`)
+    fetch(`${APIS.items}/${params.id}`)
       .then(response => response.json())
       .then(data => setProductDetailData(data));
   }, [params.id]);
 
   const addToCart = () => {
-    fetch('http://10.58.52.228:8002/carts', {
+    fetch(APIS.carts, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
