@@ -1,0 +1,23 @@
+{
+  "orderList": [
+    {
+      "id": 39,
+      "item_id": 1,
+      "name": "로즈",
+      "quantity": 1,
+      "price": "29000.00",
+      "point": "900000.00"
+    },
+    {
+      "id": 40,
+      "item_id": 2,
+      "name": "자스민",
+      "quantity": 1,
+      "price": "31000.00",
+      "point": "900000.00"
+    }
+  ],
+  "point": 900000,
+  "itemPrices": [29000, 31000],
+  "totalPrice": 60000
+}

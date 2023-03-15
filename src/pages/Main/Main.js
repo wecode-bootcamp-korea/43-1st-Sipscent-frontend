@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MAIN_CATEGORY } from './mainCategoryData';
 import './Main.scss';
 
@@ -6,6 +7,7 @@ const Main = () => {
   const sectionRef = useRef();
   const [slide, setSlide] = useState(0);
   const carouselButtonCount = MAIN_CATEGORY.length / 2;
+  const navigate = useNavigate();
 
   const handleSlideBtn = value => {
     if (slide + value === carouselButtonCount + 1 || slide + value === -1)
@@ -63,8 +65,14 @@ const Main = () => {
               오퓰런트 계열로 나뉘며, 경우에 따라 두 가지에 속하기도 합니다.
             </p>
           </li>
-          {MAIN_CATEGORY.map(({ image, name, text }, key) => (
-            <li key={key} className="sectionCarouselImageBox">
+          {MAIN_CATEGORY.map(({ image, name, text, link }, key) => (
+            <li
+              onClick={() => {
+                navigate(`/productlist/${link}/teabags`);
+              }}
+              key={key}
+              className="sectionCarouselImageBox"
+            >
               <img className="sectionCarouselImage" src={image} />
               <div className="sectionCarouselImageInfo">
                 <h2 className="sectionCarouselImageName">{name}</h2>
