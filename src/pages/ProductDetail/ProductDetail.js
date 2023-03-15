@@ -32,7 +32,9 @@ const ProductDetail = () => {
     })
       .then(response => response.json())
       .then(data => {
-        alert('장바구니에 담겼습니다');
+        if (data.message === 'SUCCESS_CREATECART') {
+          alert('장바구니에 담겼습니다');
+        }
       });
   };
 
@@ -45,8 +47,7 @@ const ProductDetail = () => {
           <div className="productImg">
             <img
               className="productImgUrl"
-              src="/images/ProductDetail/라일락차.jpg"
-              //src={productDetailData.items[0][params.id - 1].image_url}
+              src={productDetailData.items[0][params.id - 1].image_url}
               alt="teabag"
             />
           </div>
