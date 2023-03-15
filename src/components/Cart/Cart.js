@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CartList from '../CartProductsListItem/CartProductsListItem';
+import { APIS } from '../../config';
 import './Cart.scss';
 
 const Cart = ({ setIsCartOpen }) => {
@@ -13,7 +14,7 @@ const Cart = ({ setIsCartOpen }) => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.228:8002/carts')
+    fetch()
       .then(response => response.json())
       .then(data => setCartData(data.carts));
   }, []);
@@ -36,15 +37,15 @@ const Cart = ({ setIsCartOpen }) => {
   };
 
   const changeQuantity = (quantity, cartId) => {
-    fetch('http://10.58.52.228:8002/carts', {
+    fetch(APIS.carts, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
         Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
-        cartId: cartId,
-        quantity: quantity,
+        cartId,
+        quantity,
       }),
     })
       .then(response => response.json())
@@ -57,7 +58,7 @@ const Cart = ({ setIsCartOpen }) => {
   };
 
   const deleteCartList = cartId => {
-    fetch(`http://10.58.52.228:8002/carts?cart_id=${cartId}`, {
+    fetch(`${APIS.carts}?cart_id=${cartId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -74,8 +75,8 @@ const Cart = ({ setIsCartOpen }) => {
   };
 
   return (
-    <div className="cartModal">
-      <div className="cart">
+    <div className="cart">
+      <div className="cartModal">
         <div className="cartProducts">
           <div className="cartProductsHeader">
             <div>상품명</div>
