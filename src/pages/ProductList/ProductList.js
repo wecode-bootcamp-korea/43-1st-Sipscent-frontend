@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ProductWrap from './ProductWrap';
 import Filter from '../../components/Filter/Filter';
-import APIS from '../../config';
+import { APIS } from '../../config';
 import './ProductList.scss';
 
 const ProductList = () => {

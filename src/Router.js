@@ -7,10 +7,12 @@ import ProductList from './pages/ProductList/ProductList';
 import Order from './pages/Order/Order';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
