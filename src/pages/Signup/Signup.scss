@@ -1,0 +1,122 @@
+@import '../../styles/variables';
+
+.signup {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+
+  .signInWrapper {
+    display: flex;
+    position: absolute;
+    z-index: 999;
+
+    background-color: $mainBackground;
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin-top: 30px;
+      margin-left: 48px;
+      .header {
+        margin-top: 34px;
+        font-size: 30px;
+        font-weight: 350;
+      }
+      .headerInfo {
+        margin-top: 23px;
+
+        color: #666;
+      }
+      .name {
+        position: relative;
+
+        .nameInput {
+          width: 100%;
+          height: 36px;
+          margin-top: 59px;
+          border-top-width: 0;
+          border-right-width: 0;
+          border-bottom-width: 1;
+          border-left-width: 0;
+          background: transparent;
+          &::placeholder {
+            font-size: 25px;
+          }
+        }
+        .error {
+          margin-top: 10px;
+          color: red;
+        }
+        .signInPwView {
+          position: absolute;
+          top: 66px;
+          right: -3px;
+          border: none;
+          background: transparent;
+          color: #666;
+        }
+      }
+
+      .message {
+        color: red;
+      }
+      .pwWrapper {
+        position: relative;
+
+        .signInPwView {
+          position: absolute;
+          top: 66px;
+          right: -3px;
+          border: none;
+          background: transparent;
+          color: #666;
+        }
+      }
+      .signUpChkBx {
+        margin-top: 28px;
+      }
+      .finalSignIn {
+        width: 100%;
+        height: 60px;
+        margin-top: 43px;
+        background-color: $buttonTextDefault;
+        color: #f6f5e8;
+        cursor: pointer;
+        &:hover {
+          background-color: #000;
+        }
+      }
+      .lastBtnLink {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 30px;
+        border: none;
+        background: transparent;
+        color: #666;
+        .lastLink {
+          padding-bottom: 45px;
+        }
+      }
+      .btnX {
+        position: absolute;
+        top: 24px;
+        right: 46px;
+        width: 10px;
+        height: 10px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.4;
+        cursor: pointer;
+      }
+    }
+  }
+}
