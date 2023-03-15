@@ -1,9 +1,11 @@
-import React, { useEffect, useState, navigate } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
 import { BASE_URL } from '../../config';
 import './Order.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+  const navigate = useNavigate();
   const [orderProductData, setOrderProductData] = useState({});
   const [inputValue, setInputValue] = useState({
     userPhoneNumber: '',
