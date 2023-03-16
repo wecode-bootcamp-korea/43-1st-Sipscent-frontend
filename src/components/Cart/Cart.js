@@ -50,10 +50,11 @@ const Cart = ({ setIsCartOpen }) => {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'error') {
-          alert('다시 시도해주세요');
-        }
         setCartData(data.update);
+
+        if (data.message === 'CART_OVERLOAD') {
+          alert('장바구니에 상품을 더이상 담을 수 없습니다.');
+        }
       });
   };
 

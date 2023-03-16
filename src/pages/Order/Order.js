@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
-import { BASE_URL } from '../../config';
+// import { BASE_URL } from '../../config';
 import './Order.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,6 +28,9 @@ const Order = () => {
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
+        if (data.message === '포인트가 충전되었습니다.') {
+          alert('포인트 충전되었습니다.');
+        }
       });
   }, []);
 
@@ -44,7 +47,7 @@ const Order = () => {
       .then(data => {
         if (data.message === 'PAYMENT_SUCCESS') {
           alert('결제가 완료되었습니다.');
-          navigate('/');
+          navigate('/ordersVIew');
         } else {
           alert('주문을 확인해 주세요.');
         }

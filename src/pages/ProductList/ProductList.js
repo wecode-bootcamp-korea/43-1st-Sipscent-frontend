@@ -42,6 +42,7 @@ const ProductList = () => {
         'sorting',
         LIST_SORT.find(({ title }) => title === value).sort
       );
+
       setSearchParams(searchParams);
     }
   };
@@ -53,6 +54,7 @@ const ProductList = () => {
       <h1 className="titleFloral">{params.category.toUpperCase()}</h1>
       <div className="selectBoxWrap">
         <select className="selectBox" onChange={setSort}>
+          <option value="">정렬</option>
           {LIST_SORT.map(sort => {
             return <option key={sort.id}>{sort.title}</option>;
           })}
@@ -114,15 +116,9 @@ const ProductList = () => {
     </div>
   );
 };
-
 export default ProductList;
 
 const LIST_SORT = [
-  {
-    id: 0,
-    title: '졍렬',
-    sort: '',
-  },
   {
     id: 1,
     title: '높은 가격순',
@@ -135,6 +131,7 @@ const LIST_SORT = [
   },
   {
     id: 3,
+
     title: '가나다순',
     sort: 'name',
   },
