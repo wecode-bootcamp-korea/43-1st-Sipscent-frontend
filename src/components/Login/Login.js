@@ -32,7 +32,7 @@ const Login = ({ setModalOpen }) => {
   function validateUser(e) {
     e.preventDefault();
 
-    fetch(`${BASE_URL}/users/login`, {
+    fetch('http://10.58.52.228:8002/users/login', {
       method: 'POST',
       headers: { 'Content-type': 'application/json;charset=utf-8' },
       body: JSON.stringify(userInfo),

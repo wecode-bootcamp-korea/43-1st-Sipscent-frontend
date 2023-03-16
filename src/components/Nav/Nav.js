@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
+import { APIS } from '../../config';
 import './Nav.scss';
 
 const Nav = () => {
