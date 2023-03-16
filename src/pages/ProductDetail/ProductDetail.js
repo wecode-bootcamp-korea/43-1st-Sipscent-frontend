@@ -36,6 +36,9 @@ const ProductDetail = () => {
         if (data.message === 'SUCCESS_CREATECART') {
           alert('장바구니에 담겼습니다');
         }
+        if (data.message === 'CART_OVERLOAD') {
+          alert('장바구니에 상품을 더이상 담을 수 없습니다.');
+        }
       });
   };
 
