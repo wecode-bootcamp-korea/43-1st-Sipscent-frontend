@@ -9,7 +9,7 @@ const Cart = ({ setIsCartOpen }) => {
   const navigate = useNavigate();
 
   const clickOrder = () => {
-    navigate('/order');
+    navigate('/orders');
     setIsCartOpen(false);
   };
 
