@@ -27,6 +27,15 @@ const Signup = ({ setModalOpen }) => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
+  const conditions = {
+    email:
+      (inputValue.email.includes('@', 5) &&
+        inputValue.email.includes('.', 9)) ||
+      inputValue.email.length === 0,
+    password:
+      inputValue.password.length > 5 || inputValue.password.length === 0,
+  };
+
   const userableEmail = () => {
     fetch('http://10.58.52.228:8002/users/check', {
       method: 'POST',
@@ -40,10 +49,9 @@ const Signup = ({ setModalOpen }) => {
         if (response.message === '가입 가능한 이메일입니다.') {
           // alert('사용 가능한 이메일 입니다');
           setIsValidEmail(true);
-          // this.setState({ isCheckEmailFirst: true });
+          // setInputValue({...inputValue, prev => !prev })
         } else {
-          setIsValidEmail(false);
-          // alert('사용할 수 없는 이메일 입니다');
+          alert('사용할 수 없는 이메일 입니다');
         }
       });
   };
@@ -66,14 +74,6 @@ const Signup = ({ setModalOpen }) => {
           navigate('/');
         }
       });
-  };
-  const conditions = {
-    email:
-      (inputValue.email.includes('@', 5) &&
-        inputValue.email.includes('.', 9)) ||
-      inputValue.email.length === 0,
-    password:
-      inputValue.password.length > 5 || inputValue.password.length === 0,
   };
 
   return (
@@ -110,9 +110,6 @@ const Signup = ({ setModalOpen }) => {
                 )}
                 {title === '이메일 주소' && isValidEmail && (
                   <p className="error">사용 가능한 이메일입니다</p>
-                )}
-                {title === '이메일 주소' && !isValidEmail && (
-                  <p className="error">사용할 수 없는 이메일입니다</p>
                 )}
 
                 {title === '비밀번호' && (

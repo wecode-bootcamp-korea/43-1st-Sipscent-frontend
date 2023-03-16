@@ -17,5 +17,3 @@ export const SIGN_UP_INPUT_DATA = [
     errorMsg: '6자리 이상 필요합니다.',
   },
 ];
-//이미 가입된 이메일입니다.
-//가입 가능한 이메일입니다.
