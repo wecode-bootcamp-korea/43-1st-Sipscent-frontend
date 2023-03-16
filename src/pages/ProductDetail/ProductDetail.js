@@ -8,12 +8,6 @@ const ProductDetail = () => {
   const params = useParams();
 
   useEffect(() => {
-    fetch('/data/teaListData.json')
-      .then(response => response.json())
-      .then(data => setProductDetailData(data));
-  }, [params.id]);
-
-  useEffect(() => {
     fetch(`${APIS.items}/${params.id}`)
       .then(response => response.json())
       .then(data => setProductDetailData(data));

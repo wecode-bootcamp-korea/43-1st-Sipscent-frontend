@@ -18,12 +18,6 @@ const ProductList = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   fetch('/data/teaListData.json')
-  //     .then(response => response.json())
-  //     .then(data => setProductData(data));
-  // }, []);
-
   useEffect(() => {
     fetch(
       `${APIS.items}/${params.category}/${params.subcategory}${location.search}`
@@ -122,12 +116,12 @@ const LIST_SORT = [
   {
     id: 1,
     title: '높은 가격순',
-    sort: 'price',
+    sort: '-price',
   },
   {
     id: 2,
     title: '낮은 가격순',
-    sort: '-price',
+    sort: 'price',
   },
   {
     id: 3,

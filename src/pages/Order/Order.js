@@ -3,6 +3,7 @@ import { ORDER_INPUT_DATA } from './orderInputData';
 // import { BASE_URL } from '../../config';
 import './Order.scss';
 import { useNavigate } from 'react-router-dom';
+import { APIS } from '../../config';
 
 const Order = () => {
   const navigate = useNavigate();
@@ -24,7 +25,13 @@ const Order = () => {
   }
 
   useEffect(() => {
-    fetch('')
+    fetch(APIS.orders, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
@@ -32,10 +39,10 @@ const Order = () => {
           alert('포인트 충전되었습니다.');
         }
       });
-  }, []);
+  }, [orderProductData]);
 
   const handleSubmit = () => {
-    fetch('', {
+    fetch(APIS.orders, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -47,7 +54,7 @@ const Order = () => {
       .then(data => {
         if (data.message === 'PAYMENT_SUCCESS') {
           alert('결제가 완료되었습니다.');
-          navigate('/ordersVIew');
+          navigate('/ordersView');
         } else {
           alert('주문을 확인해 주세요.');
         }
