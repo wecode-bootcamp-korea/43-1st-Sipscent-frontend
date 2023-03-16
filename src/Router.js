@@ -5,9 +5,9 @@ import Signup from './pages/Signup/Signup';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import ProductList from './pages/ProductList/ProductList';
 import Order from './pages/Order/Order';
+import OrderView from './pages/Order/OrderView';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
-
 import Login from './components/Login/Login';
 
 const Router = () => {
@@ -22,8 +22,8 @@ const Router = () => {
           element={<ProductList />}
         />
         <Route path="/productdetail/:id" element={<ProductDetail />} />
-        <Route path="/order" element={<Order />} />
-
+        <Route path="/orders" element={<Order />} />
+        <Route path="/ordersView" element={<OrderView />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
