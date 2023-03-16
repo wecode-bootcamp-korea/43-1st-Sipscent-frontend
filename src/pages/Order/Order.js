@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
-// import { BASE_URL } from '../../config';
+import { BASE_URL } from '../../config';
 import './Order.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const Order = () => {
   }
 
   useEffect(() => {
-    fetch('')
+    fetch(`${BASE_URL}/orders`)
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
@@ -35,7 +35,7 @@ const Order = () => {
   }, []);
 
   const handleSubmit = () => {
-    fetch('', {
+    fetch(`${BASE_URL}/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -47,7 +47,7 @@ const Order = () => {
       .then(data => {
         if (data.message === 'PAYMENT_SUCCESS') {
           alert('결제가 완료되었습니다.');
-          navigate('/ordersVIew');
+          navigate('/ordersView');
         } else {
           alert('주문을 확인해 주세요.');
         }
@@ -97,10 +97,10 @@ const Order = () => {
                   <div>{quantity} 개</div>
                 </div>
                 <div className="orderSummaryProductPrice">
+                  ₩
                   {Math.trunc(price)
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  ₩
                 </div>
               </div>
             )
@@ -121,13 +121,13 @@ const Order = () => {
           <div className="orderSummaryTotalPrice">
             <strong>합계</strong>
             <strong>
+              ₩
               {Math.trunc(
                 orderProductData.getOrderList &&
                   orderProductData.getOrderList[0].totalPrice
               )
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-              ₩
             </strong>
           </div>
         </div>
