@@ -17,7 +17,8 @@ const Signup = ({ setModalOpen }) => {
     name: '',
     email: '',
     password: '',
-    // isCheckEmailFirst: false,
+    isCheckEmailFirst: false,
+    //isCheckEmailFirst: false,
   });
 
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -49,7 +50,7 @@ const Signup = ({ setModalOpen }) => {
         if (response.message === '가입 가능한 이메일입니다.') {
           // alert('사용 가능한 이메일 입니다');
           setIsValidEmail(true);
-          // setInputValue({...inputValue, prev => !prev })
+          // setInputValue(prev => ({ ...prev, isCheckEmailFirst: true }));
         } else {
           alert('사용할 수 없는 이메일 입니다');
         }
