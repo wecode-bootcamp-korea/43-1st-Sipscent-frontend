@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://';
+export const BASE_URL = 'http://10.58.52.228:8002';
 
 export const APIS = {
   login: `${BASE_URL}/users/login`,
@@ -6,4 +6,5 @@ export const APIS = {
   carts: `${BASE_URL}/carts`,
   items: `${BASE_URL}/items`,
   orders: `${BASE_URL}/orders`,
+  ordersView: `${BASE_URL}/orders/status`,
 };
