@@ -9,14 +9,22 @@ const Cart = ({ setIsCartOpen }) => {
   const navigate = useNavigate();
 
   const clickOrder = () => {
-    navigate('/order');
+    navigate('/orders');
     setIsCartOpen(false);
   };
 
   useEffect(() => {
-    fetch()
+    fetch(APIS.carts, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+    })
       .then(response => response.json())
-      .then(data => setCartData(data.carts));
+      .then(data => {
+        setCartData(data.carts);
+      });
   }, []);
 
   const handleItemNum = (value, quantity, cartId) => {
@@ -58,7 +66,7 @@ const Cart = ({ setIsCartOpen }) => {
       });
   };
 
-  const deleteCartList = cartId => {
+  function deleteCartList(cartId) {
     fetch(`${APIS.carts}?cart_id=${cartId}`, {
       method: 'DELETE',
       headers: {
@@ -73,7 +81,7 @@ const Cart = ({ setIsCartOpen }) => {
           setCartData(data.deleteItem);
         }
       });
-  };
+  }
 
   return (
     <div className="cart">
