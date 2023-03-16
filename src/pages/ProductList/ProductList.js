@@ -18,11 +18,11 @@ const ProductList = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    fetch('/data/teaListData.json')
-      .then(response => response.json())
-      .then(data => setProductData(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/data/teaListData.json')
+  //     .then(response => response.json())
+  //     .then(data => setProductData(data));
+  // }, []);
 
   useEffect(() => {
     fetch(
@@ -32,24 +32,14 @@ const ProductList = () => {
       .then(data => setProductData(data));
   }, [location.search, location.pathname]);
 
-  //console.log(location.search);
-
   if (Object.keys(productData).length === 0) return null;
 
   const setSort = e => {
     const { value } = e.target;
 
     if (LIST_SORT.find(({ title }) => title === value)) {
-      // if (LIST_SORT.find(({ title }) => title === value).title === '정렬') {
-      //   searchParams.set(
-      //     '',
-      //     LIST_SORT.find(({ title }) => title === value).sort
-      //   );
-      //   setSearchParams(searchParams);
-      // }
-
       searchParams.set(
-        'order',
+        'sorting',
         LIST_SORT.find(({ title }) => title === value).sort
       );
       setSearchParams(searchParams);
