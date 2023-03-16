@@ -17,7 +17,6 @@ const Signup = ({ setModalOpen }) => {
     name: '',
     email: '',
     password: '',
-    isCheckEmailFirst: false,
   });
 
   const [isValidEmail, setIsValidEmail] = useState(false);
