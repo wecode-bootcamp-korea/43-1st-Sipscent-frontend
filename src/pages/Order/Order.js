@@ -1,9 +1,11 @@
-import React, { useEffect, useState, navigate } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
 // import { BASE_URL } from '../../config';
 import './Order.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+  const navigate = useNavigate();
   const [orderProductData, setOrderProductData] = useState({});
   const [inputValue, setInputValue] = useState({
     userPhoneNumber: '',
@@ -22,8 +24,7 @@ const Order = () => {
   }
 
   useEffect(() => {
-    fetch()
-      // 'http://10.58.52.243:8002/orders'
+    fetch('')
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
@@ -34,21 +35,19 @@ const Order = () => {
   }, []);
 
   const handleSubmit = () => {
-    fetch(
-      // 'http://10.58.52.243:8002/orders'
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-        body: JSON.stringify(inputValue),
-      }
-    )
+    fetch('', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify(inputValue),
+    })
       .then(response => response.json())
       .then(data => {
         if (data.message === 'PAYMENT_SUCCESS') {
-          alert('주문이 완료되었습니다.');
-          navigate('/orderView');
+          alert('결제가 완료되었습니다.');
+          navigate('/ordersVIew');
         } else {
           alert('주문을 확인해 주세요.');
         }
