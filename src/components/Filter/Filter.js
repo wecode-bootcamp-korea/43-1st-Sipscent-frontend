@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './Filter.scss';
 
@@ -18,6 +18,7 @@ const Filter = () => {
         .forEach(value => {
           searchParams.append('tasting_notes', value);
         });
+
       setSearchParams(searchParams);
     }
   };
@@ -35,6 +36,7 @@ const Filter = () => {
         .forEach(value => {
           searchParams.append('price', value);
         });
+
       setSearchParams(searchParams);
     }
   };
@@ -68,9 +70,9 @@ const Filter = () => {
               <li key={price.id} className="priceRangeList">
                 <label>
                   <input
-                    onClick={e => setPrice(price.price, e)}
                     type="checkbox"
                     name="price"
+                    onChange={e => setPrice(price.price, e)}
                   />
                   {price.range}
                 </label>
@@ -99,8 +101,8 @@ const TASTING_NOTES = [
 ];
 
 const PRICE_RANGE = [
-  { id: 1, range: '~ 30,000₩ ', price: '30000' },
-  { id: 2, range: '30,000₩ ~ 40,000₩', price: '30000~40000' },
-  { id: 3, range: '40,000₩ ~ 50,000₩', price: '40000~50000' },
-  { id: 4, range: '50,000₩ ~', price: '50000' },
+  { id: 1, range: '~ ₩ 30,000 ', price: '30000' },
+  { id: 2, range: '₩ 30,000 ~ 40,000', price: '30000~40000' },
+  { id: 3, range: '₩ 40,000 ~ 50,000', price: '40000~50000' },
+  { id: 4, range: '₩ 50,000 ~', price: '50000' },
 ];
