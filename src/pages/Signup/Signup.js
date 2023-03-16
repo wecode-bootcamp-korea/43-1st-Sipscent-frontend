@@ -38,12 +38,12 @@ const Signup = ({ setModalOpen }) => {
       .then(response => response.json())
       .then(response => {
         if (response.message === '가입 가능한 이메일입니다.') {
-          alert('사용 가능한 이메일 입니다');
-          // setIsValidEmail(true);
+          // alert('사용 가능한 이메일 입니다');
+          setIsValidEmail(true);
           // this.setState({ isCheckEmailFirst: true });
         } else {
-          // setIsValidEmail(false);
-          alert('사용할 수 없는 이메일 입니다');
+          setIsValidEmail(false);
+          // alert('사용할 수 없는 이메일 입니다');
         }
       });
   };
@@ -111,9 +111,9 @@ const Signup = ({ setModalOpen }) => {
                 {title === '이메일 주소' && isValidEmail && (
                   <p className="error">사용 가능한 이메일입니다</p>
                 )}
-                {/* {title === '이메일 주소' && !isValidEmail && (
+                {title === '이메일 주소' && !isValidEmail && (
                   <p className="error">사용할 수 없는 이메일입니다</p>
-                )} */}
+                )}
 
                 {title === '비밀번호' && (
                   <button
