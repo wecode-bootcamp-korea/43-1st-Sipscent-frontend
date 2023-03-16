@@ -60,7 +60,7 @@ const ProductList = () => {
 
   return (
     <div className="productList">
-      <h1 className="titleFloral">{params.category}</h1>
+      <h1 className="titleFloral">{params.category.toUpperCase()}</h1>
       <div className="selectBoxWrap">
         <select className="selectBox" onChange={setSort}>
           {LIST_SORT.map(sort => {
