@@ -72,17 +72,17 @@ const NAV_CATEGORY = [
   },
   {
     id: 4,
-    link: '',
+    link: '/productlist/floral/teabags',
     title: 'Fruity',
   },
   {
     id: 5,
-    link: '',
+    link: '/productlist/herbal/teabags',
     title: 'Green',
   },
   {
     id: 6,
-    link: '',
+    link: '/productlist/citrus/teabags',
     title: 'Spicy',
   },
 ];

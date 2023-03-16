@@ -9,10 +9,12 @@ import OrderView from './pages/Order/OrderView';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
+import ScrollToTop from './components/ScrollToTop';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
