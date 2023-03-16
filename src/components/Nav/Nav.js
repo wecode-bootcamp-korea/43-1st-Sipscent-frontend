@@ -31,10 +31,10 @@ const Nav = () => {
           })}
         </ul>
         <ul className="userInfo">
-          <li className="login">
+          <li className="loginBtn">
             <button>로그인</button>
           </li>
-          <li className="signup">
+          <li className="signupBtn">
             <Link to="/signup">회원가입</Link>
           </li>
           <li className="cartButton">
@@ -72,17 +72,17 @@ const NAV_CATEGORY = [
   },
   {
     id: 4,
-    link: '',
+    link: '/productlist/floral/teabags',
     title: 'Fruity',
   },
   {
     id: 5,
-    link: '',
+    link: '/productlist/herbal/teabags',
     title: 'Green',
   },
   {
     id: 6,
-    link: '',
+    link: '/productlist/citrus/teabags',
     title: 'Spicy',
   },
 ];
