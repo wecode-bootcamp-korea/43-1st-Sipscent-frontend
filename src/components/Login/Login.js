@@ -40,12 +40,14 @@ const Login = ({ setModalOpen }) => {
       .then(response => response.json())
 
       .then(data => {
-        if (data.accessToken) {
+        if (data.message === 'WRONG_EMAIL') {
+          alert('이메일을 확인해 주세요');
+        } else if (data.message === 'WRONG_PASSWORD') {
+          alert('비밀번호를 확인해주세요');
+        } else if (data.accessToken) {
           localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인에 성공했습니다');
           navigate('/');
-        } else {
-          alert('아이디와 비밀번호를 확인해 주세요');
         }
       });
   }
