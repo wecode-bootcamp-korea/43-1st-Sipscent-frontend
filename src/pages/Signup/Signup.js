@@ -5,8 +5,49 @@ import Checkbox from './Checkbox';
 import './Signup.scss';
 
 const Signup = ({ setModalOpen }) => {
-  const [isClickedSignup, setIsClickedSignup] = useState(false);
   const navigate = useNavigate();
+  const [isClickedSignup, setIsClickedSignup] = useState(false);
+  const [showPw, setShowPw] = useState(false);
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const [inputValue, setInputValue] = useState({
+    name: '',
+    email: '',
+    password: '',
+    // isCheckEmailFirst: false,
+  });
+
+  const [isValidEmail, setIsValidEmail] = useState(false);
+
+  const handleValueChange = e => {
+    const { name, value } = e.target;
+    setInputValue({ ...inputValue, [name]: value });
+  };
+
+  const userableEmail = () => {
+    fetch('http://10.58.52.228:8002/users/check', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify({ email: inputValue.email }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.message === '가입 가능한 이메일입니다.') {
+          alert('사용 가능한 이메일 입니다');
+          // setIsValidEmail(true);
+          // this.setState({ isCheckEmailFirst: true });
+        } else {
+          // setIsValidEmail(false);
+          alert('사용할 수 없는 이메일 입니다');
+        }
+      });
+  };
+
   const handleSubmit = () => {
     setIsClickedSignup(true);
     fetch('http://10.58.52.228:8002/users/signup', {
@@ -18,32 +59,14 @@ const Signup = ({ setModalOpen }) => {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'SUCCESS_SIGNUP') {
+        if (data.message === '이미 가입된 이메일입니다.') {
+          alert('이미 있는 회원입니다.');
+        } else if (data.message === 'SUCCESS_SIGNUP') {
           alert('회원가입에 성공했습니다');
           navigate('/');
-        } else {
-          alert('이메일과 비밀번호를 확인해 주세요');
         }
       });
   };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  const [inputValue, setInputValue] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
-
-  const handleValueChange = e => {
-    const { name, value } = e.target;
-    setInputValue({ ...inputValue, [name]: value });
-  };
-
-  const [showPw, setShowPw] = useState(false);
-
   const conditions = {
     email:
       (inputValue.email.includes('@', 5) &&
@@ -52,6 +75,7 @@ const Signup = ({ setModalOpen }) => {
     password:
       inputValue.password.length > 5 || inputValue.password.length === 0,
   };
+
   return (
     <div className="signup">
       <div className="signInWrapper">
@@ -72,9 +96,25 @@ const Signup = ({ setModalOpen }) => {
                   placeholder={title}
                   onChange={handleValueChange}
                 />
+                {title === '이메일 주소' && (
+                  <button
+                    onClick={userableEmail}
+                    type="button"
+                    className="signInPwView"
+                  >
+                    중복확인
+                  </button>
+                )}
                 {title !== '이름' && !conditions[name] && (
                   <p className="error">{errorMsg}</p>
                 )}
+                {title === '이메일 주소' && isValidEmail && (
+                  <p className="error">사용 가능한 이메일입니다</p>
+                )}
+                {/* {title === '이메일 주소' && !isValidEmail && (
+                  <p className="error">사용할 수 없는 이메일입니다</p>
+                )} */}
+
                 {title === '비밀번호' && (
                   <button
                     onClick={() => {
