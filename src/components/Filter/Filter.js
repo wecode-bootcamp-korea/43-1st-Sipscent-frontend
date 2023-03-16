@@ -1,7 +1,44 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import './Filter.scss';
 
 const Filter = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const setQuery = (value, e) => {
+    if (e.target.checked) {
+      searchParams.append('tasting_notes', `"${value}"`);
+      setSearchParams(searchParams);
+    } else {
+      const search = searchParams.getAll('tasting_notes');
+      searchParams.delete('tasting_notes');
+
+      search
+        .filter(list => list !== `"${value}"`)
+        .forEach(value => {
+          searchParams.append('tasting_notes', value);
+        });
+      setSearchParams(searchParams);
+    }
+  };
+
+  const setPrice = (value, e) => {
+    if (e.target.checked) {
+      searchParams.append('price', value);
+      setSearchParams(searchParams);
+    } else {
+      const search = searchParams.getAll('price');
+      searchParams.delete('price');
+
+      search
+        .filter(list => list !== value)
+        .forEach(value => {
+          searchParams.append('price', value);
+        });
+      setSearchParams(searchParams);
+    }
+  };
+
   return (
     <div className="filter">
       <div className="tastingNotes">
@@ -11,7 +48,11 @@ const Filter = () => {
             return (
               <li key={taste.id} className="tastingNotesList">
                 <label>
-                  <input type="checkbox" name="taste" />
+                  <input
+                    type="checkbox"
+                    name="taste"
+                    onChange={e => setQuery(taste.taste, e)}
+                  />
                   {taste.taste}
                 </label>
               </li>
@@ -26,7 +67,12 @@ const Filter = () => {
             return (
               <li key={price.id} className="priceRangeList">
                 <label>
-                  <input type="checkbox" name="price" />₩ {price.range}
+                  <input
+                    onClick={e => setPrice(price.price, e)}
+                    type="checkbox"
+                    name="price"
+                  />
+                  {price.range}
                 </label>
               </li>
             );
@@ -53,8 +99,8 @@ const TASTING_NOTES = [
 ];
 
 const PRICE_RANGE = [
-  { id: 1, range: '~ ₩ 30,000' },
-  { id: 2, range: '₩ 30,000 ~ ₩ 40,000' },
-  { id: 3, range: '₩ 40,000 ~ ₩ 50,000' },
-  { id: 4, range: '₩ 50,000 ~' },
+  { id: 1, range: '~ 30,000₩ ', price: '30000' },
+  { id: 2, range: '30,000₩ ~ 40,000₩', price: '30000~40000' },
+  { id: 3, range: '40,000₩ ~ 50,000₩', price: '40000~50000' },
+  { id: 4, range: '50,000₩ ~', price: '50000' },
 ];
