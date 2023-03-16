@@ -1,42 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CartProductsListItem.scss';
 
-const CartProductsListItem = () => {
-  const [number, setNumber] = useState(1);
-
-  const handleItemNum = value => {
-    if (number + value === 0) return;
-
-    setNumber(prev => prev + value);
-  };
-
+const CartList = ({
+  cartData,
+  setCartData,
+  cartId,
+  name,
+  amount,
+  quantity,
+  totalPrice,
+  handleItemNum,
+  deleteCartList,
+}) => {
   return (
     <li className="cartProductsListItem">
-      <div className="cartProductstName">로즈티</div>
-      <div className="cartProductsAmount">15g</div>
+      <div className="cartProductstName">{name}</div>
+      <div className="cartProductsAmount">{amount} g</div>
       <div className="cartProductsCount">
         <button
           className="minusButton"
           onClick={() => {
-            handleItemNum(-1);
+            handleItemNum(-1, quantity, cartId);
           }}
         >
           ➖
         </button>
-        <span className="cartProductstNum">{number}</span>
+        <span className="cartProductstNum">{quantity}</span>
         <button
           className="plusButton"
           onClick={() => {
-            handleItemNum(1);
+            handleItemNum(1, quantity, cartId);
           }}
         >
           ➕
         </button>
-        <button className="deleteButton">삭제</button>
+        <button
+          className="deleteButton"
+          onClick={() => {
+            deleteCartList(cartId);
+          }}
+        >
+          삭제
+        </button>
       </div>
-      <div>{`₩ ${Number(65000) * number}`}</div>
+      <div>
+        ₩{' '}
+        {Number(totalPrice)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+      </div>
     </li>
   );
 };
-
-export default CartProductsListItem;
+export default CartList;
