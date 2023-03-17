@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
+import Signup from '../../pages/Signup/Signup';
+import Login from '../Login/Login';
+import { APIS } from '../../config';
 import './Nav.scss';
 
 const Nav = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
+
+  const showLoginModal = () => {
+    setLoginModalOpen(true);
+  };
+
+  const showSignupModal = () => {
+    setSignupModalOpen(true);
+  };
 
   return (
     <>
@@ -31,11 +44,19 @@ const Nav = () => {
           })}
         </ul>
         <ul className="userInfo">
-          <li className="loginBtn">
-            <button>로그인</button>
+          <li className="loginBtnBox">
+            <button className="loginButton" onClick={showLoginModal}>
+              로그인
+            </button>
+            {loginModalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
           </li>
-          <li className="signupBtn">
-            <Link to="/signup">회원가입</Link>
+          <li className="signupBtnBox">
+            <button className="signupButton" onClick={showSignupModal}>
+              회원가입
+            </button>
+            {signupModalOpen && (
+              <Signup setSignupModalOpen={setSignupModalOpen} />
+            )}
           </li>
           <li className="cartButton">
             <button

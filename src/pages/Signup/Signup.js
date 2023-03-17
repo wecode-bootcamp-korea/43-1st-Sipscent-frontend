@@ -1,15 +1,54 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SIGN_UP_INPUT_DATA } from './SIGN_UP_INPUT_DATA';
+import { APIS } from '../../config';
 import Checkbox from './Checkbox';
 import './Signup.scss';
 
-const Signup = ({ setModalOpen }) => {
-  const [isClickedSignup, setIsClickedSignup] = useState(false);
-  const navigate = useNavigate();
+const Signup = ({ setSignupModalOpen }) => {
+  const [checkList, setCheckList] = useState(TERMS_OF_USE);
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [inputValue, setInputValue] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [showPw, setShowPw] = useState(false);
+  const conditions = {
+    email:
+      (inputValue.email.includes('@', 5) &&
+        inputValue.email.includes('.', 9)) ||
+      inputValue.email.length === 0,
+    password:
+      inputValue.password.length > 5 || inputValue.password.length === 0,
+  };
+
+  const userableEmail = () => {
+    fetch(APIS.check, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify({ email: inputValue.email }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.message === '가입 가능한 이메일입니다.') {
+          alert('가입 가능한 이메일입니다.');
+          setIsValidEmail(true);
+        } else {
+          alert('이미 가입된 이메일 입니다.');
+        }
+      });
+  };
+
+  const isInputValid = Object.values(conditions).every(v => v);
+
+  const isAllValid = isInputValid && checkList.every(({ checked }) => checked);
+  console.log(isAllValid);
+
   const handleSubmit = () => {
-    setIsClickedSignup(true);
-    fetch('http://10.58.52.228:8002/users/signup', {
+    fetch(APIS.signup, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -20,7 +59,7 @@ const Signup = ({ setModalOpen }) => {
       .then(data => {
         if (data.message === 'SUCCESS_SIGNUP') {
           alert('회원가입에 성공했습니다');
-          navigate('/');
+          setSignupModalOpen(false);
         } else {
           alert('이메일과 비밀번호를 확인해 주세요');
         }
@@ -28,30 +67,23 @@ const Signup = ({ setModalOpen }) => {
   };
 
   const closeModal = () => {
-    setModalOpen(false);
+    setSignupModalOpen(false);
   };
-
-  const [inputValue, setInputValue] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
-
   const handleValueChange = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const [showPw, setShowPw] = useState(false);
-
-  const conditions = {
-    email:
-      (inputValue.email.includes('@', 5) &&
-        inputValue.email.includes('.', 9)) ||
-      inputValue.email.length === 0,
-    password:
-      inputValue.password.length > 5 || inputValue.password.length === 0,
+  const toggleCheck = id => e => {
+    console.log(id);
+    const next = checkList.map(checkItem =>
+      checkItem.id === id
+        ? { ...checkItem, checked: !checkItem.checked }
+        : checkItem
+    );
+    setCheckList(next);
   };
+
   return (
     <div className="signup">
       <div className="signInWrapper">
@@ -72,6 +104,15 @@ const Signup = ({ setModalOpen }) => {
                   placeholder={title}
                   onChange={handleValueChange}
                 />
+                {title === '이메일 주소' && (
+                  <button
+                    onClick={userableEmail}
+                    type="button"
+                    className="signInPwView"
+                  >
+                    중복확인
+                  </button>
+                )}
                 {title !== '이름' && !conditions[name] && (
                   <p className="error">{errorMsg}</p>
                 )}
@@ -92,12 +133,14 @@ const Signup = ({ setModalOpen }) => {
 
           <div className="signUpChkBx">
             <div>
-              {TERMS_OF_USE.map(info => (
+              {checkList.map(info => (
                 <Checkbox
+                  id={info.id}
                   errMsg={info.errMsg}
                   key={info.id}
                   head={info.head}
-                  isClickedSignup={isClickedSignup}
+                  checked={info.checked}
+                  toggleCheck={toggleCheck}
                 />
               ))}
             </div>
@@ -130,17 +173,20 @@ const TERMS_OF_USE = [
     head: '본인은 만 14세 이상입니다(필수)',
     errMsg: '체크 여부를 확인해 주세요.',
     name: 'first',
+    checked: false,
   },
   {
     id: 2,
     head: '이용 약관에 동의합니다(필수)',
     errMsg: '체크 여부를 확인해 주세요.',
     name: 'second',
+    checked: false,
   },
   {
     id: 3,
     head: '개인정보 수집 및 이용조건에 동의합니다(필수)',
     errMsg: '체크 여부를 확인해 주세요.',
     name: 'third',
+    checked: false,
   },
 ];
