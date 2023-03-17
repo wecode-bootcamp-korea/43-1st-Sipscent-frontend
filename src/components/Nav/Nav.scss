@@ -52,10 +52,10 @@
   .userInfo {
     @include displayFlex(null, center);
 
-    .loginBtn {
+    .loginBtnBox {
       margin: 15px;
 
-      button {
+      .loginButton {
         all: unset;
 
         &:hover {
@@ -64,8 +64,16 @@
       }
     }
 
-    .signupBtn {
+    .signupBtnBox {
       margin: 15px;
+
+      .signupButton {
+        all: unset;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
 
     .cartButton {
