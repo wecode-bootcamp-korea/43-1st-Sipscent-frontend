@@ -1,5 +1,6 @@
 # 43기 1차 프로젝트 : Sipscent 팀
 
+<img src="https://user-images.githubusercontent.com/124610396/226172329-5759aaa3-8ae7-49bf-84ca-915a9710cd15.png" />
 
 ## 구현 웹페이지
 
@@ -8,6 +9,10 @@
 ## 프로젝트 정보
 ### 프로젝트 기간
 2023/03/06 ~ 2023/03/17 (약 2주)
+### 프로젝트 기획 기간
+<img src="https://user-images.githubusercontent.com/124610396/226172444-ce996c0e-9fa8-4889-aecc-97930c936cd1.png" />
+
+2023/03/06 ~ 2023/03/07 (약 2일)
 <br>
 ### Front-end
 | 권유정 | 김민경 | 유정인 |
@@ -69,3 +74,5 @@ Communication
 <br>
 
 
+## ERD
+<img width="1184" alt="스크린샷 2023-03-16 오후 10 53 26" src="https://user-images.githubusercontent.com/124610396/226172297-7d8d9b06-0fe3-45e8-97b9-b032bc9ee65e.png">
