@@ -1,9 +1,5 @@
 # 43기 1차 프로젝트 : Sipscent 팀
 
-## 팀원
-
-- 백엔드 : 김수현. 임수정
-- 프론트엔드 : 유정인, 김민경, 권유정
 
 ## 구현 웹페이지
 
@@ -15,3 +11,61 @@
 <br>
 ### Front-end
 | 권유정 | 김민경 | 유정인 |
+
+### Back-end
+| 김수현 | 임수정 |
+
+<br>
+
+## 기술 스택
+
+Front-End
+<img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&amp;logo=javascript&amp;logoColor=white">
+<img src="https://img.shields.io/badge/React.js-61DAFB?style=flat&amp;logo=React&amp;logoColor=white">
+<img src="https://img.shields.io/badge/styled-components-DB7093?style=flat&amp;logo=styled-components-DB7093&amp;logoColor=white">
+<img src="https://img.shields.io/badge/React Router-CA4245?style=flat&amp;logo=ReactRouter&amp;logoColor=white">
+
+Back-End
+<img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&amp;logo=javascript&amp;logoColor=white">
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat&amp;logo=Node.js&amp;logoColor=white">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&amp;logo=MySQL&amp;logoColor=white">
+<img src="https://img.shields.io/badge/Docker-2496ED?style=flat&amp;logo=Docker&amp;logoColor=white">
+
+Common
+<img src="https://img.shields.io/badge/Git-F05032?style=flat&amp;logo=Git&amp;logoColor=white">
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat&amp;logo=GitHub&amp;logoColor=white">
+<img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat&amp;logo=prettier&amp;logoColor=white">
+<img src="https://img.shields.io/badge/RestfulAPI-F7533E?style=flat&amp;logo=RestfulAPII&amp;logoColor=white">
+<img src="https://img.shields.io/badge/VSCode-007ACC?style=flat&amp;logo=Visual Studio Code&amp;logoColor=white">
+<img src="https://img.shields.io/badge/Postman-FF6C37?style=flat&amp;logo=Postman&amp;logoColor=white">
+
+Communication
+<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&amp;logo=Slack&amp;logoColor=white">
+<img src="https://img.shields.io/badge/Trello-0052CC?style=flat&amp;logo=Trello&amp;logoColor=white">
+<img src="https://img.shields.io/badge/Notion-000000?style=flat&amp;logo=Notion&amp;logoColor=white">
+
+
+## 주요 기능 
+### 메인페이지
+<img src="https://user-images.githubusercontent.com/124610396/226171806-490775cd-b66f-45cd-a3af-b0d6feb25e28.gif" />
+<br>
+### 로그인
+<img src="https://user-images.githubusercontent.com/124610396/226171036-8f461c37-ac8a-402b-8c10-501133443136.gif" />
+<br>
+### 회원가입
+<img src="https://user-images.githubusercontent.com/124610396/226171577-5ff746c8-8db8-4d2d-91e5-60b847a8e0f4.gif" />
+<br>
+### 상품리스트 페이지
+<img src="https://user-images.githubusercontent.com/124610396/226171936-5050407b-a3f8-448c-9cbc-4fe52b3f39e6.gif" />
+<br>
+### 장바구니 페이지
+<img src="https://user-images.githubusercontent.com/124610396/226172016-6a635eb6-3531-4d33-9151-9a6f3a5a5052.gif" />
+<br>
+### 결제 페이지
+<img src="https://user-images.githubusercontent.com/124610396/226172039-a0a08bf2-30b4-4227-ac1e-1222e5e7a837.gif" />
+<br>
+### 결제 페이지 포인트
+<img src="https://user-images.githubusercontent.com/124610396/226172070-9362a58f-8cc4-41e3-ac93-841cc6937ee5.gif" />
+<br>
+
+
