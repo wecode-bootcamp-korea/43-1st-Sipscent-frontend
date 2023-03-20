@@ -1,6 +1,6 @@
 # 43기 1차 프로젝트 : Sipscent 팀
 
-<img src="https://user-images.githubusercontent.com/124610396/226172329-5759aaa3-8ae7-49bf-84ca-915a9710cd15.png" />
+<img src="https://user-images.githubusercontent.com/124610396/226172329-5759aaa3-8ae7-49bf-84ca-915a9710cd15.png" width="300" height="300"/>
 
 ## 구현 웹페이지
 
