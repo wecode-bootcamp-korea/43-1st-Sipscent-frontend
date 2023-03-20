@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { APIS } from '../../config';
 import './Login.scss';
 
-const Login = ({ setLoginModalOpen }) => {
+const Login = ({ loginModalOpen, setLoginModalOpen }) => {
   const closeModal = () => {
     setLoginModalOpen(false);
   };
@@ -26,8 +25,6 @@ const Login = ({ setLoginModalOpen }) => {
     userInfo.email.includes('@') &&
     userInfo.email.includes('.') &&
     userInfo.password.length >= 6;
-
-  const navigate = useNavigate();
 
   function validateUser(e) {
     e.preventDefault();

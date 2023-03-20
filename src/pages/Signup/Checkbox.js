@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Checkbox.scss';
 
-const Checkbox = ({ id, key, head, errMsg, name, checked, toggleCheck }) => {
+const Checkbox = ({ id, key, head, errMsg, checked, toggleCheck }) => {
   return (
     <div key={key}>
       <input onClick={toggleCheck(id)} type="checkbox" />

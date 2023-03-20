@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://10.58.52.78:8002';
+export const BASE_URL = 'http://13.125.222.190:8002';
 
 export const APIS = {
   login: `${BASE_URL}/users/login`,

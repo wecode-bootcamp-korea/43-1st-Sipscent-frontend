@@ -59,10 +59,6 @@ const Cart = ({ setIsCartOpen }) => {
       .then(response => response.json())
       .then(data => {
         setCartData(data.update);
-
-        if (data.message === 'CART_OVERLOAD') {
-          alert('장바구니에 상품을 더이상 담을 수 없습니다.');
-        }
       });
   };
 
@@ -82,6 +78,8 @@ const Cart = ({ setIsCartOpen }) => {
         }
       });
   }
+
+  // console.log(cartData[9].itemSize);
 
   return (
     <div className="cart">
@@ -125,10 +123,12 @@ const Cart = ({ setIsCartOpen }) => {
             <div className="cartSummaryPriceWrap">
               <span className="cartSummaryPrice">소계 (세금 포함)</span>
               <span className="cartSummaryPriceNum">
-                ₩{' '}
-                {Math.trunc(cartData[0]?.cartTotalPrice)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                ₩
+                {cartData.length === 0
+                  ? 0
+                  : Number(cartData[0]?.cartTotalPrice)
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </span>
             </div>
             <button className="cartSummaryButton" onClick={clickOrder}>
