@@ -19,7 +19,6 @@ const OrderView = () => {
       .then(res => res.json())
       .then(data => {
         setOrderViewData(data);
-        // console.log(data);
       });
   }, []);
 
@@ -29,22 +28,7 @@ const OrderView = () => {
 
   if (!orderViewData.orderStatus) return null;
   const OS = orderViewData.orderStatus;
-  // const date = OS[OS.length - 1].created_at;
-  // const now = new Date();
-  // const orderNumber = `${String(now.getFullYear())}년 ${String(
-  //   now.getMonth() + 1
-  // ).replace(/(^0+)/, '')}월 ${String(now.getDate()).replace(
-  //   /(^0+)/,
-  //   ''
-  // )}일 ${String(now.getHours()).padStart(2, '0')}시 ${String(
-  //   now.getMinutes()
-  // ).replace(/(^0+)/, '')}분 ${String(now.getSeconds()).replace(/(^0+)/, '')}초`;
-  // console.log(orderNumber);
-
-  //
-  // const date = '2023-03-15T05:41:48.000Z';
   const date = OS[OS.length - 1].order_number;
-
   const newDate = `${date.substring(0, 4)}년 ${date
     .substring(4, 6)
     .replace(/(^0+)/, '')}월 ${date
@@ -53,10 +37,6 @@ const OrderView = () => {
     .substring(10, 12)
     .replace(/(^0+)/, '')}분 ${date.substring(12, 14).replace(/(^0+)/, '')}초`;
 
-  //
-
-  // console.log(OS[OS.length - 1]);
-  console.log(OS[OS.length - 1]);
   return (
     <div className="orderView">
       <div className="orderViewSuccessBox">
@@ -89,7 +69,12 @@ const OrderView = () => {
             <div className="orderViewOrderInfoContentsDetailBox">
               <div className="orderViewOrderInfoContentsDetail">
                 <span>총 결제 금액</span>
-                <span>₩{OS[OS.length - 1].total_price}</span>
+                <span>
+                  ₩
+                  {OS[OS.length - 1].total_price === NaN
+                    ? 0
+                    : OS[OS.length - 1].total_price}
+                </span>
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
-// import { BASE_URL } from '../../config';
 import './Order.scss';
 import { useNavigate } from 'react-router-dom';
 import { APIS } from '../../config';
@@ -35,11 +34,11 @@ const Order = () => {
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
-        if (data.message === '포인트가 충전되었습니다.') {
-          alert('포인트 충전되었습니다.');
+        if (data.message === '포인트가 지급되었습니다.') {
+          alert('포인트 지급되었습니다.');
         }
       });
-  }, [orderProductData]);
+  }, []);
 
   const handleSubmit = () => {
     fetch(APIS.orders, {
@@ -95,23 +94,25 @@ const Order = () => {
       </div>
       <div className="orderSummary">
         <h1 className="orderHead">제품 결제 요약</h1>
-        {orderProductData.getOrderList &&
-          orderProductData.getOrderList.map(
-            ({ itemname, quantity, price }, item_id) => (
-              <div key={item_id} className="orderSummaryProductList">
-                <div className="orderSummaryProduct">
-                  <div>{itemname}</div>
-                  <div>{quantity} 개</div>
+        <div className="orderList">
+          {orderProductData.getOrderList &&
+            orderProductData.getOrderList.map(
+              ({ itemname, quantity, price }, item_id) => (
+                <div key={item_id} className="orderSummaryProductList">
+                  <div className="orderSummaryProduct">
+                    <div>{itemname}</div>
+                    <div>{quantity} 개</div>
+                  </div>
+                  <div className="orderSummaryProductPrice">
+                    {Math.trunc(price)
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    ₩
+                  </div>
                 </div>
-                <div className="orderSummaryProductPrice">
-                  {Math.trunc(price)
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  ₩
-                </div>
-              </div>
-            )
-          )}
+              )
+            )}
+        </div>
         <div className="orderSummaryTotal">
           <div className="orderSummaryPoint">
             <div>사용가능한 포인트</div>

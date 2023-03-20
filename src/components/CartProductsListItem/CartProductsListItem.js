@@ -15,7 +15,9 @@ const CartList = ({
   return (
     <li className="cartProductsListItem">
       <div className="cartProductstName">{name}</div>
-      <div className="cartProductsAmount">{amount} g</div>
+      <div className="cartProductsAmount">
+        {amount !== null && `${amount} g`}
+      </div>
       <div className="cartProductsCount">
         <button
           className="minusButton"

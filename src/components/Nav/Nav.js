@@ -10,6 +10,13 @@ const Nav = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [signupModalOpen, setSignupModalOpen] = useState(false);
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => {
+    setToggle(prev => !prev);
+    localStorage.removeItem('TOKEN');
+    alert('로그아웃 되었습니다.');
+  };
 
   const showLoginModal = () => {
     setLoginModalOpen(true);
@@ -45,10 +52,22 @@ const Nav = () => {
         </ul>
         <ul className="userInfo">
           <li className="loginBtnBox">
-            <button className="loginButton" onClick={showLoginModal}>
-              로그인
-            </button>
-            {loginModalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
+            {Object.keys(localStorage).includes('TOKEN') ? (
+              <button className="loginButton" onClick={handleToggle}>
+                로그아웃
+              </button>
+            ) : (
+              <button className="loginButton" onClick={showLoginModal}>
+                로그인
+              </button>
+            )}
+
+            {loginModalOpen && (
+              <Login
+                loginModalOpen={loginModalOpen}
+                setLoginModalOpen={setLoginModalOpen}
+              />
+            )}
           </li>
           <li className="signupBtnBox">
             <button className="signupButton" onClick={showSignupModal}>

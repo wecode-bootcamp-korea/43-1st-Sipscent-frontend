@@ -45,7 +45,6 @@ const Signup = ({ setSignupModalOpen }) => {
   const isInputValid = Object.values(conditions).every(v => v);
 
   const isAllValid = isInputValid && checkList.every(({ checked }) => checked);
-  console.log(isAllValid);
 
   const handleSubmit = () => {
     fetch(APIS.signup, {
@@ -75,7 +74,6 @@ const Signup = ({ setSignupModalOpen }) => {
   };
 
   const toggleCheck = id => e => {
-    console.log(id);
     const next = checkList.map(checkItem =>
       checkItem.id === id
         ? { ...checkItem, checked: !checkItem.checked }
@@ -93,7 +91,6 @@ const Signup = ({ setSignupModalOpen }) => {
             회원가입을 통해 주문 내역을 확인하고 지난 구매 상품을 재구매하실 수
             있습니다.
           </p>
-
           {SIGN_UP_INPUT_DATA.map(({ id, title, name, errorMsg }) => {
             return (
               <div className="name" key={id}>
@@ -145,9 +142,12 @@ const Signup = ({ setSignupModalOpen }) => {
               ))}
             </div>
           </div>
-
           <div className="finalSignInBtn">
-            <button onClick={handleSubmit} className="finalSignIn">
+            <button
+              onClick={handleSubmit}
+              className="finalSignIn"
+              disabled={!isAllValid && true}
+            >
               회원가입
             </button>
           </div>
