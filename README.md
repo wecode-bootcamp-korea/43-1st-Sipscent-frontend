@@ -51,28 +51,31 @@ Communication
 
 
 ## 주요 기능 
+![IMG_7477](https://user-images.githubusercontent.com/124610396/226321271-518c533a-a30c-45fb-b4cd-ee601dc77767.png)
+
 ### 메인페이지
-<img src="https://user-images.githubusercontent.com/124610396/226171806-490775cd-b66f-45cd-a3af-b0d6feb25e28.gif" />
+<img src="https://user-images.githubusercontent.com/124610396/226171806-490775cd-b66f-45cd-a3af-b0d6feb25e28.gif" width="700" height="400" />
 <br>
 ### 로그인
-<img src="https://user-images.githubusercontent.com/124610396/226171036-8f461c37-ac8a-402b-8c10-501133443136.gif" />
+<img src="https://user-images.githubusercontent.com/124610396/226171036-8f461c37-ac8a-402b-8c10-501133443136.gif" width="700" height="400"/>
 <br>
 ### 회원가입
-<img src="https://user-images.githubusercontent.com/124610396/226171577-5ff746c8-8db8-4d2d-91e5-60b847a8e0f4.gif" />
+<img src="https://user-images.githubusercontent.com/124610396/226171577-5ff746c8-8db8-4d2d-91e5-60b847a8e0f4.gif" width="700" height="400"/>
 <br>
 ### 상품리스트 페이지
-<img src="https://user-images.githubusercontent.com/124610396/226171936-5050407b-a3f8-448c-9cbc-4fe52b3f39e6.gif" />
+<img src="https://user-images.githubusercontent.com/124610396/226171936-5050407b-a3f8-448c-9cbc-4fe52b3f39e6.gif" width="700" height="400"/>
 <br>
 ### 장바구니 페이지
-<img src="https://user-images.githubusercontent.com/124610396/226172016-6a635eb6-3531-4d33-9151-9a6f3a5a5052.gif" />
+<img src="https://user-images.githubusercontent.com/124610396/226172016-6a635eb6-3531-4d33-9151-9a6f3a5a5052.gif" width="700" height="400"/>
 <br>
 ### 결제 페이지
-<img src="https://user-images.githubusercontent.com/124610396/226172039-a0a08bf2-30b4-4227-ac1e-1222e5e7a837.gif" />
+<img src="https://user-images.githubusercontent.com/124610396/226172039-a0a08bf2-30b4-4227-ac1e-1222e5e7a837.gif" width="700" height="400"/>
 <br>
 ### 결제 페이지 포인트
-<img src="https://user-images.githubusercontent.com/124610396/226172070-9362a58f-8cc4-41e3-ac93-841cc6937ee5.gif" />
+<img src="https://user-images.githubusercontent.com/124610396/226172070-9362a58f-8cc4-41e3-ac93-841cc6937ee5.gif" width="700" height="400"/>
 <br>
 
 
 ## ERD
-<img width="1184" alt="스크린샷 2023-03-16 오후 10 53 26" src="https://user-images.githubusercontent.com/124610396/226172297-7d8d9b06-0fe3-45e8-97b9-b032bc9ee65e.png">
+
+<img alt="스크린샷 2023-03-16 오후 10 53 26" src="https://user-images.githubusercontent.com/124610396/226172297-7d8d9b06-0fe3-45e8-97b9-b032bc9ee65e.png" width="700" height="400">
