@@ -54,26 +54,36 @@ Communication
 ![IMG_7477](https://user-images.githubusercontent.com/124610396/226321271-518c533a-a30c-45fb-b4cd-ee601dc77767.png)
 
 ### 메인페이지
-<img src="https://user-images.githubusercontent.com/124610396/226171806-490775cd-b66f-45cd-a3af-b0d6feb25e28.gif" width="700" height="400" />
+<img src="https://user-images.githubusercontent.com/124610396/226342086-f4f02e67-6a9b-4a10-92bf-3e27e741e277.gif" width="600" height="350" />
 <br>
 ### 로그인
-<img src="https://user-images.githubusercontent.com/124610396/226171036-8f461c37-ac8a-402b-8c10-501133443136.gif" width="700" height="400"/>
+<img src="https://user-images.githubusercontent.com/124610396/226342435-c2045db9-9faa-41f2-888a-85ceac8a31b1.gif" width="600" height="350"/>
+<br>
+### 로그아웃
+<img src="https://user-images.githubusercontent.com/124610396/226343933-8d707e13-476e-4fca-875b-d77db634113f.gif" width="600" height="350"/>
 <br>
 ### 회원가입
-<img src="https://user-images.githubusercontent.com/124610396/226171577-5ff746c8-8db8-4d2d-91e5-60b847a8e0f4.gif" width="700" height="400"/>
+<img src="https://user-images.githubusercontent.com/124610396/226342683-ec80913e-87b9-4db8-891a-50ec66126421.gif" width="600" height="350"/>
 <br>
 ### 상품리스트 페이지
-<img src="https://user-images.githubusercontent.com/124610396/226171936-5050407b-a3f8-448c-9cbc-4fe52b3f39e6.gif" width="700" height="400"/>
+<img src="https://user-images.githubusercontent.com/124610396/226342770-98060ce7-f760-421f-8733-1b47f1aae31d.gif" width="600" height="350"/>
 <br>
 ### 장바구니 페이지
-<img src="https://user-images.githubusercontent.com/124610396/226172016-6a635eb6-3531-4d33-9151-9a6f3a5a5052.gif" width="700" height="400"/>
+<img src="https://user-images.githubusercontent.com/124610396/226342836-7aebada0-737b-406c-9e0c-e8ac814a61e8.gif" width="600" height="350"/>
+<br>
+### 정렬
+<img src="https://user-images.githubusercontent.com/124610396/226342966-9eaa09a6-e3c4-44a4-98b0-d9736825d5ab.gif" width="600" height="350"/>
+<br>
+### 필터
+<img src="https://user-images.githubusercontent.com/124610396/226343529-b35c2045-1cf1-44a0-9567-5fa35f1630e4.gif" width="600" height="350"/>
 <br>
 ### 결제 페이지
-<img src="https://user-images.githubusercontent.com/124610396/226172039-a0a08bf2-30b4-4227-ac1e-1222e5e7a837.gif" width="700" height="400"/>
+<img src="https://user-images.githubusercontent.com/124610396/226344395-83dee21f-259e-4be6-9ed7-3c3b1aab916b.gif" width="600" height="350"/>
 <br>
-### 결제 페이지 포인트
-<img src="https://user-images.githubusercontent.com/124610396/226172070-9362a58f-8cc4-41e3-ac93-841cc6937ee5.gif" width="700" height="400"/>
+### 결제 완료
+<img src="https://user-images.githubusercontent.com/124610396/226344520-7456e9d9-6447-49fe-a540-c3558bd3cd8c.gif" width="600" height="350"/>
 <br>
+
 
 
 ## ERD
