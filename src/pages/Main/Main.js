@@ -12,7 +12,6 @@ const Main = () => {
   const handleSlideBtn = value => {
     if (slide + value === carouselButtonCount + 1 || slide + value === -1)
       return;
-
     setSlide(prev => prev + value);
   };
 
@@ -40,7 +39,7 @@ const Main = () => {
             More {'>'}
           </button>
         </div>
-        <img className="sectionInfoImage" src="/images/Main/main.png" />
+        <img className="sectionInfoImage" src="/images/Main/main.jpg" />
       </section>
       <section className="sectionCarousel">
         <div className="sectionCarouselButtonBox">
