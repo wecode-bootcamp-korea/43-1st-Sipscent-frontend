@@ -39,7 +39,7 @@ const Main = () => {
             More {'>'}
           </button>
         </div>
-        <img className="sectionInfoImage" src="/images/Main/main.jpg" />
+        <img className="sectionInfoImage" src="/images/Main/Main.jpg" />
       </section>
       <section className="sectionCarousel">
         <div className="sectionCarouselButtonBox">
