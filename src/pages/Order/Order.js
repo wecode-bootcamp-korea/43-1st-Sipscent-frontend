@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ORDER_INPUT_DATA } from './orderInputData';
-// import { BASE_URL } from '../../config';
 import './Order.scss';
 import { useNavigate } from 'react-router-dom';
+import { APIS } from '../../config';
 
 const Order = () => {
   const navigate = useNavigate();
@@ -24,18 +24,24 @@ const Order = () => {
   }
 
   useEffect(() => {
-    fetch('')
+    fetch(APIS.orders, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
         setOrderProductData(data);
-        if (data.message === '포인트가 충전되었습니다.') {
-          alert('포인트 충전되었습니다.');
+        if (data.message === '포인트가 지급되었습니다.') {
+          alert('포인트 지급되었습니다.');
         }
       });
   }, []);
 
   const handleSubmit = () => {
-    fetch('', {
+    fetch(APIS.orders, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -47,7 +53,7 @@ const Order = () => {
       .then(data => {
         if (data.message === 'PAYMENT_SUCCESS') {
           alert('결제가 완료되었습니다.');
-          navigate('/ordersVIew');
+          navigate('/ordersView');
         } else {
           alert('주문을 확인해 주세요.');
         }
@@ -88,23 +94,25 @@ const Order = () => {
       </div>
       <div className="orderSummary">
         <h1 className="orderHead">제품 결제 요약</h1>
-        {orderProductData.getOrderList &&
-          orderProductData.getOrderList.map(
-            ({ itemname, quantity, price }, item_id) => (
-              <div key={item_id} className="orderSummaryProductList">
-                <div className="orderSummaryProduct">
-                  <div>{itemname}</div>
-                  <div>{quantity} 개</div>
+        <div className="orderList">
+          {orderProductData.getOrderList &&
+            orderProductData.getOrderList.map(
+              ({ itemname, quantity, price }, item_id) => (
+                <div key={item_id} className="orderSummaryProductList">
+                  <div className="orderSummaryProduct">
+                    <div>{itemname}</div>
+                    <div>{quantity} 개</div>
+                  </div>
+                  <div className="orderSummaryProductPrice">
+                    {Math.trunc(price)
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    ₩
+                  </div>
                 </div>
-                <div className="orderSummaryProductPrice">
-                  {Math.trunc(price)
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  ₩
-                </div>
-              </div>
-            )
-          )}
+              )
+            )}
+        </div>
         <div className="orderSummaryTotal">
           <div className="orderSummaryPoint">
             <div>사용가능한 포인트</div>

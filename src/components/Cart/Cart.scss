@@ -2,10 +2,11 @@
 
 .cart {
   position: fixed;
-  z-index: 99;
+  z-index: 100;
   top: 0;
   width: 100vw;
   height: 100vh;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
 
   .cartModal {

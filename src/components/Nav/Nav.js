@@ -1,10 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
+import Signup from '../../pages/Signup/Signup';
+import Login from '../Login/Login';
+import { APIS } from '../../config';
 import './Nav.scss';
 
 const Nav = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => {
+    setToggle(prev => !prev);
+    localStorage.removeItem('TOKEN');
+    alert('로그아웃 되었습니다.');
+  };
+
+  const showLoginModal = () => {
+    setLoginModalOpen(true);
+  };
+
+  const showSignupModal = () => {
+    setSignupModalOpen(true);
+  };
 
   return (
     <>
@@ -31,11 +51,31 @@ const Nav = () => {
           })}
         </ul>
         <ul className="userInfo">
-          <li className="loginBtn">
-            <button>로그인</button>
+          <li className="loginBtnBox">
+            {Object.keys(localStorage).includes('TOKEN') ? (
+              <button className="loginButton" onClick={handleToggle}>
+                로그아웃
+              </button>
+            ) : (
+              <button className="loginButton" onClick={showLoginModal}>
+                로그인
+              </button>
+            )}
+
+            {loginModalOpen && (
+              <Login
+                loginModalOpen={loginModalOpen}
+                setLoginModalOpen={setLoginModalOpen}
+              />
+            )}
           </li>
-          <li className="signupBtn">
-            <Link to="/signup">회원가입</Link>
+          <li className="signupBtnBox">
+            <button className="signupButton" onClick={showSignupModal}>
+              회원가입
+            </button>
+            {signupModalOpen && (
+              <Signup setSignupModalOpen={setSignupModalOpen} />
+            )}
           </li>
           <li className="cartButton">
             <button

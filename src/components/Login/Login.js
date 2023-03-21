@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../config';
+import { APIS } from '../../config';
 import './Login.scss';
 
-const Login = ({ setModalOpen }) => {
+const Login = ({ loginModalOpen, setLoginModalOpen }) => {
   const closeModal = () => {
-    setModalOpen(false);
+    setLoginModalOpen(false);
   };
 
   const [showPw, setShowPw] = useState(false);
@@ -27,12 +26,10 @@ const Login = ({ setModalOpen }) => {
     userInfo.email.includes('.') &&
     userInfo.password.length >= 6;
 
-  const navigate = useNavigate();
-
   function validateUser(e) {
     e.preventDefault();
 
-    fetch(`${BASE_URL}/users/login`, {
+    fetch(APIS.login, {
       method: 'POST',
       headers: { 'Content-type': 'application/json;charset=utf-8' },
       body: JSON.stringify(userInfo),
@@ -43,7 +40,7 @@ const Login = ({ setModalOpen }) => {
         if (data.accessToken) {
           localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인에 성공했습니다');
-          navigate('/');
+          setLoginModalOpen(false);
         } else {
           alert('아이디와 비밀번호를 확인해 주세요');
         }

@@ -1,24 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Checkbox.scss';
 
-const Checkbox = ({ key, head, errMsg, name, isClickedSignup }) => {
-  const [chkBx, setChkBx] = useState(false);
-
-  const chkBxValueChange = e => {
-    const { name, value } = e.target;
-    setChkBx(prev => ({ ...prev, [name]: value }));
-  };
-
-  const isChkBxClick = () => {
-    setChkBx(prev => !prev);
-  };
-
+const Checkbox = ({ id, key, head, errMsg, checked, toggleCheck }) => {
   return (
     <div key={key}>
-      <input onClick={isChkBxClick} type="checkbox" />
-
+      <input onClick={toggleCheck(id)} type="checkbox" />
       <span>{head}</span>
-      {!chkBx && isClickedSignup && <p className="varChkBx">{errMsg}</p>}
+      {!checked && <p className="varChkBx">{errMsg}</p>}
       <div className="useMandatory">{head}</div>
     </div>
   );
