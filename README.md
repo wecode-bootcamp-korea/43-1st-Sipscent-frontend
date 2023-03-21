@@ -27,6 +27,8 @@
 
 <img src= "https://velog.velcdn.com/images/trtw9889/post/91a8df38-dcd1-42f1-80c6-bb4166b69b4d/image.png"/>
 
+### Front-End
+
 |JavaScript|React|esLint|Prettier|
 | :--: | :--: | :--: | :--: |
 | <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="65" height="65" />  | <img src="https://techstack-generator.vercel.app/eslint-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/prettier-icon.svg" alt="icon" width="65" height="65" /> |
