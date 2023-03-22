@@ -14,6 +14,6 @@ export const SIGN_UP_INPUT_DATA = [
     id: 3,
     title: '비밀번호',
     name: 'password',
-    errorMsg: '6자리 이상 필요합니다.',
+    errorMsg: '숫자 6자리 이상 필요합니다.',
   },
 ];
