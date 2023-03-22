@@ -79,8 +79,6 @@ const Cart = ({ setIsCartOpen }) => {
       });
   }
 
-  // console.log(cartData[9].itemSize);
-
   return (
     <div className="cart">
       <div className="cartModal">

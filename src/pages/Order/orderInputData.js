@@ -10,9 +10,4 @@ export const ORDER_INPUT_DATA = [
     title: '주소',
     name: 'userAddress',
   },
-  {
-    id: 3,
-    title: '상세 주소',
-    name: 'userAddressDetail',
-  },
 ];
