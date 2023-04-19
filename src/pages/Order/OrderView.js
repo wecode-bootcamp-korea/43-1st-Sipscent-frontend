@@ -25,7 +25,7 @@ const OrderView = () => {
   const goToMain = () => {
     navigate('/');
   };
-
+  console.log(orderViewData.orderStatus);
   if (!orderViewData.orderStatus) return null;
   const orderStatus = orderViewData.orderStatus;
   const date = orderStatus[orderStatus.length - 1].order_number;
