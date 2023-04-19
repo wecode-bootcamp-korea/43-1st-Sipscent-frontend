@@ -154,4 +154,4 @@ http://sipscent.s3-website.ap-northeast-2.amazonaws.com/
 - 트랜잭션(transaction) 도입을 이용한 거래 전체 성공/취소 기능 구현
 - 결제 내역 조회 기능 구현
 
-#### 8. 배포완료!
+#### 8. 배포완료!!
