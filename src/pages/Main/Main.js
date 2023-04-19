@@ -27,7 +27,7 @@ const Main = () => {
           <div className="sectionInfoContents">
             <h1 className="sectionInfoTitle">
               감각적인 향에 마음을 담아
-              <br /> 당신을 위한 홈 CAFETERIA​
+              <br /> 당신을 위한 CAFETERIA​
             </h1>
             <p className="sectionInfoParagraph">
               분위기 전환이 필요한 가정이나 사무실에 이상적인 Sipscent의 홈
